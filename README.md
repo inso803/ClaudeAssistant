@@ -43,35 +43,35 @@ python -m morning_report.generate_report
 執行後可以打開 `docs/index.html`（或用任何本機伺服器，例如 `python -m http.server` 在
 `docs/` 資料夾下執行，直接用 `file://` 開會因為 fetch 本機 json 而失敗）看看看板頁面。
 
-## 目前狀態
+## 目前狀態（2026-08-06）
 
 - ✅ 記憶系統基礎：`memory/profile.md` 已根據使用者提供的真實 Gemini 對話紀錄（5 篇，
-  2026-05~07）歸納更新，`memory/habits.md` 已建立
+  2026-05~07）歸納更新，`memory/habits.md` 已建立，但還沒有任何正在追蹤的自我提升項目
 - ✅ 晨報系統框架：內容產生、LINE 推送、看板頁面、每日排程全部跑通
-- ✅ 已推上 GitHub（[inso803/ClaudeAssistant](https://github.com/inso803/ClaudeAssistant)）
-- ⏳ Discord 串接：`morning_report/sources/discord_source.py` 目前是空的 stub，等你之後確認要
-  怎麼做（自架 Bot？或是別的方式讀取 Discord 訊息？）再實作
-- ⏳ 內容產生改用 Groq API（有免費額度，不需要另外付費；Gemini 那把 key 的免費額度一直回傳 0，
-  疑似跟 Google 端的系統故障有關，改用不同供應商）；還沒設定 `GROQ_API_KEY`，需要你申請一把
+- ✅ 已推上 GitHub（[inso803/ClaudeAssistant](https://github.com/inso803/ClaudeAssistant)），
+  GitHub Pages 已啟用並自動部署
+- ✅ 內容產生改用 Groq API（Gemini 免費額度一直回傳 0，疑似跟 Google 端系統故障有關，改用不同
+  供應商），`GROQ_API_KEY` 已設定並確認成功生成內容
 - ✅ Groq API 呼叫失敗時會自動退回保底內容，不會讓整個晨報當機
-- ⏳ `LINE_USER_ID` 還沒拿到（只有 Channel Access Token / Secret），推播會被自動跳過直到補上
+- ✅ LINE 推播已跑通（`LINE_USER_ID`、`LINE_CHANNEL_ACCESS_TOKEN` 都已設定為 GitHub Secrets，
+  Actions 手動觸發過一次，推播成功送達）
+- ⏳ 目前晨報內容偏空泛：因為沒有正在追蹤的自我提升項目、也沒有任何行程來源，Groq 沒有素材可以
+  發揮。下一步是先手動加一項自我提升追蹤，並決定行程來源怎麼接（見下方「未來構想」）
+- ⏳ Discord 串接：`morning_report/sources/discord_source.py` 目前是空的 stub，尚未實作
+
+## 未來構想（先記錄，還沒要做）
+
+2026-08-06 聊天中使用者提出的兩個晨報內容方向，先記下來，之後要做再回來討論設計：
+
+1. **自然語言記行程**：类似 LINE Bot 那樣輸入「8/1 14:00-15:00 開會」就能自動解析存起來，
+   讓晨報的「今日行程」有真的資料可以講，不用等 Discord 串接完成。使用者桌面上已經有一個
+   `smart-line-calendar` 專案（FastAPI + LINE Messaging API + Gemini API + SQLite）雛型，
+   可能可以延伸這個而不是重寫，但屬於獨立專案，跟本專案的整合方式還沒定案。
+2. **AI 工具趨勢內容**：晨報加入類似使用者關注的 AI 工具相關 YouTube 頻道那種調性的內容——
+   AI 工具的最新 tips、趨勢整理。注意：無法直接讀取使用者的 YouTube 訂閱清單，需要使用者
+   明確告知關注的方向/頻道風格，才能設計對應的內容產生邏輯。
 
 ## 需要你做的事
 
-1. **啟用 GitHub Pages**：到 repo 的 Settings → Pages，Source 選「Deploy from branch」，分支選
-   `main`、資料夾選 `/docs`。
-
-2. **取得你的 LINE User ID**：把你的 LINE Messaging API 官方帳號加為好友後，用 LINE 的 webhook
-   （或第三方工具）取得自己的 User ID。
-
-3. **把 Secrets 設進 GitHub repo**（Settings → Secrets and variables → Actions → New repository
-   secret）：
-   - `GROQ_API_KEY`
-   - `LINE_CHANNEL_ACCESS_TOKEN`
-   - `LINE_USER_ID`
-
-   設定完成後，`.github/workflows/morning-report.yml` 會在每天 22:30 UTC（台北時間 06:30）自動
-   跑，你也可以到 Actions 分頁手動點 "Run workflow" 立即測試。
-
-以上都完成後跟我說一聲，我可以幫你檢查 Actions 執行結果、調整內容風格，或是開始規劃 Discord
-串接。
+目前沒有阻塞性的待辦——`morning_report/habits.md` 裡加一個自我提升追蹤項目、決定「未來構想」
+要不要做，是唯二會讓晨報內容變豐富的路徑，兩者都可以晚點再決定。
