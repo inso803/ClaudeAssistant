@@ -83,7 +83,12 @@ def _build_user_prompt(today: date_cls, memory: MemoryContext, schedule_events: 
 """
 
 
-def _dry_run_content(today: date_cls, memory: MemoryContext, schedule_events: list[dict]) -> ReportContent:
+def _fallback_content(
+    today: date_cls, memory: MemoryContext, schedule_events: list[dict], reason: str
+) -> ReportContent:
+    """DRY_RUN、或 Gemini API 呼叫失敗時都會用到的保底內容 —— 不是 AI 生成的，
+    只是把記憶裡現有的資料直接拼起來，確保當天至少有東西可以看、可以推播，
+    而不是整個晨報無聲失敗。"""
     habit_lines = [
         f"{h.title} 第 {h.streak_days} 天，持續加油" for h in memory.active_habits
     ] or ["目前還沒有在追蹤的自我提升項目"]
@@ -92,20 +97,15 @@ def _dry_run_content(today: date_cls, memory: MemoryContext, schedule_events: li
     )
     return ReportContent(
         date=today.isoformat(),
-        greeting=f"早安，今天是 {today.isoformat()}（DRY RUN 測試內容）",
+        greeting=f"早安，今天是 {today.isoformat()}（{reason}）",
         schedule_summary=schedule_summary,
         habit_highlights=habit_lines,
-        closing_note="這是本機測試產生的假資料，未呼叫 Gemini API。",
-        line_message=f"[測試] {today.isoformat()} 晨報：{schedule_summary}",
+        closing_note=f"這是保底內容，未經 Gemini 生成：{reason}",
+        line_message=f"[備用內容] {today.isoformat()} 晨報：{schedule_summary}",
     )
 
 
-def generate_report_content(
-    today: date_cls, memory: MemoryContext, schedule_events: list[dict]
-) -> ReportContent:
-    if config.DRY_RUN:
-        return _dry_run_content(today, memory, schedule_events)
-
+def _call_gemini(today: date_cls, memory: MemoryContext, schedule_events: list[dict]) -> ReportContent:
     url = GEMINI_URL_TEMPLATE.format(model=config.GEMINI_MODEL)
     response = requests.post(
         url,
@@ -140,3 +140,16 @@ def generate_report_content(
         closing_note=parsed.get("closing_note", ""),
         line_message=parsed.get("line_message", ""),
     )
+
+
+def generate_report_content(
+    today: date_cls, memory: MemoryContext, schedule_events: list[dict]
+) -> ReportContent:
+    if config.DRY_RUN:
+        return _fallback_content(today, memory, schedule_events, "DRY RUN 測試內容，未設定 GEMINI_API_KEY")
+
+    try:
+        return _call_gemini(today, memory, schedule_events)
+    except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as exc:
+        print(f"[content_generator] Gemini API 呼叫失敗，改用保底內容：{exc}")
+        return _fallback_content(today, memory, schedule_events, "Gemini API 暫時無法使用")

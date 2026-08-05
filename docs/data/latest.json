@@ -1,10 +1,10 @@
 {
   "date": "2026-08-05",
-  "greeting": "早安，今天是 2026-08-05（DRY RUN 測試內容）",
+  "greeting": "早安，今天是 2026-08-05（Gemini API 暫時無法使用）",
   "schedule_summary": "今天沒有登記行程，樂得輕鬆",
   "habit_highlights": [
     "目前還沒有在追蹤的自我提升項目"
   ],
-  "closing_note": "這是本機測試產生的假資料，未呼叫 Claude API。",
-  "line_message": "[測試] 2026-08-05 晨報：今天沒有登記行程，樂得輕鬆"
+  "closing_note": "這是保底內容，未經 Gemini 生成：Gemini API 暫時無法使用",
+  "line_message": "[備用內容] 2026-08-05 晨報：今天沒有登記行程，樂得輕鬆"
 }
