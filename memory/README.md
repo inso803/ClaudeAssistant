@@ -9,33 +9,39 @@
 |---|---|---|
 | `profile.md` | 使用者核心背景摘要（會持續演化） | 是 |
 | `habits.md` | 自我提升進度追蹤，晨報系統讀取／更新 | 是 |
-| `raw/` | 原始匯出檔（例如 Google Takeout 的 Gemini 對話紀錄 zip） | **否，已加入 .gitignore** |
+| `raw/` | 原始匯出檔（Gemini 對話紀錄，各種格式） | **否，已加入 .gitignore** |
 | `raw/extracted/` | 從原始匯出檔解析出的純文字中繼結果 | **否，已加入 .gitignore** |
-| `import_gemini_takeout.py` | 把 `raw/` 裡的 Takeout 匯出檔解壓、解析成純文字 | 是（程式本身） |
+| `import_gemini_takeout.py` | 把 `raw/` 裡的匯出檔解析成純文字 | 是（程式本身） |
 
-## 如何補上真實的 Gemini 對話紀錄
+## 目前狀態（2026-08-05）
 
-目前 `profile.md` 是用 CLAUDE.md 裡既有的背景描述手動建立的初始版本，**還沒有真正匯入過
-Gemini 對話紀錄**，因為第一次提供的 `Gemini.zip` 裡只有兩個空的 metadata 檔案
-（`gemini_scheduled_actions_data.html`、`gemini_gems_data.html`），沒有實際對話內容。
+`profile.md` 已根據使用者提供的真實 Gemini 對話紀錄（5 篇，來自「Gemini in Workspace」的
+Conversation History 匯出，2026-05~07）歸納更新。原始對話存放在
+`memory/raw/gemini_conversations/`（已排除版控）。樣本量還小，之後有更多對話紀錄時應該重新
+執行下面的流程、擴充 `profile.md`。
 
-要補上真實資料，請：
+第一次嘗試用 Google Takeout 匯出時（`Gemini.zip`）拿到的是空的 metadata 檔案，沒有實際對話
+內容，後來改用「Gemini in Workspace」介面直接匯出的 Conversation History 資料夾才拿到真正的
+對話紀錄。`import_gemini_takeout.py` 目前同時支援這兩種格式。
 
-1. 前往 [Google Takeout](https://takeout.google.com/)
-2. 取消全選，只勾選「**Gemini Apps**」（或介面上等效的 Gemini 對話紀錄項目），確認勾選的是
-   包含對話內容的項目，不是只有「gems」「scheduled actions」等設定類資料
-3. 匯出、下載 zip
-4. 把 zip 放進 `memory/raw/`（此資料夾已被 .gitignore 排除，不會被提交）
-5. 執行：
+## 如何補上更多 Gemini 對話紀錄
+
+1. 取得對話匯出檔，以下兩種格式都可以：
+   - Google Takeout（[takeout.google.com](https://takeout.google.com/)）匯出的 zip，記得勾選
+     「Gemini Apps」對話紀錄項目，不是只有「gems」「scheduled actions」等設定類資料
+   - 「Gemini in Workspace」的 Conversation History 資料夾，裡面每篇對話是一個
+     `conversation_<id>.txt`（內容其實是 JSON）
+2. 放進 `memory/raw/`（此資料夾已被 .gitignore 排除，不會被提交）
+3. 執行：
 
    ```powershell
    python memory/import_gemini_takeout.py
    ```
 
-   這會把 zip 解壓、把每篇對話解析成純文字，輸出到 `memory/raw/extracted/`（同樣不進版控）。
-6. 回到 Claude Code，請它讀取 `memory/raw/extracted/` 的內容，歸納重點後更新 `profile.md`。
-   （這一步刻意保留由 Claude 人工歸納，而不是全自動寫入，避免把原始對話片段直接複製進
-   長期保存的摘要檔案。）
+   會把內容解析成純文字，輸出到 `memory/raw/extracted/`（同樣不進版控）。
+4. 回到 Claude Code，請它讀取 `memory/raw/extracted/` 的內容，歸納重點後更新 `profile.md`。
+   （這一步刻意保留由 Claude 人工歸納，而不是全自動寫入，避免把原始對話片段、或對話中出現的
+   第三方個資〔例如同學姓名、學號〕直接複製進長期保存的摘要檔案。）
 
 ## 設計原則
 

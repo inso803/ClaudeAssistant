@@ -7,6 +7,15 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+# 本機測試時從 .env 讀取設定；GitHub Actions 上直接用 repo secrets 注入的環境變數，
+# 找不到 .env 也不會報錯
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv(REPO_ROOT / ".env")
+except ImportError:
+    pass
+
 MEMORY_DIR = REPO_ROOT / "memory"
 PROFILE_PATH = MEMORY_DIR / "profile.md"
 HABITS_PATH = MEMORY_DIR / "habits.md"

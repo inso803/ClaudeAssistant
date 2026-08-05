@@ -1,6 +1,11 @@
 """
-把 memory/raw/ 底下的 Google Takeout Gemini 匯出檔解壓、解析成純文字，
-輸出到 memory/raw/extracted/ 供後續人工／Claude 歸納進 profile.md。
+把 memory/raw/ 底下的 Gemini 對話匯出檔解析成純文字，輸出到 memory/raw/extracted/
+供後續人工／Claude 歸納進 profile.md。
+
+支援兩種格式（實際遇過的匯出都長這樣，之後如果格式又不同，需要人工檢查調整）：
+1. Google Takeout 的 zip，裡面是 HTML 檔（例如 gemini_gems_data.html）
+2. "Gemini in Workspace" 匯出的 Conversation History 資料夾，每篇對話是一個
+   conversation_<id>.txt，內容其實是 JSON（含 conversation_turns 陣列）
 
 不會自動寫入 profile.md —— 刻意保留由人（或 Claude）閱讀萃取結果後手動歸納這一步，
 避免原始對話片段直接被複製進長期保存的摘要檔案。
@@ -11,6 +16,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import zipfile
 from html.parser import HTMLParser
@@ -72,35 +78,72 @@ def find_html_files(roots: list[Path]) -> list[Path]:
     return files
 
 
+def find_conversation_json_files() -> list[Path]:
+    """找 'Gemini in Workspace' 格式的 conversation_*.txt（內容其實是 JSON）。"""
+    return [p for p in RAW_DIR.rglob("*.txt") if p.parent != EXTRACTED_DIR]
+
+
+def conversation_json_to_text(raw: str) -> str | None:
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return None
+    turns = data.get("conversation_turns")
+    if turns is None:
+        return None
+
+    lines = [f"標題：{data.get('title', '')}"]
+    for turn in turns:
+        if "user_turn" in turn:
+            lines.append(f"\n[使用者]\n{turn['user_turn'].get('prompt', '')}")
+        elif "system_turn" in turn:
+            texts = [t.get("data", "") for t in turn["system_turn"].get("text", [])]
+            if texts:
+                lines.append(f"\n[Gemini]\n{chr(10).join(texts)}")
+    return "\n".join(lines).strip()
+
+
 def main() -> None:
     RAW_DIR.mkdir(exist_ok=True)
     EXTRACTED_DIR.mkdir(exist_ok=True)
 
     if not any(RAW_DIR.iterdir()):
-        print(f"'{RAW_DIR}' 是空的。請先把 Google Takeout 匯出的 Gemini zip 放進這個資料夾。")
+        print(f"'{RAW_DIR}' 是空的。請先把 Gemini 對話匯出檔（Takeout zip 或 "
+              f"Conversation History 資料夾）放進這個資料夾。")
         return
 
     roots = extract_zips()
     html_files = find_html_files(roots)
-
-    if not html_files:
-        print("找不到任何 .html 檔案。可能是匯出檔結構不同，請人工檢查 memory/raw/ 底下的內容。")
-        return
+    json_txt_files = find_conversation_json_files()
 
     empty_count = 0
     written_count = 0
+
     for html_file in html_files:
         raw = html_file.read_text(encoding="utf-8", errors="ignore")
         text = html_to_text(raw)
         if not text:
             empty_count += 1
             continue
-        rel_name = html_file.stem
-        out_path = EXTRACTED_DIR / f"{rel_name}.txt"
+        out_path = EXTRACTED_DIR / f"{html_file.stem}.txt"
         out_path.write_text(text, encoding="utf-8")
         written_count += 1
 
-    print(f"處理完成：{written_count} 個檔案寫入純文字，{empty_count} 個檔案內容為空。")
+    for txt_file in json_txt_files:
+        raw = txt_file.read_text(encoding="utf-8", errors="ignore")
+        text = conversation_json_to_text(raw)
+        if not text:
+            continue
+        out_path = EXTRACTED_DIR / f"{txt_file.stem}.txt"
+        out_path.write_text(text, encoding="utf-8")
+        written_count += 1
+
+    if not html_files and not json_txt_files:
+        print("找不到任何 .html 或 conversation_*.txt 檔案。可能是匯出檔結構不同，"
+              "請人工檢查 memory/raw/ 底下的內容。")
+        return
+
+    print(f"處理完成：{written_count} 個檔案寫入純文字，{empty_count} 個 HTML 檔案內容為空。")
     if written_count:
         print(f"純文字結果在 '{EXTRACTED_DIR}'，接下來請請 Claude 讀取這些內容並歸納進 profile.md。")
     if empty_count and not written_count:

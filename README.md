@@ -32,9 +32,11 @@ docs/                        GitHub Pages 靜態頁面（發車看板風格）
 
 ## 本機測試
 
-不需要任何 API key 也可以測試整個資料流程（會自動進入 DRY_RUN，不呼叫 Claude API、不推播 LINE）：
+複製 `.env.example` 為 `.env` 並填入你的金鑰，就會用真實 API；沒有 `.env` / 沒設
+`ANTHROPIC_API_KEY` 也可以測試整個資料流程（自動進入 DRY_RUN，不呼叫 Claude API、不推播 LINE）：
 
 ```powershell
+pip install -r requirements.txt
 python -m morning_report.generate_report
 ```
 
@@ -43,35 +45,30 @@ python -m morning_report.generate_report
 
 ## 目前狀態
 
-- ✅ 記憶系統基礎：`memory/profile.md`、`memory/habits.md` 已建立，**但 profile.md 目前是用
-  CLAUDE.md 既有背景描述手動建立的初始版本，還沒有匯入真實 Gemini 對話紀錄**（見下方「需要你
-  做的事」）
-- ✅ 晨報系統框架：內容產生、LINE 推送、看板頁面、每日排程全部跑通（本機以 DRY_RUN 驗證過）
+- ✅ 記憶系統基礎：`memory/profile.md` 已根據使用者提供的真實 Gemini 對話紀錄（5 篇，
+  2026-05~07）歸納更新，`memory/habits.md` 已建立
+- ✅ 晨報系統框架：內容產生、LINE 推送、看板頁面、每日排程全部跑通
+- ✅ 已推上 GitHub（[inso803/ClaudeAssistant](https://github.com/inso803/ClaudeAssistant)）
 - ⏳ Discord 串接：`morning_report/sources/discord_source.py` 目前是空的 stub，等你之後確認要
   怎麼做（自架 Bot？或是別的方式讀取 Discord 訊息？）再實作
-- ⏳ 尚未推上 GitHub、尚未設定任何 secrets，所以排程還不會真的執行
+- ⏳ Anthropic API key 已設定，但帳號目前額度不足（`credit balance is too low`），需要到
+  [console.anthropic.com](https://console.anthropic.com/) 的 Plans & Billing 加值，加值前系統
+  會自動退回 DRY_RUN 假資料
+- ⏳ `LINE_USER_ID` 還沒拿到（只有 Channel Access Token / Secret），推播會被自動跳過直到補上
 
 ## 需要你做的事
 
-1. **重新匯出 Gemini 對話紀錄**：目前的 `Gemini.zip` 裡沒有實際對話內容（只有兩個空的
-   metadata 檔案），需要你到 [Google Takeout](https://takeout.google.com/) 重新匯出，記得勾選
-   包含對話內容的 Gemini Apps 項目。詳細步驟見 [memory/README.md](memory/README.md)。
+1. **啟用 GitHub Pages**：到 repo 的 Settings → Pages，Source 選「Deploy from branch」，分支選
+   `main`、資料夾選 `/docs`。
 
-2. **建立 GitHub repo 並推上去**：這台環境沒有安裝 `gh` CLI，我沒辦法幫你建立遠端 repo，需要你
-   自己在 GitHub 上建一個新 repo，把這個資料夾 push 上去，再到 repo 的 Settings → Pages 選擇
-   「Deploy from branch」、分支選 `main`、資料夾選 `/docs`。
+2. **Anthropic 帳號加值**：到 [console.anthropic.com](https://console.anthropic.com/) 的
+   Plans & Billing 加值，目前的 API key 有效但帳號沒有額度。
 
-3. **申請 LINE Messaging API channel**：到
-   [LINE Developers Console](https://developers.line.biz/console/) 建立 Provider 與 Channel
-   （Messaging API 類型），取得 `Channel Access Token`；並且要拿到你自己的 LINE User ID
-   （把這個官方帳號加為好友後，可以用 LINE 的 webhook 或第三方工具取得）。
+3. **取得你的 LINE User ID**：把你的 LINE Messaging API 官方帳號加為好友後，用 LINE 的 webhook
+   （或第三方工具）取得自己的 User ID。
 
-4. **申請 Anthropic API Key**：到 [console.anthropic.com](https://console.anthropic.com/) 取得
-   API key，供晨報內容產生使用（沒有這把 key 時系統會用 DRY_RUN 假資料，不會出錯，但內容不是
-   真的由 Claude 生成）。
-
-5. **把上面拿到的三個值設成 GitHub repo 的 Secrets**（Settings → Secrets and variables →
-   Actions）：
+4. **把 Secrets 設進 GitHub repo**（Settings → Secrets and variables → Actions → New repository
+   secret）：
    - `ANTHROPIC_API_KEY`
    - `LINE_CHANNEL_ACCESS_TOKEN`
    - `LINE_USER_ID`
