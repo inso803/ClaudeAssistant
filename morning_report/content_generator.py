@@ -1,6 +1,9 @@
-"""組 prompt、呼叫 Claude API，把記憶與今日事件轉成結構化的晨報內容。
+"""組 prompt、呼叫 Gemini API，把記憶與今日事件轉成結構化的晨報內容。
 
-沒有設定 ANTHROPIC_API_KEY 時（DRY_RUN）會回傳固定的假資料，方便本機測試其他環節
+用 Gemini 而不是 Claude API 是因為 Gemini API 有可用的免費額度，晨報這種每天一次的小請求
+剛好用得上，不需要額外付費。
+
+沒有設定 GEMINI_API_KEY 時（DRY_RUN）會回傳固定的假資料，方便本機測試其他環節
 （看板頁面、LINE 推送格式）而不需要真的呼叫 API。
 """
 
@@ -10,8 +13,14 @@ import json
 from dataclasses import asdict, dataclass, field
 from datetime import date as date_cls
 
+import requests
+
 from . import config
 from .memory_reader import MemoryContext
+
+GEMINI_URL_TEMPLATE = (
+    "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+)
 
 SYSTEM_PROMPT = """你是使用者的個人晨報助理。使用者是台大資工二年級學生，常往返台北大安區與台中。
 請根據提供的背景資料、今天的行程、正在追蹤的自我提升項目、以及使用者最近的回饋，
@@ -86,7 +95,7 @@ def _dry_run_content(today: date_cls, memory: MemoryContext, schedule_events: li
         greeting=f"早安，今天是 {today.isoformat()}（DRY RUN 測試內容）",
         schedule_summary=schedule_summary,
         habit_highlights=habit_lines,
-        closing_note="這是本機測試產生的假資料，未呼叫 Claude API。",
+        closing_note="這是本機測試產生的假資料，未呼叫 Gemini API。",
         line_message=f"[測試] {today.isoformat()} 晨報：{schedule_summary}",
     )
 
@@ -97,16 +106,24 @@ def generate_report_content(
     if config.DRY_RUN:
         return _dry_run_content(today, memory, schedule_events)
 
-    import anthropic
-
-    client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
-    response = client.messages.create(
-        model=config.ANTHROPIC_MODEL,
-        max_tokens=1024,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": _build_user_prompt(today, memory, schedule_events)}],
+    url = GEMINI_URL_TEMPLATE.format(model=config.GEMINI_MODEL)
+    response = requests.post(
+        url,
+        params={"key": config.GEMINI_API_KEY},
+        json={
+            "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
+            "contents": [
+                {
+                    "role": "user",
+                    "parts": [{"text": _build_user_prompt(today, memory, schedule_events)}],
+                }
+            ],
+            "generationConfig": {"responseMimeType": "application/json"},
+        },
+        timeout=30,
     )
-    raw_text = "".join(block.text for block in response.content if block.type == "text")
+    response.raise_for_status()
+    raw_text = response.json()["candidates"][0]["content"]["parts"][0]["text"]
 
     try:
         parsed = json.loads(raw_text)

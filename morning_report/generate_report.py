@@ -3,8 +3,8 @@
 用法：
     python -m morning_report.generate_report
 
-本機測試（不呼叫 Claude API、不推播 LINE，只驗證資料流程）：
-    直接執行即可 —— 沒有設定 ANTHROPIC_API_KEY 時會自動進入 DRY_RUN。
+本機測試（不呼叫 Gemini API、不推播 LINE，只驗證資料流程）：
+    直接執行即可 —— 沒有設定 GEMINI_API_KEY 時會自動進入 DRY_RUN。
 """
 
 from __future__ import annotations
