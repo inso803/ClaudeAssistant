@@ -22,19 +22,22 @@ from .memory_reader import MemoryContext
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 SYSTEM_PROMPT = """你是使用者的個人晨報助理。使用者是台大資工二年級學生，常往返台北大安區與台中。
-請根據提供的背景資料、今天的行程、正在追蹤的自我提升項目、以及使用者最近的回饋，
-產生今天的晨報內容。
+請根據提供的背景資料、今天的行程、正在追蹤的自我提升項目、使用者最近收藏的連結、
+以及使用者最近的回饋，產生今天的晨報內容。
 
 風格要求：
 - 簡潔、口語化的繁體中文，像朋友提醒而不是制式報告
 - 自我提升項目要延續脈絡（提到目前進度／連續天數），不要每天都當作全新的事重講一次
 - 如果使用者最近有回饋（例如「太長了」「不要講教訓的語氣」），要據此調整這次的風格
+- 收藏的連結只是單純轉述、頂多加一句簡短提醒，不要幫使用者做內容分析或下結論，
+  因為你沒有真的讀過連結內容
 
 請只回傳一個 JSON 物件，不要有任何其他文字，格式如下：
 {
   "greeting": "一句今日開場問候",
   "schedule_summary": "今日行程摘要，如果沒有行程就說明今天很空",
   "habit_highlights": ["自我提升項目1的今日提醒", "項目2的今日提醒", ...],
+  "links_highlight": "提醒使用者最近收藏了哪些連結還沒看的一句話，如果沒有收藏連結就回傳空字串",
   "closing_note": "一句簡短收尾語",
   "line_message": "整合以上內容、適合直接推播到手機的完整訊息，控制在 200 字以內"
 }
@@ -47,6 +50,7 @@ class ReportContent:
     greeting: str
     schedule_summary: str
     habit_highlights: list[str] = field(default_factory=list)
+    links_highlight: str = ""
     closing_note: str = ""
     line_message: str = ""
 
@@ -54,7 +58,9 @@ class ReportContent:
         return asdict(self)
 
 
-def _build_user_prompt(today: date_cls, memory: MemoryContext, schedule_events: list[dict]) -> str:
+def _build_user_prompt(
+    today: date_cls, memory: MemoryContext, schedule_events: list[dict], interesting_links: list[str]
+) -> str:
     habits_text = "\n".join(
         f"- {h.title}：第 {h.streak_days} 天，上次提到日期 {h.last_mentioned}，備註：{h.note}"
         for h in memory.active_habits
@@ -65,6 +71,8 @@ def _build_user_prompt(today: date_cls, memory: MemoryContext, schedule_events: 
     ) or "（今天沒有登記任何行程）"
 
     feedback_text = "\n".join(f"- {f}" for f in memory.recent_feedback) or "（目前沒有回饋紀錄）"
+
+    links_text = "\n".join(f"- {link}" for link in interesting_links) or "（最近沒有收藏新連結）"
 
     return f"""今天日期：{today.isoformat()}
 
@@ -77,13 +85,20 @@ def _build_user_prompt(today: date_cls, memory: MemoryContext, schedule_events: 
 今日行程：
 {schedule_text}
 
+使用者最近收藏的連結：
+{links_text}
+
 使用者最近的回饋：
 {feedback_text}
 """
 
 
 def _fallback_content(
-    today: date_cls, memory: MemoryContext, schedule_events: list[dict], reason: str
+    today: date_cls,
+    memory: MemoryContext,
+    schedule_events: list[dict],
+    interesting_links: list[str],
+    reason: str,
 ) -> ReportContent:
     """DRY_RUN、或 Groq API 呼叫失敗時都會用到的保底內容 —— 不是 AI 生成的，
     只是把記憶裡現有的資料直接拼起來，確保當天至少有東西可以看、可以推播，
@@ -94,17 +109,21 @@ def _fallback_content(
     schedule_summary = (
         "、".join(e.get("title", "") for e in schedule_events) if schedule_events else "今天沒有登記行程，樂得輕鬆"
     )
+    links_highlight = f"最近收藏了 {len(interesting_links)} 則連結還沒看" if interesting_links else ""
     return ReportContent(
         date=today.isoformat(),
         greeting=f"早安，今天是 {today.isoformat()}（{reason}）",
         schedule_summary=schedule_summary,
         habit_highlights=habit_lines,
+        links_highlight=links_highlight,
         closing_note=f"這是保底內容，未經 AI 生成：{reason}",
         line_message=f"[備用內容] {today.isoformat()} 晨報：{schedule_summary}",
     )
 
 
-def _call_groq(today: date_cls, memory: MemoryContext, schedule_events: list[dict]) -> ReportContent:
+def _call_groq(
+    today: date_cls, memory: MemoryContext, schedule_events: list[dict], interesting_links: list[str]
+) -> ReportContent:
     response = requests.post(
         GROQ_URL,
         headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"},
@@ -112,7 +131,10 @@ def _call_groq(today: date_cls, memory: MemoryContext, schedule_events: list[dic
             "model": config.GROQ_MODEL,
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": _build_user_prompt(today, memory, schedule_events)},
+                {
+                    "role": "user",
+                    "content": _build_user_prompt(today, memory, schedule_events, interesting_links),
+                },
             ],
             "response_format": {"type": "json_object"},
         },
@@ -133,19 +155,27 @@ def _call_groq(today: date_cls, memory: MemoryContext, schedule_events: list[dic
         greeting=parsed.get("greeting", ""),
         schedule_summary=parsed.get("schedule_summary", ""),
         habit_highlights=parsed.get("habit_highlights", []),
+        links_highlight=parsed.get("links_highlight", ""),
         closing_note=parsed.get("closing_note", ""),
         line_message=parsed.get("line_message", ""),
     )
 
 
 def generate_report_content(
-    today: date_cls, memory: MemoryContext, schedule_events: list[dict]
+    today: date_cls,
+    memory: MemoryContext,
+    schedule_events: list[dict],
+    interesting_links: list[str] | None = None,
 ) -> ReportContent:
+    interesting_links = interesting_links or []
+
     if config.DRY_RUN:
-        return _fallback_content(today, memory, schedule_events, "DRY RUN 測試內容，未設定 GROQ_API_KEY")
+        return _fallback_content(
+            today, memory, schedule_events, interesting_links, "DRY RUN 測試內容，未設定 GROQ_API_KEY"
+        )
 
     try:
-        return _call_groq(today, memory, schedule_events)
+        return _call_groq(today, memory, schedule_events, interesting_links)
     except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as exc:
         print(f"[content_generator] Groq API 呼叫失敗，改用保底內容：{exc}")
-        return _fallback_content(today, memory, schedule_events, "Groq API 暫時無法使用")
+        return _fallback_content(today, memory, schedule_events, interesting_links, "Groq API 暫時無法使用")

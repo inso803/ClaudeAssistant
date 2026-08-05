@@ -28,6 +28,9 @@ jobs:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
           GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_CALENDAR_CHANNEL_ID: ${{ secrets.DISCORD_CALENDAR_CHANNEL_ID }}
+          DISCORD_INTERESTING_LINKS_CHANNEL_ID: ${{ secrets.DISCORD_INTERESTING_LINKS_CHANNEL_ID }}
         run: python -m morning_report.generate_report
 
       - name: Commit updated memory & board data

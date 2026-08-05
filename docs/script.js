@@ -1,3 +1,9 @@
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str ?? "";
+  return div.innerHTML;
+}
+
 async function loadReport() {
   const dateEl = document.getElementById("board-date");
   const tableBody = document.querySelector("#board-table tbody");
@@ -40,6 +46,16 @@ async function loadReport() {
       });
     });
 
+    if (data.links_highlight) {
+      rows.push({
+        no: no++,
+        item: "收藏連結 LINKS",
+        content: data.links_highlight,
+        status: "待閱讀 UNREAD",
+        statusClass: "cell-status--tracking",
+      });
+    }
+
     if (data.closing_note) {
       rows.push({
         no: no++,
@@ -55,9 +71,9 @@ async function loadReport() {
         (r) => `
       <tr class="board-row">
         <td class="cell-no">${String(r.no).padStart(2, "0")}</td>
-        <td>${r.item}</td>
-        <td>${r.content}</td>
-        <td class="cell-status ${r.statusClass}">${r.status}</td>
+        <td>${escapeHtml(r.item)}</td>
+        <td>${escapeHtml(r.content)}</td>
+        <td class="cell-status ${r.statusClass}">${escapeHtml(r.status)}</td>
       </tr>`
       )
       .join("");

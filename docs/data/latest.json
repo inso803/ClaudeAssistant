@@ -1,8 +1,11 @@
 {
   "date": "2026-08-06",
-  "greeting": "早安！",
-  "schedule_summary": "今天的行程看起來很空，可能是個放鬆的日子！",
-  "habit_highlights": [],
-  "closing_note": "今天可能是個好機會來規劃一些短期目標或學習計畫，讓時間不白白浪費哦！",
-  "line_message": "早安！今天的行程很空，可以好好放鬆或規劃一下短期目標，不要讓時間白白浪費哦！"
+  "greeting": "早安，今天是 2026-08-06（DRY RUN 測試內容，未設定 GROQ_API_KEY）",
+  "schedule_summary": "今天沒有登記行程，樂得輕鬆",
+  "habit_highlights": [
+    "目前還沒有在追蹤的自我提升項目"
+  ],
+  "links_highlight": "",
+  "closing_note": "這是保底內容，未經 AI 生成：DRY RUN 測試內容，未設定 GROQ_API_KEY",
+  "line_message": "[備用內容] 2026-08-06 晨報：今天沒有登記行程，樂得輕鬆"
 }
