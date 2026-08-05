@@ -16,7 +16,7 @@ memory/                     長期記憶（見 memory/README.md）
 morning_report/              晨報系統
   generate_report.py          主入口：組內容 -> 寫看板資料 -> 推 LINE -> 更新記憶
   memory_reader.py            讀取 memory/ 的內容
-  content_generator.py        呼叫 Gemini API 產生晨報內容
+  content_generator.py        呼叫 Groq API 產生晨報內容
   habit_tracker.py            把追蹤狀態寫回 memory/
   line_sender.py               LINE Push Message
   sources/                     行程資料來源（目前只有 Discord 的 stub，尚未實作）
@@ -33,7 +33,7 @@ docs/                        GitHub Pages 靜態頁面（發車看板風格）
 ## 本機測試
 
 複製 `.env.example` 為 `.env` 並填入你的金鑰，就會用真實 API；沒有 `.env` / 沒設
-`GEMINI_API_KEY` 也可以測試整個資料流程（自動進入 DRY_RUN，不呼叫 Gemini API、不推播 LINE）：
+`GROQ_API_KEY` 也可以測試整個資料流程（自動進入 DRY_RUN，不呼叫 Groq API、不推播 LINE）：
 
 ```powershell
 pip install -r requirements.txt
@@ -51,7 +51,9 @@ python -m morning_report.generate_report
 - ✅ 已推上 GitHub（[inso803/ClaudeAssistant](https://github.com/inso803/ClaudeAssistant)）
 - ⏳ Discord 串接：`morning_report/sources/discord_source.py` 目前是空的 stub，等你之後確認要
   怎麼做（自架 Bot？或是別的方式讀取 Discord 訊息？）再實作
-- ⏳ 內容產生改用 Gemini API（有免費額度，不需要另外付費），本機已用真實金鑰測試（見下方）
+- ⏳ 內容產生改用 Groq API（有免費額度，不需要另外付費；Gemini 那把 key 的免費額度一直回傳 0，
+  疑似跟 Google 端的系統故障有關，改用不同供應商）；還沒設定 `GROQ_API_KEY`，需要你申請一把
+- ✅ Groq API 呼叫失敗時會自動退回保底內容，不會讓整個晨報當機
 - ⏳ `LINE_USER_ID` 還沒拿到（只有 Channel Access Token / Secret），推播會被自動跳過直到補上
 
 ## 需要你做的事
@@ -64,7 +66,7 @@ python -m morning_report.generate_report
 
 3. **把 Secrets 設進 GitHub repo**（Settings → Secrets and variables → Actions → New repository
    secret）：
-   - `GEMINI_API_KEY`
+   - `GROQ_API_KEY`
    - `LINE_CHANNEL_ACCESS_TOKEN`
    - `LINE_USER_ID`
 

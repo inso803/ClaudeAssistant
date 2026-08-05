@@ -1,9 +1,10 @@
-"""組 prompt、呼叫 Gemini API，把記憶與今日事件轉成結構化的晨報內容。
+"""組 prompt、呼叫 Groq API，把記憶與今日事件轉成結構化的晨報內容。
 
-用 Gemini 而不是 Claude API 是因為 Gemini API 有可用的免費額度，晨報這種每天一次的小請求
-剛好用得上，不需要額外付費。
+改用 Groq 而不是 Gemini：Gemini API 那把 key 的免費額度一直回傳 limit: 0（疑似跟
+2026-08-01 開始的 GCP 帳單系統故障有關），Groq 是另一個有真正可用免費額度的供應商，
+跟 Google 的系統無關，晨報這種每天一次的小請求剛好用得上，不需要額外付費。
 
-沒有設定 GEMINI_API_KEY 時（DRY_RUN）會回傳固定的假資料，方便本機測試其他環節
+沒有設定 GROQ_API_KEY 時（DRY_RUN）會回傳固定的假資料，方便本機測試其他環節
 （看板頁面、LINE 推送格式）而不需要真的呼叫 API。
 """
 
@@ -18,9 +19,7 @@ import requests
 from . import config
 from .memory_reader import MemoryContext
 
-GEMINI_URL_TEMPLATE = (
-    "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-)
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 SYSTEM_PROMPT = """你是使用者的個人晨報助理。使用者是台大資工二年級學生，常往返台北大安區與台中。
 請根據提供的背景資料、今天的行程、正在追蹤的自我提升項目、以及使用者最近的回饋，
@@ -86,7 +85,7 @@ def _build_user_prompt(today: date_cls, memory: MemoryContext, schedule_events: 
 def _fallback_content(
     today: date_cls, memory: MemoryContext, schedule_events: list[dict], reason: str
 ) -> ReportContent:
-    """DRY_RUN、或 Gemini API 呼叫失敗時都會用到的保底內容 —— 不是 AI 生成的，
+    """DRY_RUN、或 Groq API 呼叫失敗時都會用到的保底內容 —— 不是 AI 生成的，
     只是把記憶裡現有的資料直接拼起來，確保當天至少有東西可以看、可以推播，
     而不是整個晨報無聲失敗。"""
     habit_lines = [
@@ -100,30 +99,27 @@ def _fallback_content(
         greeting=f"早安，今天是 {today.isoformat()}（{reason}）",
         schedule_summary=schedule_summary,
         habit_highlights=habit_lines,
-        closing_note=f"這是保底內容，未經 Gemini 生成：{reason}",
+        closing_note=f"這是保底內容，未經 AI 生成：{reason}",
         line_message=f"[備用內容] {today.isoformat()} 晨報：{schedule_summary}",
     )
 
 
-def _call_gemini(today: date_cls, memory: MemoryContext, schedule_events: list[dict]) -> ReportContent:
-    url = GEMINI_URL_TEMPLATE.format(model=config.GEMINI_MODEL)
+def _call_groq(today: date_cls, memory: MemoryContext, schedule_events: list[dict]) -> ReportContent:
     response = requests.post(
-        url,
-        params={"key": config.GEMINI_API_KEY},
+        GROQ_URL,
+        headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"},
         json={
-            "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
-            "contents": [
-                {
-                    "role": "user",
-                    "parts": [{"text": _build_user_prompt(today, memory, schedule_events)}],
-                }
+            "model": config.GROQ_MODEL,
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": _build_user_prompt(today, memory, schedule_events)},
             ],
-            "generationConfig": {"responseMimeType": "application/json"},
+            "response_format": {"type": "json_object"},
         },
         timeout=30,
     )
     response.raise_for_status()
-    raw_text = response.json()["candidates"][0]["content"]["parts"][0]["text"]
+    raw_text = response.json()["choices"][0]["message"]["content"]
 
     try:
         parsed = json.loads(raw_text)
@@ -146,10 +142,10 @@ def generate_report_content(
     today: date_cls, memory: MemoryContext, schedule_events: list[dict]
 ) -> ReportContent:
     if config.DRY_RUN:
-        return _fallback_content(today, memory, schedule_events, "DRY RUN 測試內容，未設定 GEMINI_API_KEY")
+        return _fallback_content(today, memory, schedule_events, "DRY RUN 測試內容，未設定 GROQ_API_KEY")
 
     try:
-        return _call_gemini(today, memory, schedule_events)
+        return _call_groq(today, memory, schedule_events)
     except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as exc:
-        print(f"[content_generator] Gemini API 呼叫失敗，改用保底內容：{exc}")
-        return _fallback_content(today, memory, schedule_events, "Gemini API 暫時無法使用")
+        print(f"[content_generator] Groq API 呼叫失敗，改用保底內容：{exc}")
+        return _fallback_content(today, memory, schedule_events, "Groq API 暫時無法使用")
