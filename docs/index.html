@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>晨報 MORNING BOARD</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="board">
+    <header class="board-header">
+      <div class="board-title">
+        <span class="board-title-zh">個人晨報看板</span>
+        <span class="board-title-en">DAILY DEPARTURE BOARD</span>
+      </div>
+      <div class="board-date" id="board-date">----/--/--</div>
+    </header>
+
+    <div class="board-columns">
+      <span>編號 NO.</span>
+      <span>項目 ITEM</span>
+      <span>內容 CONTENT</span>
+      <span>狀態 STATUS</span>
+    </div>
+
+    <table class="board-table" id="board-table">
+      <tbody>
+        <tr class="board-row board-row--loading">
+          <td colspan="4">
+            <span class="blink">●</span> 讀取中 LOADING...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="board-ticker">
+      <div class="board-ticker-track" id="ticker-track">
+        晨報資料載入中，請稍候...
+      </div>
+    </div>
+
+    <footer class="board-footer">
+      <span id="last-updated">最後更新 LAST UPDATED: --</span>
+      <span class="board-footer-brand">個人 AI 助手・晨報系統</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

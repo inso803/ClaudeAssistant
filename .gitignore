@@ -1,0 +1,30 @@
+# 原始個資 / 匯出檔（可能含敏感對話內容，不進版控）
+memory/raw/
+*.zip
+
+# 環境變數與密鑰
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# 晨報系統本地產生的暫存資料
+morning_report/__pycache__/
+*.log
+
+# OS / 編輯器
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Claude Code 本機設定
+.claude/settings.local.json

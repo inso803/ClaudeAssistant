@@ -1,0 +1,10 @@
+{
+  "date": "2026-08-05",
+  "greeting": "早安，今天是 2026-08-05（DRY RUN 測試內容）",
+  "schedule_summary": "今天沒有登記行程，樂得輕鬆",
+  "habit_highlights": [
+    "目前還沒有在追蹤的自我提升項目"
+  ],
+  "closing_note": "這是本機測試產生的假資料，未呼叫 Claude API。",
+  "line_message": "[測試] 2026-08-05 晨報：今天沒有登記行程，樂得輕鬆"
+}
