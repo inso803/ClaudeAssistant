@@ -9,6 +9,7 @@
 |---|---|---|
 | `profile.md` | 使用者核心背景摘要（會持續演化） | 是 |
 | `habits.md` | 自我提升進度追蹤，晨報系統讀取／更新 | 是 |
+| `interests.md` | 興趣收藏清單（從 Discord 累積），推薦引擎讀取／更新 | 是 |
 | `raw/` | 原始匯出檔（Gemini 對話紀錄，各種格式） | **否，已加入 .gitignore** |
 | `raw/extracted/` | 從原始匯出檔解析出的純文字中繼結果 | **否，已加入 .gitignore** |
 | `import_gemini_takeout.py` | 把 `raw/` 裡的匯出檔解析成純文字 | 是（程式本身） |

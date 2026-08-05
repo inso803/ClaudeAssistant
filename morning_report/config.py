@@ -21,8 +21,11 @@ PROFILE_PATH = MEMORY_DIR / "profile.md"
 HABITS_PATH = MEMORY_DIR / "habits.md"
 FEEDBACK_PATH = MEMORY_DIR / "feedback.md"
 
+INTERESTS_MD_PATH = MEMORY_DIR / "interests.md"
+
 STATE_DIR = Path(__file__).resolve().parent / "state"
 HABIT_STATE_PATH = STATE_DIR / "habit_state.json"
+INTERESTS_STATE_PATH = STATE_DIR / "interests_state.json"
 
 DOCS_DIR = REPO_ROOT / "docs"
 REPORT_DATA_PATH = DOCS_DIR / "data" / "latest.json"
@@ -38,6 +41,9 @@ GITHUB_PAGES_URL = os.environ.get("GITHUB_PAGES_URL", "")
 DISCORD_BOT_TOKEN = os.environ.get("DISCORD_BOT_TOKEN", "")
 DISCORD_CALENDAR_CHANNEL_ID = os.environ.get("DISCORD_CALENDAR_CHANNEL_ID", "")
 DISCORD_INTERESTING_LINKS_CHANNEL_ID = os.environ.get("DISCORD_INTERESTING_LINKS_CHANNEL_ID", "")
+
+# 沒有設定時，推薦引擎直接跳過，不影響晨報其他部分
+BRAVE_SEARCH_API_KEY = os.environ.get("BRAVE_SEARCH_API_KEY", "")
 
 # 沒有 GROQ_API_KEY 時（例如本機測試）改用固定內容，不呼叫外部 API
 DRY_RUN = not GROQ_API_KEY

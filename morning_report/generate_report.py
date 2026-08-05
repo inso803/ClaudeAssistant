@@ -15,8 +15,10 @@ from datetime import date, datetime, timezone, timedelta
 from . import config
 from .content_generator import generate_report_content
 from .habit_tracker import persist
+from .interests import persist_new_links
 from .line_sender import send_line_message
 from .memory_reader import load_memory_context
+from .recommender import get_recommendation_search_results
 from .sources import collect_interesting_links, collect_schedule
 
 TAIPEI_TZ = timezone(timedelta(hours=8))
@@ -34,9 +36,15 @@ def main() -> None:
 
     memory = load_memory_context()
     schedule_events = collect_schedule(today)
-    interesting_links = collect_interesting_links()
 
-    report = generate_report_content(today, memory, schedule_events, interesting_links)
+    todays_links = collect_interesting_links()
+    interesting_links = persist_new_links(today, todays_links)
+    print(f"[generate_report] 興趣收藏清單累積至 {len(interesting_links)} 則。")
+
+    search_results = get_recommendation_search_results(interesting_links)
+    print(f"[generate_report] 推薦搜尋找到 {len(search_results)} 則相關內容。")
+
+    report = generate_report_content(today, memory, schedule_events, interesting_links, search_results)
     print(f"[generate_report] 產生內容完成：{report.line_message[:50]}...")
 
     write_board_data(report.to_dict())

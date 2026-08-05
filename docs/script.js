@@ -56,6 +56,16 @@ async function loadReport() {
       });
     }
 
+    (data.recommendations || []).forEach((r) => {
+      rows.push({
+        no: no++,
+        item: "推薦 RECOMMENDED",
+        content: r,
+        status: "新內容 NEW",
+        statusClass: "cell-status--ontime",
+      });
+    });
+
     if (data.closing_note) {
       rows.push({
         no: no++,
