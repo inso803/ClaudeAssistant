@@ -6,4 +6,4 @@
 
 ## 最近收藏
 
-（目前還沒有收藏任何內容）
+- [2026-08-07] https://www.youtube.com/watch?v=xo7dE80ktu4&t=463s
