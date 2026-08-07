@@ -6,4 +6,5 @@
 
 ## 最近收藏
 
+- [2026-08-08] https://www.threads.com/@knowledge_share_hub/post/Dbt-yIzExUd?xmt=AQG0sGY_7LGamww7YsXYckOFlwQ3IZdHcAkVZ59MJZ1hPvtUYnpYY3Pm4NxUj-IrVtVqT0YB&slof=1
 - [2026-08-07] https://www.youtube.com/watch?v=xo7dE80ktu4&t=463s
