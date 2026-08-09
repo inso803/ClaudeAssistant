@@ -1,10 +1,10 @@
 {
-  "date": "2026-08-09",
-  "greeting": "早安，新的一天開始了！",
-  "schedule_summary": "今天行程比較空，想好怎麼安排時間吧！",
+  "date": "2026-08-10",
+  "greeting": "早安！今天是 2026 年 8 月 10 號",
+  "schedule_summary": "今天的行程看起來很空，沒有任何安排",
   "habit_highlights": [],
-  "links_highlight": "記得看看你收藏的連結，裡面有 YouTube 的影片和 Threads 的文章喔",
+  "links_highlight": "別忘了你收藏了關於 sleeping 的 youtube 影片和 threads上的文章還沒看喔",
   "recommendations": [],
-  "closing_note": "今天也要加油！",
-  "line_message": "早安！今天行程比較空，記得看看你收藏的連結，今天也要加油！"
+  "closing_note": "祝你今天有個美好的休息日！",
+  "line_message": "早安！今天的行程很空，收藏了關於 sleeping 的影片和文章還沒看喔，祝你今天有個美好的休息日！"
 }
