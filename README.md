@@ -24,6 +24,7 @@ morning_report/              晨報系統
   line_sender.py               LINE Push Message
   sources/                     行程／收藏連結來源（Discord：calendar + interesting-links 頻道）
   state/                       機器可讀狀態（habit_state.json、interests_state.json）
+  link_processor.py            interesting-links 頻道的深度處理：抓連結→逐字稿/文字摘要→回覆到 Discord
 
 docs/                        GitHub Pages 靜態頁面（發車看板風格）
   index.html / style.css / script.js
@@ -31,6 +32,7 @@ docs/                        GitHub Pages 靜態頁面（發車看板風格）
 
 .github/workflows/
   morning-report.yml          每日排程：產生內容、推播 LINE、把結果 commit 回 repo
+  interesting-links.yml       每小時排程：處理 interesting-links 頻道新連結，不 commit 回 repo
 ```
 
 ## 本機測試
@@ -69,6 +71,12 @@ python -m morning_report.generate_report
   還沒設定 `BRAVE_SEARCH_API_KEY`，目前這部分會自動跳過（不影響其他功能）
 - ⏳ 目前晨報內容仍偏空泛：因為沒有正在追蹤的自我提升項目、Discord 頻道也還沒有訊息，Groq 沒
   有素材可以發揮。下一步是使用者開始在 Discord 貼行程/連結，或先手動加一項自我提升追蹤
+- ✅ 新增 `link_processor.py` + `interesting-links.yml`：每小時讀 interesting-links 頻道新訊息，
+  用 yt-dlp 嘗試抓影片音軌、呼叫 Groq 的 Whisper API 轉逐字稿（IG/Threads 常因登入牆失敗，
+  這時退回抓貼文的 og:description 文字），再用 Groq 摘要並列出書名/工具/skill 等重點，
+  回覆在原訊息底下並加上 ✅ reaction 標記已處理（拿掉 ✅ 就會在下次排程重新處理一次）。
+  不影響 discord_source.py／晨報主流程，兩邊各自獨立讀取同一個頻道。還沒實際跑過，
+  bot 目前只有讀取權限，需要確認/補上 Send Messages 與 Add Reactions 權限才能正常回覆
 
 ## 未來構想（先記錄，還沒要做）
 
