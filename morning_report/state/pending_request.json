@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-14",
+  "weather": {
+    "city": "台北",
+    "summary": "毛毛雨",
+    "low": 25,
+    "high": 30,
+    "rain_pct": 71
+  },
+  "schedule": [],
+  "today_todos": [
+    "8/10晚上10.開系學會會",
+    "8/13三驗\n8/14搬宿舍 吃慶功",
+    "電機資訊學院交接",
+    "家教",
+    "看完一個ML影片"
+  ],
+  "longterm_todos": [],
+  "search_results": [
+    {
+      "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - 數位時代",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5",
+      "description": "來自 數位時代",
+      "source": "Google News"
+    },
+    {
+      "title": "全網瘋傳的Clawdbot，是下一個ChatGPT？ - 鉅亨號",
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9iT3dqdUxpUk93d3M4R2ZmR3dJZmpjNTNoa1NReXJiU1VVbkY5RkZqUkZNQTU4eDMtVGFjS3lUQkNERjE3OFhWcA?oc=5",
+      "description": "來自 鉅亨號",
+      "source": "Google News"
+    },
+    {
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5",
+      "description": "來自 數位時代",
+      "source": "Google News"
+    }
+  ]
+}
