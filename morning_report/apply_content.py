@@ -86,7 +86,10 @@ def main() -> None:
         check=True,
         cwd=config.REPO_ROOT,
     )
-    subprocess.run(["git", "push"], check=True, cwd=config.REPO_ROOT)
+    # 用 HEAD:main 而不是裸的 git push：Claude Code routine 的 checkout 常常是 detached HEAD
+    # （不在任何分支上），這時候 `git push` 會直接失敗（"You are not currently on a branch"）。
+    # HEAD:main 不管目前是否在分支上都能正確把目前這個 commit 推到遠端的 main。
+    subprocess.run(["git", "push", "origin", "HEAD:main"], check=True, cwd=config.REPO_ROOT)
     print("[apply_content] 已 commit + push 回 main。")
 
 
