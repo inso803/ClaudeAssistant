@@ -1,8 +1,8 @@
 {
   "date": "2026-09-14",
   "issue_no": 1,
-  "greeting": "早安！新的一天，先看一下今天要處理的事情。",
-  "greeting_sub": "台北今天毛毛雨，25-30°C，降雨機率 71%，出門記得帶傘。",
+  "greeting": "早安，今天雨勢偏大（降雨機率 71%），出門記得帶傘。",
+  "greeting_sub": "行程比較雜，先把系學會、電資學院交接跟家教處理掉，ML 影片有空再看。",
   "weather": {
     "city": "台北",
     "summary": "毛毛雨",
@@ -13,19 +13,21 @@
   "schedule": [],
   "todos": [
     "8/10晚上10.開系學會會",
-    "8/13三驗\n8/14搬宿舍 吃慶功"
+    "8/13三驗\n8/14搬宿舍 吃慶功",
+    "電機資訊學院交接",
+    "家教",
+    "看完一個ML影片"
   ],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "存起來的連結還有 2 篇沒看，找空檔滑一下吧。",
+  "links_highlight": "收藏連結還有 2 條沒看，有空可以清一下。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代整理報導",
+      "meta": "數位時代報導",
       "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - 數位時代",
-      "lede": "如果最近在想要不要升級 Claude 方案，這篇把免費版、Pro、Max 的差異整理得蠻清楚。",
-      "body": "你平常寫程式常靠 AI 輔助，這種方案比較蠻實用，可以評估要不要解鎖更高用量。",
+      "lede": "如果最近在考慮要不要升級 Claude 方案，這篇整理了免費版、Pro、Max 的差異。",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5"
     },
     {
@@ -33,16 +35,16 @@
       "source": "GOOGLE 新聞",
       "meta": "鉅亨號報導",
       "title": "全網瘋傳的Clawdbot，是下一個ChatGPT？ - 鉅亨號",
-      "lede": "「Clawdbot」最近討論度很高，這篇在問它是不是下一個現象級 AI 應用。",
+      "lede": "Clawdbot 最近討論度很高，這篇在問它是不是下一個現象級 AI 工具。",
       "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9iT3dqdUxpUk93d3M4R2ZmR3dJZmpjNTNoa1NReXJiU1VVbkY5RkZqUkZNQTU4eDMtVGFjS3lUQkNERjE3OFhWcA?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代影片教學",
+      "meta": "數位時代報導",
       "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "介紹 Vibe Coding 概念，用 AI 工具搭配 6 個步驟帶新手做出東西。",
-      "body": "你正在累積實作經驗，這種 AI 輔助開發流程可以參考看看，跟自己現在的做法互相補強。",
+      "lede": "介紹 Vibe Coding 概念跟幾個上手工具，對寫程式的人來說算滿貼近的話題。",
+      "body": "跟你平常在累積 Python／演算法實作經驗的方向蠻搭的，有空可以看看這幾款工具能不能加進工作流程。",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
     }
   ],
@@ -58,6 +60,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "先把今天的事情處理完，其他慢慢看，加油！",
-  "ticker_message": "台北今日毛毛雨 25-30°C、降雨機率 71%，2 項待辦要處理，3 則科技新聞（Claude 收費、Clawdbot 熱議、Vibe Coding 教學）加上 2 篇存起來的連結還沒看。"
+  "closing_note": "今天雨天路滑，趕行程之間注意安全，加油。",
+  "ticker_message": "今日降雨機率 71%，出門帶傘；行程包含系學會交接、電資學院交接與家教，收藏連結還有 2 條待讀，另有 3 則 AI／程式相關新聞可看。"
 }
