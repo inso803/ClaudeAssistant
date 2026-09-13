@@ -1,12 +1,12 @@
 {
   "date": "2026-09-13",
-  "greeting": "早安，今天是 2026-09-13（DRY RUN 測試內容，未設定 GROQ_API_KEY）",
+  "greeting": "早安，今天是 2026-09-13（Groq API 暫時無法使用）",
   "schedule_summary": "今天沒有登記行程，樂得輕鬆",
   "habit_highlights": [
     "目前還沒有在追蹤的自我提升項目"
   ],
   "links_highlight": "目前收藏了 2 則連結",
   "recommendations": [],
-  "closing_note": "這是保底內容，未經 AI 生成：DRY RUN 測試內容，未設定 GROQ_API_KEY",
+  "closing_note": "這是保底內容，未經 AI 生成：Groq API 暫時無法使用",
   "ticker_message": "[備用內容] 2026-09-13 晨報：今天沒有登記行程，樂得輕鬆"
 }
