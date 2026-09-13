@@ -70,6 +70,44 @@ body {
   text-shadow: 0 0 8px var(--amber-glow);
 }
 
+.board-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--line-dim);
+}
+
+.board-nav-btn,
+.board-nav-select {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  background: transparent;
+  color: var(--amber);
+  border: 1px solid var(--amber-dim);
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.board-nav-btn:hover:not(:disabled) {
+  border-color: var(--amber);
+  text-shadow: 0 0 6px var(--amber-glow);
+}
+
+.board-nav-btn:disabled {
+  color: var(--amber-dim);
+  cursor: default;
+  opacity: 0.5;
+}
+
+.board-nav-select {
+  margin-left: auto;
+}
+
 .board-columns {
   display: grid;
   grid-template-columns: 90px 140px 1fr 130px;

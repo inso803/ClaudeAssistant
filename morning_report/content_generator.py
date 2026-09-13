@@ -31,8 +31,11 @@ SYSTEM_PROMPT = """你是使用者的個人晨報助理。使用者是台大資�
 - 如果使用者最近有回饋（例如「太長了」「不要講教訓的語氣」），要據此調整這次的風格
 - 「收藏的連結」只是單純轉述、頂多加一句簡短提醒，不要幫使用者做內容分析或下結論，
   因為你沒有真的讀過連結內容
-- 「相關新內容」的推薦一定要根據提供的搜尋結果來寫，每一則附上真實的網址；
-  如果沒有提供搜尋結果，recommendations 就回傳空陣列，絕對不要自己編造網址或內容
+- 「相關新內容」的推薦一定要根據提供的搜尋結果來寫，每一則附上真實的網址與來源
+  （例如 Hacker News、YouTube、Devpost 等，搜尋結果裡都有標明）；如果沒有提供搜尋結果，
+  recommendations 就回傳空陣列，絕對不要自己編造網址或內容
+
+這份內容會 render 成一個網頁看板，使用者是點連結進來看，不是收簡訊，所以不用刻意壓字數。
 
 請只回傳一個 JSON 物件，不要有任何其他文字，格式如下：
 {
@@ -40,9 +43,9 @@ SYSTEM_PROMPT = """你是使用者的個人晨報助理。使用者是台大資�
   "schedule_summary": "今日行程摘要，如果沒有行程就說明今天很空",
   "habit_highlights": ["自我提升項目1的今日提醒", "項目2的今日提醒", ...],
   "links_highlight": "提醒使用者長期收藏了哪些連結還沒看的一句話，如果沒有收藏連結就回傳空字串",
-  "recommendations": ["根據搜尋結果推薦的一則新內容，包含標題、一句話理由、真實網址", ...],
+  "recommendations": ["根據搜尋結果推薦的一則新內容，包含標題、來源、一句話理由、真實網址", ...],
   "closing_note": "一句簡短收尾語",
-  "line_message": "整合以上內容、適合直接推播到手機的完整訊息，控制在 200 字以內"
+  "ticker_message": "整合以上內容的一句話摘要，會放在看板頁面最下方的跑馬燈文字"
 }
 """
 
@@ -56,7 +59,7 @@ class ReportContent:
     links_highlight: str = ""
     recommendations: list[str] = field(default_factory=list)
     closing_note: str = ""
-    line_message: str = ""
+    ticker_message: str = ""
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -83,7 +86,8 @@ def _build_user_prompt(
     links_text = "\n".join(f"- {link}" for link in interesting_links) or "（目前沒有收藏任何連結）"
 
     search_text = "\n".join(
-        f"- 標題：{r['title']}／網址：{r['url']}／描述：{r['description']}" for r in search_results
+        f"- 來源：{r.get('source', '')}／標題：{r['title']}／網址：{r['url']}／描述：{r['description']}"
+        for r in search_results
     ) or "（這次沒有搜尋到相關新內容，recommendations 請回傳空陣列）"
 
     return f"""今天日期：{today.isoformat()}
@@ -132,7 +136,7 @@ def _fallback_content(
         habit_highlights=habit_lines,
         links_highlight=links_highlight,
         closing_note=f"這是保底內容，未經 AI 生成：{reason}",
-        line_message=f"[備用內容] {today.isoformat()} 晨報：{schedule_summary}",
+        ticker_message=f"[備用內容] {today.isoformat()} 晨報：{schedule_summary}",
     )
 
 
@@ -179,7 +183,7 @@ def _call_groq(
         links_highlight=parsed.get("links_highlight", ""),
         recommendations=parsed.get("recommendations", []),
         closing_note=parsed.get("closing_note", ""),
-        line_message=parsed.get("line_message", ""),
+        ticker_message=parsed.get("ticker_message", ""),
     )
 
 
