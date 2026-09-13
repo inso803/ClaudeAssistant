@@ -33,8 +33,17 @@ REPORT_DATA_PATH = DOCS_DATA_DIR / "latest.json"
 REPORT_MANIFEST_PATH = DOCS_DATA_DIR / "manifest.json"
 REPORT_HISTORY_RETENTION_DAYS = 30
 
+# 兩段接力流程（見 collect_report_request.py / apply_content.py）交接用的暫存檔：
+# 第一段（GitHub Actions）寫 PENDING_REQUEST_PATH，第二段（Claude Code routine）讀它、
+# 寫 DRAFT_CONTENT_PATH，apply_content.py 再把兩者合併成正式看板內容
+PENDING_REQUEST_PATH = STATE_DIR / "pending_request.json"
+DRAFT_CONTENT_PATH = STATE_DIR / "draft_content.json"
+
+# 只有 link_processor.py（interesting-links 深度處理）還在用 Groq，主晨報流程已經改用
+# Claude Code routine 寫內容，不再呼叫 Groq。llama-3.3-70b-versatile 已下架/需要 Enterprise
+# 方案，2026-09 確認過的免費可用模型改成 openai/gpt-oss-120b
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 
 # GitHub Actions 不允許自訂變數名稱以 GITHUB_ 開頭（會被拒絕），所以這裡改叫 PAGES_BASE_URL；
 # 這個網址不是敏感資訊，預設值直接寫死，可用環境變數覆蓋
@@ -54,6 +63,3 @@ DISCORD_MORNING_BRIEF_CHANNEL_ID = os.environ.get(
 BRAVE_SEARCH_API_KEY = os.environ.get("BRAVE_SEARCH_API_KEY", "")
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 EVENTBRITE_API_TOKEN = os.environ.get("EVENTBRITE_API_TOKEN", "")
-
-# 沒有 GROQ_API_KEY 時（例如本機測試）改用固定內容，不呼叫外部 API
-DRY_RUN = not GROQ_API_KEY

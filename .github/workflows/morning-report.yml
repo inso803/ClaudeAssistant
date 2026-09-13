@@ -1,5 +1,10 @@
 name: Morning Report
 
+# 兩段接力流程的第一段：只做資料蒐集（Discord 行程/收藏連結、多來源推薦搜尋），
+# 不呼叫任何 LLM，寫成 pending_request.json 交給排程的 Claude Code routine 寫內容。
+# 第二段（routine 寫內容 -> apply_content.py）跟第三段（推 Discord 連結）都不在這支 workflow 裡，
+# 詳見 morning_report/collect_report_request.py 開頭的說明。
+
 on:
   schedule:
     # 22:30 UTC = 06:30 台北時間，需要調整時間就改這裡
@@ -10,7 +15,7 @@ permissions:
   contents: write
 
 jobs:
-  generate-and-send:
+  collect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,32 +27,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: TEMP debug - list available Groq models
+      - name: Collect schedule/links and write pending_request.json
         env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: |
-          curl -s -H "Authorization: Bearer $GROQ_API_KEY" https://api.groq.com/openai/v1/models > /tmp/models.json
-          python3 -c "import json; print('\n'.join(m['id'] for m in json.load(open('/tmp/models.json'))['data']))"
-
-      - name: Generate report and send Discord push
-        env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_CALENDAR_CHANNEL_ID: ${{ secrets.DISCORD_CALENDAR_CHANNEL_ID }}
           DISCORD_INTERESTING_LINKS_CHANNEL_ID: ${{ secrets.DISCORD_INTERESTING_LINKS_CHANNEL_ID }}
-          # 看板網址／推播頻道 ID 都不是敏感資訊，預設值寫死在 config.py 裡；不特別在這裡注入，
-          # 避免 GitHub Actions 對「未設定的 secret／variable」注入空字串蓋掉 config.py 的預設值
-          # （PAGES_BASE_URL 曾經叫 GITHUB_PAGES_URL，但 Actions 不允許自訂變數用 GITHUB_ 開頭，
-          # 導致 vars.GITHUB_PAGES_URL 從來沒有真的生效過，推播出去的連結其實是壞的，已修正）
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           EVENTBRITE_API_TOKEN: ${{ secrets.EVENTBRITE_API_TOKEN }}
-        run: python -m morning_report.generate_report
+        run: python -m morning_report.collect_report_request
 
-      - name: Commit updated memory & board data
+      - name: Commit interests state + pending_request.json
         run: |
           git config user.name "morning-report-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add memory/habits.md memory/interests.md morning_report/state/habit_state.json morning_report/state/interests_state.json docs/data
-          git diff --cached --quiet && echo "no changes" || git commit -m "chore: update morning report data [skip ci]"
+          git add memory/interests.md morning_report/state/interests_state.json morning_report/state/pending_request.json
+          git diff --cached --quiet && echo "no changes" || git commit -m "chore: collect morning report request data"
           git push

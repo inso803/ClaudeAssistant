@@ -1,0 +1,32 @@
+name: Send Morning Link
+
+# 兩段接力流程的第三段：main 上 docs/data/** 有變動（代表 Claude Code routine 剛寫完今天的
+# 內容並 push 回來）就推一則 Discord 訊息，內容只有今天看板的網址。
+# 這是唯一會用到 DISCORD_BOT_TOKEN 的地方，routine 本身不需要碰任何 secret。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/data/**"
+
+permissions:
+  contents: read
+
+jobs:
+  send-link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send today's board link to Discord
+        env:
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        run: python -m morning_report.send_today_link
