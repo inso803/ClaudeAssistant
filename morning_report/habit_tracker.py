@@ -61,7 +61,7 @@ def _render_active_section(active_habits: list[HabitThread]) -> str:
 
 
 def _append_history_entry(habits_md: str, report: ReportContent) -> str:
-    entry = f"\n### {report.date}\n{report.closing_note or report.schedule_summary}\n"
+    entry = f"\n### {report.date}\n{report.closing_note or '（無記錄）'}\n"
     if _HISTORY_MARKER in habits_md:
         return habits_md.replace(_HISTORY_MARKER, f"{_HISTORY_MARKER}\n{entry}", 1)
     return habits_md + f"\n{_HISTORY_MARKER}\n{entry}"

@@ -1,205 +1,346 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-:root {
-  --board-bg: #05070a;
-  --board-panel: #0b0f14;
-  --amber: #ffb000;
-  --amber-dim: #7a5200;
-  --amber-glow: rgba(255, 176, 0, 0.55);
-  --line-dim: #24211a;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: var(--board-bg);
-  color: var(--amber);
-  font-family: 'Share Tech Mono', 'Courier New', monospace;
-}
+/* 晨報看板 — Broadsheet 版型的頁面專屬樣式。設計系統本身（色彩/字級 token、.tag、.halftone
+   等共用元件）在 broadsheet.css，這裡只放這個頁面特有的版面。 */
 
 body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Source Serif 4", "Noto Serif TC", Georgia, serif;
+}
+
+.brief {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  font-family: "Source Serif 4", "Noto Serif TC", Georgia, serif;
+  color: var(--color-text);
+}
+
+/* 報頭 */
+.ink-bars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+.ink-bar {
+  width: 34px;
+  height: 9px;
+}
+
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-bottom: 6px solid var(--color-text);
+  padding-bottom: 6px;
+}
+.masthead-title {
+  font: 700 40px/1 "Source Serif 4", "Noto Serif TC", serif;
+  letter-spacing: 0.14em;
+}
+.masthead-en {
+  font: 400 13px/1 "Source Serif 4", serif;
+  letter-spacing: 0.2em;
+  color: var(--color-accent-700);
+}
+
+.dateline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-text);
+  margin-top: 3px;
+  padding-top: 8px;
+  font: 400 14px/1.4 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-800);
+}
+.dateline-weather {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.dateline-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-process-yellow);
+  display: inline-block;
+}
+.dateline-issue {
+  color: var(--color-neutral-700);
+}
+
+/* 問候語 */
+.greeting {
+  margin: 40px 0 0;
+  font: 400 27px/1.6 "Source Serif 4", "Noto Serif TC", serif;
+  text-wrap: pretty;
+}
+.greeting-sub {
+  margin: 15px 0 0;
+  font: italic 400 17px/1.7 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-800);
+  text-wrap: pretty;
+}
+
+/* 區塊共用 */
+.section {
+  margin-top: 50px;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font: 600 12px/1 "Source Serif 4", serif;
+  letter-spacing: 0.26em;
+}
+.eyebrow-dot {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+}
+.eyebrow-cyan { color: var(--color-accent-700); }
+.eyebrow-magenta { color: var(--color-accent-2-700); }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.section-note {
+  margin: 20px 0 0;
+  font: italic 400 15px/1.7 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-700);
+}
+
+/* 今日行程 */
+.schedule-row {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: baseline;
+}
+.schedule-time {
+  font: 600 17px/1.4 "Source Serif 4", serif;
+  letter-spacing: 0.02em;
+  color: var(--color-neutral-700);
+}
+.schedule-time.is-highlight {
+  color: var(--color-accent-700);
+}
+.schedule-title {
+  font: 600 19px/1.45 "Source Serif 4", "Noto Serif TC", serif;
+}
+.schedule-meta {
+  font: 400 15px/1.6 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-700);
+}
+.schedule-fallback {
+  margin: 20px 0 0;
+  font: 400 17px/1.6 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-800);
+}
+
+/* 待辦（不可點擊，完成方式是在 Discord 上刪掉訊息） */
+.todo-list {
+  margin-top: 4px;
+}
+.todo-row {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  margin-top: 16px;
+}
+.todo-mark {
+  font: 400 17px/1.5 "Source Serif 4", serif;
+  color: var(--color-accent-700);
+}
+.todo-label {
+  font: 400 18px/1.6 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-text);
+}
+/* 還沒回的訊息 */
+.inbox-item {
+  margin-top: 18px;
+}
+.inbox-head {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.inbox-from {
+  font: 600 17px/1.5 "Source Serif 4", "Noto Serif TC", serif;
+}
+.inbox-when {
+  font: 400 14px/1.5 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-700);
+}
+.inbox-text {
+  font: 400 16px/1.65 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-800);
+  text-wrap: pretty;
+}
+
+/* 今天值得看的 */
+.reading-item {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 156px;
+  gap: 22px;
+  align-items: start;
+}
+.reading-main { min-width: 0; }
+.reading-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.reading-tag {
+  font-family: "Source Serif 4", serif;
+  letter-spacing: 0.14em;
+}
+.reading-meta {
+  font: 400 14px/1 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-700);
+}
+.reading-title {
+  font: 600 22px/1.45 "Source Serif 4", "Noto Serif TC", serif;
+  margin-top: 10px;
+  text-wrap: pretty;
+}
+.reading-lede,
+.reading-body {
+  margin: 8px 0 0;
+  font: 400 17px/1.75 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-800);
+  text-wrap: pretty;
+}
+.reading-body { margin-top: 12px; }
+.reading-toggle {
+  font: 400 15px/1 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-accent-700);
+  background: none;
+  border: none;
+  padding: 10px 0 0;
+  cursor: pointer;
+}
+.reading-thumb {
+  width: 156px;
+  height: 117px;
+  background: var(--color-accent-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  background-image: radial-gradient(circle at 50% 0%, #10141b 0%, #05070a 70%);
 }
-
-.board {
+.reading-thumb img {
   width: 100%;
-  max-width: 860px;
-  background: var(--board-panel);
-  border: 2px solid var(--line-dim);
-  border-radius: 6px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), inset 0 0 60px rgba(255, 176, 0, 0.03);
-  padding: 20px 24px 12px;
+  height: 100%;
+  object-fit: cover;
 }
-
-.board-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 2px solid var(--amber-dim);
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-}
-
-.board-title-zh {
-  font-size: 1.6rem;
-  letter-spacing: 0.15em;
-  text-shadow: 0 0 8px var(--amber-glow);
-  display: block;
-}
-
-.board-title-en {
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  color: var(--amber-dim);
-  display: block;
-  margin-top: 4px;
-}
-
-.board-date {
-  font-size: 1.3rem;
+.reading-thumb-placeholder {
+  font: 400 13px/1 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-accent-800);
   letter-spacing: 0.1em;
-  text-shadow: 0 0 8px var(--amber-glow);
+}
+.reading-simple {
+  margin-top: 20px;
+  font: 400 18px/1.7 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-text);
 }
 
-.board-nav {
+/* 昨天的你 */
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  margin-top: 22px;
+}
+.stat-value {
+  font: 600 34px/1 "Source Serif 4", serif;
+}
+.stat-value.tone-alert { color: var(--color-accent-2-700); }
+.stat-value.tone-accent { color: var(--color-accent-700); }
+.stat-value.tone-plain { color: var(--color-text); }
+.stat-label {
+  font: 400 14px/1.5 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-700);
+  margin-top: 6px;
+}
+#stats-note p {
+  margin: 22px 0 0;
+  font: 400 17px/1.75 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-800);
+  text-wrap: pretty;
+}
+
+/* 今天的一句話 */
+.closing-block {
+  margin-top: 56px;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 24px 20px;
+  border-top: 1px solid var(--color-text);
+  background: var(--color-accent-2-100);
+}
+.closing-text {
+  margin: 16px 0 0;
+  font: italic 400 24px/1.6 "Source Serif 4", "Noto Serif TC", serif;
+  text-wrap: pretty;
+}
+
+/* 頁尾導覽 */
+.brief-footer {
+  margin-top: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
-  padding: 10px 0;
-  margin-bottom: 4px;
-  border-bottom: 1px solid var(--line-dim);
 }
-
-.board-nav-btn,
-.board-nav-select {
-  font-family: 'Share Tech Mono', 'Courier New', monospace;
-  background: transparent;
-  color: var(--amber);
-  border: 1px solid var(--amber-dim);
-  border-radius: 3px;
-  padding: 5px 10px;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+.footer-nav-btn {
+  font: 400 15px/1 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-accent-700);
+  background: none;
+  border: none;
+  padding: 6px 0;
   cursor: pointer;
 }
-
-.board-nav-btn:hover:not(:disabled) {
-  border-color: var(--amber);
-  text-shadow: 0 0 6px var(--amber-glow);
-}
-
-.board-nav-btn:disabled {
-  color: var(--amber-dim);
+.footer-nav-btn:disabled {
+  color: var(--color-neutral-700);
   cursor: default;
-  opacity: 0.5;
+}
+.footer-nav-sep { color: var(--color-neutral-400); }
+.footer-nav-select {
+  font: 400 14px/1 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  padding: 6px 8px;
+}
+.footer-source {
+  font: 400 13px/1.5 "Source Serif 4", "Noto Serif TC", serif;
+  color: var(--color-neutral-700);
 }
 
-.board-nav-select {
-  margin-left: auto;
-}
-
-.board-columns {
-  display: grid;
-  grid-template-columns: 90px 140px 1fr 130px;
-  gap: 8px;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  color: var(--amber-dim);
-  padding: 6px 10px;
-  border-bottom: 1px solid var(--line-dim);
-}
-
-.board-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.board-row td {
-  padding: 10px;
-  border-bottom: 1px dashed var(--line-dim);
-  font-size: 1rem;
-  vertical-align: top;
-}
-
-.board-row {
-  display: grid;
-  grid-template-columns: 90px 140px 1fr 130px;
-  gap: 8px;
-  align-items: baseline;
-}
-
-.board-row td {
-  border-bottom: none;
-  padding: 8px 0;
-}
-
-.board-row + .board-row td {
-  border-top: 1px dashed var(--line-dim);
-}
-
-.cell-no { color: var(--amber-dim); }
-.cell-status {
-  text-align: right;
-  letter-spacing: 0.1em;
-}
-.cell-status--ontime { color: var(--amber); text-shadow: 0 0 6px var(--amber-glow); }
-.cell-status--tracking { color: #ffd27a; }
-.cell-status--done { color: var(--amber-dim); }
-
-.blink {
-  animation: blink-anim 1.2s steps(1) infinite;
-}
-
-@keyframes blink-anim {
-  50% { opacity: 0.15; }
-}
-
-.board-ticker {
-  margin-top: 16px;
-  border-top: 2px solid var(--amber-dim);
-  border-bottom: 2px solid var(--amber-dim);
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 8px 0;
-}
-
-.board-ticker-track {
-  display: inline-block;
-  padding-left: 100%;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  animation: ticker-scroll 22s linear infinite;
-}
-
-@keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-.board-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  color: var(--amber-dim);
-  padding: 10px 4px 4px;
-  letter-spacing: 0.05em;
-}
-
-@media (max-width: 600px) {
-  .board-columns,
-  .board-row {
-    grid-template-columns: 50px 90px 1fr 80px;
-    font-size: 0.85rem;
-  }
-  .board-title-zh { font-size: 1.2rem; }
+@media (max-width: 560px) {
+  .brief { padding: 28px 16px 44px; }
+  .masthead-title { font-size: 32px; }
+  .reading-item { grid-template-columns: 1fr; }
+  .reading-thumb { width: 100%; height: 160px; order: -1; }
+  .closing-block { margin-left: -16px; margin-right: -16px; }
 }

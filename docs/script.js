@@ -54,11 +54,198 @@ function renderNav(dates, currentDate) {
   latestBtn.onclick = () => setRequestedDate(null);
 }
 
+const WEEKDAYS = ["日", "一", "二", "三", "四", "五", "六"];
+
+function formatDateline(dateStr) {
+  const d = new Date(`${dateStr}T00:00:00`);
+  if (Number.isNaN(d.getTime())) return dateStr;
+  return `${d.getFullYear()} 年 ${d.getMonth() + 1} 月 ${d.getDate()} 日 星期${WEEKDAYS[d.getDay()]}`;
+}
+
+function show(el) {
+  el.hidden = false;
+}
+function hide(el) {
+  el.hidden = true;
+}
+
+function renderSchedule(data) {
+  const section = document.getElementById("section-schedule");
+  const list = document.getElementById("schedule-list");
+  const fallback = document.getElementById("schedule-note");
+
+  const schedule = Array.isArray(data.schedule) ? data.schedule : [];
+  if (schedule.length) {
+    list.innerHTML = schedule
+      .map(
+        (ev) => `
+      <div class="schedule-row">
+        <span class="schedule-time${ev.highlight ? " is-highlight" : ""}">${escapeHtml(ev.time || "")}</span>
+        <div>
+          <div class="schedule-title">${escapeHtml(ev.title || "")}</div>
+          <div class="schedule-meta">${escapeHtml(ev.meta || "")}</div>
+        </div>
+      </div>`
+      )
+      .join("");
+    hide(fallback);
+    show(section);
+    return;
+  }
+
+  if (data.schedule_summary) {
+    list.innerHTML = `<p class="schedule-fallback">${escapeHtml(data.schedule_summary)}</p>`;
+    hide(fallback);
+    show(section);
+    return;
+  }
+
+  hide(section);
+}
+
+function renderTodoSection(sectionId, listId, todos) {
+  const section = document.getElementById(sectionId);
+  const list = document.getElementById(listId);
+  if (!Array.isArray(todos) || !todos.length) {
+    hide(section);
+    return;
+  }
+  list.innerHTML = todos
+    .map(
+      (label) => `
+    <div class="todo-row">
+      <span class="todo-mark">□</span>
+      <span class="todo-label">${escapeHtml(label)}</span>
+    </div>`
+    )
+    .join("");
+  show(section);
+}
+
+function renderInbox(data) {
+  const section = document.getElementById("section-inbox");
+  const list = document.getElementById("inbox-list");
+  const inbox = Array.isArray(data.inbox) ? data.inbox : [];
+  if (!inbox.length) {
+    hide(section);
+    return;
+  }
+  list.innerHTML = inbox
+    .map(
+      (m) => `
+    <div class="inbox-item">
+      <div class="inbox-head">
+        <span class="inbox-from">${escapeHtml(m.from || "")}</span>
+        <span class="inbox-when">${escapeHtml(m.when || "")}</span>
+      </div>
+      <div class="inbox-text">${escapeHtml(m.text || "")}</div>
+    </div>`
+    )
+    .join("");
+  show(section);
+}
+
+function renderReading(data) {
+  const section = document.getElementById("section-reading");
+  const list = document.getElementById("reading-list");
+  const items = Array.isArray(data.recommendations) ? data.recommendations : [];
+
+  if (!items.length) {
+    hide(section);
+    return;
+  }
+
+  const isRich = typeof items[0] === "object" && items[0] !== null;
+
+  if (!isRich) {
+    list.innerHTML = items.map((text) => `<p class="reading-simple">${escapeHtml(text)}</p>`).join("");
+    show(section);
+    return;
+  }
+
+  list.innerHTML = items
+    .map((item, i) => {
+      const id = item.id || `r${i}`;
+      const thumb = item.thumbnail
+        ? `<img src="${escapeHtml(item.thumbnail)}" alt="" loading="lazy" />`
+        : `<span class="reading-thumb-placeholder">縮圖</span>`;
+      return `
+      <div class="reading-item">
+        <div class="reading-main">
+          <div class="reading-head">
+            <span class="tag tag-accent reading-tag">${escapeHtml(item.source || "")}</span>
+            <span class="reading-meta">${escapeHtml(item.meta || "")}</span>
+          </div>
+          <div class="reading-title">${escapeHtml(item.title || "")}</div>
+          <p class="reading-lede">${escapeHtml(item.lede || "")}</p>
+          ${item.body ? `<p class="reading-body" data-body="${id}" hidden>${escapeHtml(item.body)}</p>` : ""}
+          ${
+            item.body
+              ? `<button type="button" class="reading-toggle" data-toggle="${id}">讀完整摘要 ↓</button>`
+              : ""
+          }
+        </div>
+        <a class="reading-thumb halftone" href="${escapeHtml(item.url || "#")}" target="_blank" rel="noopener">${thumb}</a>
+      </div>`;
+    })
+    .join("");
+
+  // 手風琴：一次只展開一則，預設展開第一則
+  let openId = items[0] && (items[0].id || "r0");
+  const applyOpenState = () => {
+    list.querySelectorAll("[data-body]").forEach((el) => {
+      el.hidden = el.dataset.body !== openId;
+    });
+    list.querySelectorAll("[data-toggle]").forEach((btn) => {
+      btn.textContent = btn.dataset.toggle === openId ? "收起 ↑" : "讀完整摘要 ↓";
+    });
+  };
+  list.querySelectorAll("[data-toggle]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openId = openId === btn.dataset.toggle ? null : btn.dataset.toggle;
+      applyOpenState();
+    });
+  });
+  applyOpenState();
+
+  show(section);
+}
+
+function renderStats(data) {
+  const section = document.getElementById("section-stats");
+  const row = document.getElementById("stats-row");
+  const note = document.getElementById("stats-note");
+
+  const stats = Array.isArray(data.stats) ? data.stats : [];
+  const highlights = Array.isArray(data.habit_highlights) ? data.habit_highlights : [];
+
+  if (!stats.length && !highlights.length) {
+    hide(section);
+    return;
+  }
+
+  row.innerHTML = stats
+    .map(
+      (s) => `
+    <div>
+      <div class="stat-value tone-${escapeHtml(s.tone || "plain")}">${escapeHtml(s.value)}</div>
+      <div class="stat-label">${escapeHtml(s.label)}</div>
+    </div>`
+    )
+    .join("");
+
+  note.innerHTML = highlights.map((h) => `<p>${escapeHtml(h)}</p>`).join("");
+
+  show(section);
+}
+
 async function loadReport() {
-  const dateEl = document.getElementById("board-date");
-  const tableBody = document.querySelector("#board-table tbody");
-  const tickerTrack = document.getElementById("ticker-track");
-  const lastUpdated = document.getElementById("last-updated");
+  const dateEl = document.getElementById("dateline-date");
+  const issueEl = document.getElementById("dateline-issue");
+  const greetingEl = document.getElementById("greeting");
+  const greetingSubEl = document.getElementById("greeting-sub");
+  const closingSection = document.getElementById("section-closing");
+  const closingTextEl = document.getElementById("closing-text");
 
   const requestedDate = getRequestedDate();
   const dataFile = requestedDate ? `data/${requestedDate}.json` : "data/latest.json";
@@ -78,90 +265,39 @@ async function loadReport() {
   }
 
   if (!data) {
-    tableBody.innerHTML = `
-      <tr class="board-row">
-        <td colspan="4">尚未有這天的晨報資料 NO DATA</td>
-      </tr>`;
-    tickerTrack.textContent = "找不到這天的晨報內容。";
+    greetingEl.textContent = "尚未有這天的晨報資料。";
     return;
   }
 
-  dateEl.textContent = data.date || "----/--/--";
-
-  const rows = [];
-  let no = 1;
-
-  rows.push({
-    no: no++,
-    item: "問候 GREETING",
-    content: data.greeting || "",
-    status: "準時 ON TIME",
-    statusClass: "cell-status--ontime",
-  });
-
-  rows.push({
-    no: no++,
-    item: "今日行程 SCHEDULE",
-    content: data.schedule_summary || "",
-    status: "準時 ON TIME",
-    statusClass: "cell-status--ontime",
-  });
-
-  (data.habit_highlights || []).forEach((h) => {
-    rows.push({
-      no: no++,
-      item: "自我提升 TRACKING",
-      content: h,
-      status: "追蹤中 TRACKING",
-      statusClass: "cell-status--tracking",
-    });
-  });
-
-  if (data.links_highlight) {
-    rows.push({
-      no: no++,
-      item: "收藏連結 LINKS",
-      content: data.links_highlight,
-      status: "待閱讀 UNREAD",
-      statusClass: "cell-status--tracking",
-    });
+  dateEl.textContent = formatDateline(data.date);
+  if (data.issue_no) {
+    issueEl.textContent = `第 ${data.issue_no} 期`;
+    show(issueEl);
+  } else {
+    hide(issueEl);
   }
 
-  (data.recommendations || []).forEach((r) => {
-    rows.push({
-      no: no++,
-      item: "推薦 RECOMMENDED",
-      content: r,
-      status: "新內容 NEW",
-      statusClass: "cell-status--ontime",
-    });
-  });
+  greetingEl.textContent = data.greeting || "";
+  if (data.greeting_sub) {
+    greetingSubEl.textContent = data.greeting_sub;
+    show(greetingSubEl);
+  } else {
+    hide(greetingSubEl);
+  }
+
+  renderSchedule(data);
+  renderTodoSection("section-todo-today", "todo-today-list", data.todos);
+  renderTodoSection("section-todo-longterm", "todo-longterm-list", data.todos_longterm);
+  renderInbox(data);
+  renderReading(data);
+  renderStats(data);
 
   if (data.closing_note) {
-    rows.push({
-      no: no++,
-      item: "收尾 CLOSING",
-      content: data.closing_note,
-      status: "完成 DONE",
-      statusClass: "cell-status--done",
-    });
+    closingTextEl.textContent = data.closing_note;
+    show(closingSection);
+  } else {
+    hide(closingSection);
   }
-
-  tableBody.innerHTML = rows
-    .map(
-      (r) => `
-    <tr class="board-row">
-      <td class="cell-no">${String(r.no).padStart(2, "0")}</td>
-      <td>${escapeHtml(r.item)}</td>
-      <td>${escapeHtml(r.content)}</td>
-      <td class="cell-status ${r.statusClass}">${escapeHtml(r.status)}</td>
-    </tr>`
-    )
-    .join("");
-
-  tickerTrack.textContent = data.ticker_message || "今天沒有推播內容。";
-
-  lastUpdated.textContent = `最後更新 LAST UPDATED: ${data.date || "--"}`;
 }
 
 loadReport();

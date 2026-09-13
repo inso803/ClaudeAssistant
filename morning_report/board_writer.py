@@ -40,6 +40,22 @@ def _prune_old_entries(dates: list[str], today: date_cls) -> list[str]:
     return kept
 
 
+def next_issue_no(today: date_cls) -> int:
+    """報頭的「第 N 期」，跨過 30 天歷史清除也不會倒退——單獨存一個持續累加的計數器，
+    不是算 manifest.json 裡還剩幾天。同一天重複執行（例如手動重跑測試）不會重複累加。"""
+    if config.ISSUE_COUNTER_PATH.exists():
+        state = json.loads(config.ISSUE_COUNTER_PATH.read_text(encoding="utf-8"))
+    else:
+        state = {"date": "", "count": 0}
+
+    if state.get("date") != today.isoformat():
+        state = {"date": today.isoformat(), "count": state.get("count", 0) + 1}
+        config.STATE_DIR.mkdir(parents=True, exist_ok=True)
+        config.ISSUE_COUNTER_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    return state["count"]
+
+
 def write_report(today: date_cls, report_dict: dict) -> None:
     config.DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
     today_str = today.isoformat()

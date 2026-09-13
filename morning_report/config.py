@@ -26,6 +26,7 @@ INTERESTS_MD_PATH = MEMORY_DIR / "interests.md"
 STATE_DIR = Path(__file__).resolve().parent / "state"
 HABIT_STATE_PATH = STATE_DIR / "habit_state.json"
 INTERESTS_STATE_PATH = STATE_DIR / "interests_state.json"
+ISSUE_COUNTER_PATH = STATE_DIR / "issue_counter.json"
 
 DOCS_DIR = REPO_ROOT / "docs"
 DOCS_DATA_DIR = DOCS_DIR / "data"
@@ -50,8 +51,11 @@ GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 PAGES_BASE_URL = os.environ.get("PAGES_BASE_URL", "https://inso803.github.io/ClaudeAssistant/")
 
 DISCORD_BOT_TOKEN = os.environ.get("DISCORD_BOT_TOKEN", "")
+# ver3：這個頻道原本是「今日行程」來源，現在改成「今日待辦」（一則訊息＝一項，刪掉訊息＝完成）
 DISCORD_CALENDAR_CHANNEL_ID = os.environ.get("DISCORD_CALENDAR_CHANNEL_ID", "")
 DISCORD_INTERESTING_LINKS_CHANNEL_ID = os.environ.get("DISCORD_INTERESTING_LINKS_CHANNEL_ID", "")
+# 長期待辦頻道，同樣邏輯（訊息存在＝待辦中，使用者刪掉訊息＝完成）。還沒設定時這個功能自動跳過
+DISCORD_LONGTERM_TODO_CHANNEL_ID = os.environ.get("DISCORD_LONGTERM_TODO_CHANNEL_ID", "")
 
 # ver2：晨報改成推「今天的網頁連結」到這個頻道（取代原本的 LINE 推播）。
 # 預設值就是使用者指定的頻道 ID，可用環境變數覆蓋。
