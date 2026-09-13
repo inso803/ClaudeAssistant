@@ -1,40 +1,48 @@
 {
   "date": "2026-09-14",
   "issue_no": 1,
-  "greeting": "早安，開學後第一個禮拜一，收心上工吧。",
-  "greeting_sub": "手上還有搬宿舍跟系學會的尾巴要收，今天抓個空檔處理掉會輕鬆一點。",
+  "greeting": "早安！新的一天，先看一下今天要處理的事情。",
+  "greeting_sub": "台北今天毛毛雨，25-30°C，降雨機率 71%，出門記得帶傘。",
+  "weather": {
+    "city": "台北",
+    "summary": "毛毛雨",
+    "low": 25,
+    "high": 30,
+    "rain_pct": 71
+  },
+  "schedule": [],
   "todos": [
     "8/10晚上10.開系學會會",
     "8/13三驗\n8/14搬宿舍 吃慶功"
   ],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "收藏清單裡還有 2 篇連結沒看，有空可以滑一下。",
+  "links_highlight": "存起來的連結還有 2 篇沒看，找空檔滑一下吧。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代報導",
+      "meta": "數位時代整理報導",
       "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - 數位時代",
-      "lede": "把 Claude 免費版、Pro、Max 的差異整理成一篇，價格跟功能一次看完。",
-      "body": "你平常就會用 AI 工具輔助寫程式、抓重點，這篇拿來對照一下現在用的方案划不划算應該蠻實用。",
+      "lede": "如果最近在想要不要升級 Claude 方案，這篇把免費版、Pro、Max 的差異整理得蠻清楚。",
+      "body": "你平常寫程式常靠 AI 輔助，這種方案比較蠻實用，可以評估要不要解鎖更高用量。",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "hao.cnyes.com 報導",
-      "title": "全網瘋傳的Clawdbot，是下一個ChatGPT？ - hao.cnyes.com",
-      "lede": "Clawdbot 最近在全網被討論得很兇，有人在問它是不是下一個 ChatGPT。",
+      "meta": "鉅亨號報導",
+      "title": "全網瘋傳的Clawdbot，是下一個ChatGPT？ - 鉅亨號",
+      "lede": "「Clawdbot」最近討論度很高，這篇在問它是不是下一個現象級 AI 應用。",
       "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9iT3dqdUxpUk93d3M4R2ZmR3dJZmpjNTNoa1NReXJiU1VVbkY5RkZqUkZNQTU4eDMtVGFjS3lUQkNERjE3OFhWcA?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代影音報導",
+      "meta": "數位時代影片教學",
       "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "一支影片講 Vibe Coding 是什麼，配 3 款工具跟 6 步驟教學。",
-      "body": "你正在累積 Python 跟演算法的實作經驗，這種靠 AI 輔助寫程式的流派可以當作額外的參考角度。",
+      "lede": "介紹 Vibe Coding 概念，用 AI 工具搭配 6 個步驟帶新手做出東西。",
+      "body": "你正在累積實作經驗，這種 AI 輔助開發流程可以參考看看，跟自己現在的做法互相補強。",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
     }
   ],
@@ -50,6 +58,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "今天先把手邊的事收尾，剩下的明天再說。",
-  "ticker_message": "9/14 禮拜一：收尾搬宿舍與系學會雜事，收藏清單還有 2 篇待讀，加碼 Claude 收費比較、Clawdbot 熱議、Vibe Coding 教學影片三則新聞。"
+  "closing_note": "先把今天的事情處理完，其他慢慢看，加油！",
+  "ticker_message": "台北今日毛毛雨 25-30°C、降雨機率 71%，2 項待辦要處理，3 則科技新聞（Claude 收費、Clawdbot 熱議、Vibe Coding 教學）加上 2 篇存起來的連結還沒看。"
 }
