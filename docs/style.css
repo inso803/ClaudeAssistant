@@ -224,7 +224,7 @@ body {
 .reading-lede,
 .reading-body {
   margin: 8px 0 0;
-  font: 400 17px/1.75 "Source Serif 4", "Noto Serif TC", serif;
+  font: 400 15px/1.65 "Source Serif 4", "Noto Serif TC", serif;
   color: var(--color-neutral-800);
   text-wrap: pretty;
 }
