@@ -93,9 +93,7 @@ python -m morning_report.apply_content
 執行後可以打開 `docs/index.html`（或用任何本機伺服器，例如 `python -m http.server` 在
 `docs/` 資料夾下執行，直接用 `file://` 開會因為 fetch 本機 json 而失敗）看看看板頁面。
 
-## 目前狀態（2026-09-13，morning-brief-ver2 分支，第三輪：Broadsheet 視覺改版 + 待辦清單）
-
-這輪還在 `morning-brief-ver2` 分支上，**還沒 merge 回 main**，等使用者看過改動摘要再決定。
+## 目前狀態（2026-09-14，第三輪：Broadsheet 視覺改版 + 待辦清單，已 merge 進 main）
 
 - ✅ **視覺全面改版**：套用 `design_handoff_morning_brief/README.md` 的 Broadsheet 規格
   （報紙風、Source Serif 4 + Noto Serif TC 襯線字、青/洋紅特別色）取代原本的發車看板風格。
@@ -122,13 +120,14 @@ python -m morning_report.apply_content
 - ✅ 本機測試過 `collect_report_request.py`（真的抓到 Discord 待辦、真的搜到 3 則相關新聞）、
   用 Artifact 預覽驗證過新版面的新舊格式渲染邏輯（人工追蹤程式碼路徑，沒有真的瀏覽器截圖
   ——這個環境沒有可用的 headless browser）
-- ⚠️ **還沒做**：
-  - 排程的 Claude Code routine（`trig_01CXDoT2FHTgZyqLu9H8RJQ2`）的 prompt 還是舊版邏輯
-    （寫 `schedule_summary`、`recommendations` 字串陣列），**merge 回 main 前必須先更新
-    routine 的 prompt**，否則明天排程跑起來 routine 寫的內容跟新版 `apply_content.py` 期待
-    的欄位對不上。新 prompt 內容已經想好，等 merge 時一起做
-  - 使用者還沒提供長期待辦頻道的 ID
-  - `DISCORD_LONGTERM_TODO_CHANNEL_ID` 需要設進 GitHub repo 的 Secrets
+- ✅ **已 merge 回 main**，並同步更新了排程的 Claude Code routine（`trig_01CXDoT2FHTgZyqLu9H8RJQ2`）
+  的 prompt，改成寫新版 schema（物件陣列的 `recommendations`、`greeting_sub`，不再碰
+  `todos`/`stats`/`issue_no`，那些由 `apply_content.py` 自己算/帶入）
+- ✅ **端對端在正式環境測試成功一輪**（2026-09-14）：GitHub Actions 抓到真的 Discord 待辦 →
+  routine 寫出真的內容（包含 3 則有 lede/body 的推薦、`issue_no: 1`）→ push 回 main →
+  自動推播 Discord 連結，全部真實跑通，看板也顯示正確
+- ⏳ **還沒做**：使用者還沒提供長期待辦頻道的 ID（`DISCORD_LONGTERM_TODO_CHANNEL_ID`，設進
+  GitHub repo 的 Secrets 後這個功能就會開始運作，之前不影響其他部分）
 
 ## 舊狀態記錄（2026-09-13，兩段接力 + Claude Code routine）
 
@@ -209,21 +208,15 @@ Groq，用的是使用者的 Claude Code 訂閱用量，不是計費 API。過�
 1. **提供長期待辦 Discord 頻道的 ID**，設進 repo Secrets：`DISCORD_LONGTERM_TODO_CHANNEL_ID`
    （開發者模式下對頻道按右鍵「複製頻道 ID」）。沒設定的話這個功能會自動跳過，不影響其他部分。
 
-2. **merge 這個分支前，記得先更新 Claude Code routine 的 prompt**（`trig_01CXDoT2FHTgZyqLu9H8RJQ2`，
-   在 https://claude.ai/code/routines 管理）：目前 routine 還在用舊版邏輯寫
-   `schedule_summary`／字串陣列的 `recommendations`，跟這輪改完的 `apply_content.py`
-   期待的新欄位（`greeting_sub`、物件陣列的 `recommendations` 等）對不上。這件事我會在
-   merge 的時候一起做，這裡先記著。
-
-3. **（可選）申請 Brave Search API key**：到 [brave.com/search/api](https://brave.com/search/api/)
+2. **（可選）申請 Brave Search API key**：到 [brave.com/search/api](https://brave.com/search/api/)
    註冊、選 Free tier（每月 2000 次查詢免費），設進 repo Secrets：`BRAVE_SEARCH_API_KEY`
 
-4. **（可選）申請 YouTube Data API key**：Google Cloud Console 建專案 → 啟用
+3. **（可選）申請 YouTube Data API key**：Google Cloud Console 建專案 → 啟用
    「YouTube Data API v3」→ 建立 API 金鑰，設進 repo Secrets：`YOUTUBE_API_KEY`
 
-5. **（可選，效果可能有限）申請 Eventbrite Personal OAuth Token**：Eventbrite 已經停用第三方
+4. **（可選，效果可能有限）申請 Eventbrite Personal OAuth Token**：Eventbrite 已經停用第三方
    公開活動搜尋，申請了也可能一直查不到結果，優先度最低。設進 repo Secrets：
    `EVENTBRITE_API_TOKEN`
 
-6. 繼續在 Discord 的 `calendar`（今日待辦）／長期待辦／`interesting-links` 頻道貼東西，
+5. 繼續在 Discord 的 `calendar`（今日待辦）／長期待辦／`interesting-links` 頻道貼東西，
    晨報才有真的素材可以講；`calendar` 頻道現在放的是待辦事項，不是行程了。
