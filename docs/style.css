@@ -210,9 +210,16 @@ body {
   color: var(--color-neutral-700);
 }
 .reading-title {
+  display: block;
   font: 600 22px/1.45 "Source Serif 4", "Noto Serif TC", serif;
   margin-top: 10px;
   text-wrap: pretty;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.reading-title:hover {
+  color: var(--color-accent-700);
+  text-decoration: underline;
 }
 .reading-lede,
 .reading-body {
@@ -222,13 +229,15 @@ body {
   text-wrap: pretty;
 }
 .reading-body { margin-top: 12px; }
-.reading-toggle {
+.reading-source-link {
+  display: inline-block;
   font: 400 15px/1 "Source Serif 4", "Noto Serif TC", serif;
   color: var(--color-accent-700);
-  background: none;
-  border: none;
-  padding: 10px 0 0;
-  cursor: pointer;
+  text-decoration: none;
+  padding-top: 10px;
+}
+.reading-source-link:hover {
+  text-decoration: underline;
 }
 .reading-thumb {
   width: 156px;

@@ -176,8 +176,8 @@ function renderReading(data) {
   }
 
   list.innerHTML = items
-    .map((item, i) => {
-      const id = item.id || `r${i}`;
+    .map((item) => {
+      const url = item.url || "#";
       const thumb = item.thumbnail
         ? `<img src="${escapeHtml(item.thumbnail)}" alt="" loading="lazy" />`
         : `<span class="reading-thumb-placeholder">縮圖</span>`;
@@ -188,37 +188,15 @@ function renderReading(data) {
             <span class="tag tag-accent reading-tag">${escapeHtml(item.source || "")}</span>
             <span class="reading-meta">${escapeHtml(item.meta || "")}</span>
           </div>
-          <div class="reading-title">${escapeHtml(item.title || "")}</div>
+          <a class="reading-title" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(item.title || "")}</a>
           <p class="reading-lede">${escapeHtml(item.lede || "")}</p>
-          ${item.body ? `<p class="reading-body" data-body="${id}" hidden>${escapeHtml(item.body)}</p>` : ""}
-          ${
-            item.body
-              ? `<button type="button" class="reading-toggle" data-toggle="${id}">讀完整摘要 ↓</button>`
-              : ""
-          }
+          ${item.body ? `<p class="reading-body">${escapeHtml(item.body)}</p>` : ""}
+          <a class="reading-source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">閱讀原文 ↗</a>
         </div>
-        <a class="reading-thumb halftone" href="${escapeHtml(item.url || "#")}" target="_blank" rel="noopener">${thumb}</a>
+        <a class="reading-thumb halftone" href="${escapeHtml(url)}" target="_blank" rel="noopener">${thumb}</a>
       </div>`;
     })
     .join("");
-
-  // 手風琴：一次只展開一則，預設展開第一則
-  let openId = items[0] && (items[0].id || "r0");
-  const applyOpenState = () => {
-    list.querySelectorAll("[data-body]").forEach((el) => {
-      el.hidden = el.dataset.body !== openId;
-    });
-    list.querySelectorAll("[data-toggle]").forEach((btn) => {
-      btn.textContent = btn.dataset.toggle === openId ? "收起 ↑" : "讀完整摘要 ↓";
-    });
-  };
-  list.querySelectorAll("[data-toggle]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      openId = openId === btn.dataset.toggle ? null : btn.dataset.toggle;
-      applyOpenState();
-    });
-  });
-  applyOpenState();
 
   show(section);
 }
