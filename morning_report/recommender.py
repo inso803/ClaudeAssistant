@@ -1,10 +1,12 @@
 """根據使用者的興趣收藏清單，找類似的新內容做推薦。
 
-流程：先用 Groq 把累積的興趣清單濃縮成幾個搜尋關鍵字，再用 Brave Search API 查真的網路內容，
+流程：先用 Groq 把累積的興趣清單濃縮成幾個搜尋關鍵字，再拿這些關鍵字去查多個內容來源
+（Brave Search、Hacker News、Google 新聞、YouTube、Devpost、Eventbrite），彙整、去重複後
 回傳原始搜尋結果——最終要怎麼寫成推薦文字，交給 content_generator.py 的主要生成流程處理，
 這裡只負責「找資料」，不負責「寫文案」。
 
-沒有設定 BRAVE_SEARCH_API_KEY、或興趣清單是空的、或 DRY_RUN 時，直接回傳空清單，
+每個來源都各自處理自己缺 API key／查詢失敗的情況（直接回傳空清單），只要有任何一個來源
+可用，這裡就能正常運作；全部都不可用時，get_recommendation_search_results 直接回傳空清單，
 不影響晨報其他部分。
 """
 
@@ -15,9 +17,13 @@ import json
 import requests
 
 from . import config
+from .sources import devpost_source, eventbrite_source, google_news_source, hn_source, youtube_source
 
 BRAVE_SEARCH_URL = "https://api.search.brave.com/res/v1/web/search"
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+
+MAX_RESULTS_PER_SOURCE = 3
+MAX_TOTAL_RESULTS = 12
 
 QUERY_SYSTEM_PROMPT = """根據使用者過去收藏的興趣清單，找出 1 到 3 個簡短的網路搜尋關鍵字，
 用來搜尋「使用者可能也會喜歡的類似新內容」，不要只是重複他已經收藏過的原始連結或字句，
@@ -56,7 +62,9 @@ def _derive_search_queries(interests: list[str]) -> list[str]:
         return []
 
 
-def _search_brave(query: str, count: int = 3) -> list[dict]:
+def _search_brave(query: str, count: int = MAX_RESULTS_PER_SOURCE) -> list[dict]:
+    if not config.BRAVE_SEARCH_API_KEY:
+        return []
     try:
         response = requests.get(
             BRAVE_SEARCH_URL,
@@ -74,6 +82,7 @@ def _search_brave(query: str, count: int = 3) -> list[dict]:
                 "title": r.get("title", ""),
                 "url": r.get("url", ""),
                 "description": r.get("description", ""),
+                "source": "Brave Search",
             }
             for r in results
         ]
@@ -82,9 +91,22 @@ def _search_brave(query: str, count: int = 3) -> list[dict]:
         return []
 
 
+# 每個來源都是 (query: str, count: int) -> list[dict{title,url,description,source}]，
+# 缺 API key 或查詢失敗時各自回傳空清單，之後要加新來源只需要在這裡註冊一行。
+SOURCE_SEARCHERS = [
+    _search_brave,
+    hn_source.search,
+    google_news_source.search,
+    youtube_source.search,
+    devpost_source.search,
+    eventbrite_source.search,
+]
+
+
 def get_recommendation_search_results(interests: list[str]) -> list[dict]:
-    """回傳原始搜尋結果（title/url/description）給 content_generator 消化整理。"""
-    if not config.BRAVE_SEARCH_API_KEY or not interests:
+    """回傳多來源彙整後的原始搜尋結果（title/url/description/source），
+    交給 content_generator 消化整理成推薦文字。"""
+    if not interests:
         return []
 
     queries = _derive_search_queries(interests)
@@ -94,9 +116,11 @@ def get_recommendation_search_results(interests: list[str]) -> list[dict]:
     seen_urls: set[str] = set()
     all_results: list[dict] = []
     for query in queries:
-        for result in _search_brave(query):
-            if result["url"] and result["url"] not in seen_urls:
-                seen_urls.add(result["url"])
-                all_results.append(result)
+        for searcher in SOURCE_SEARCHERS:
+            for result in searcher(query, MAX_RESULTS_PER_SOURCE):
+                url = result.get("url")
+                if url and url not in seen_urls:
+                    seen_urls.add(url)
+                    all_results.append(result)
 
-    return all_results[:6]
+    return all_results[:MAX_TOTAL_RESULTS]
