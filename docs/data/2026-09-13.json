@@ -1,15 +1,14 @@
 {
   "date": "2026-09-13",
-  "greeting": "早安,今天六日開始把兩段接力的晨報系統換上線,這則內容就是第一次由 Claude 直接寫的。",
-  "schedule_summary": "今天沒有登記行程,樂得輕鬆",
-  "habit_highlights": [
-    "目前還沒有正在追蹤的自我提升項目,可以先從 profile 裡列的睡眠優化、時間管理挑一項開始"
-  ],
-  "links_highlight": "收藏清單累積到 2 則還沒看",
+  "greeting": "早安！今天是 9/13（日），可以喘口氣的一天。",
+  "schedule_summary": "今天沒有排定的行程，整天是空的，可以自己安排休息或想做的事。",
+  "habit_highlights": [],
+  "links_highlight": "收藏清單裡還有 2 筆連結沒看，有空可以滑一下。",
   "recommendations": [
-    "來源:Google 新聞/《2026最新Claude收費方案|免費版、Pro、Max差在哪?》/剛好搭配你在弄的晨報系統,對照一下方案划算度/https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5",
-    "來源:Google 新聞/《Vibe Coding是什麼?3款好用AI工具+6步驟教學》/跟你台大資工背景很搭,值得瀏覽一下/https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    "Google News｜2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看：你平常有在用 Claude，這篇把各方案差異整理得蠻清楚，之後想不想升級可以參考一下。連結：https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5",
+    "Google News｜影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！：跟你現在正在累積的實作經驗蠻搭的，看看別人怎麼用 AI 工具輔助寫程式應該會有收穫。連結：https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5",
+    "Google News｜編碼問題解決後會發生什麼？ | Fiona Fung (Claude Code & Cowork)｜Lenny's Podcast：這集在聊 Claude Code 團隊對「AI 寫完程式之後」的思考，跟你平常用 AI 工具開發的情境蠻有關聯的。連結：https://news.google.com/rss/articles/CBMiY0FVX3lxTFAwcXo4ZHdvYzd0d3JlVTd0dkJvWk91Y0lSZEZPbF9ITFl3bDFpWUppY19maWxpOEN2SV84R19IQndRYV8zTlpmdGV2LS13T094bWU1Si1fcHVqOWJ3dWFCbWdtZw?oc=5"
   ],
-  "closing_note": "兩段接力版第一次上線,之後每天都會是這樣由 Claude 直接寫內容,不再靠 Groq。",
-  "ticker_message": "兩段接力版上線測試｜今天沒有行程｜收藏 2 則未看｜2 則新內容推薦"
+  "closing_note": "行程空著就好好休息，晚點想做什麼再說～",
+  "ticker_message": "9/13（日）今天行程全空 ｜ 收藏清單有 2 筆未讀連結 ｜ 幫你挑了 3 則跟 Claude / AI 工具相關的新聞，好好放鬆的一天！"
 }
