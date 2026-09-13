@@ -25,12 +25,13 @@ jobs:
       - name: Generate report and send Discord push
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL }}
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_CALENDAR_CHANNEL_ID: ${{ secrets.DISCORD_CALENDAR_CHANNEL_ID }}
           DISCORD_INTERESTING_LINKS_CHANNEL_ID: ${{ secrets.DISCORD_INTERESTING_LINKS_CHANNEL_ID }}
-          # 頻道 ID 不是敏感資訊，預設值寫死在 config.py 裡；不特別在這裡注入，
-          # 避免 GitHub Actions 對「未設定的 secret」注入空字串蓋掉 config.py 的預設值
+          # 看板網址／推播頻道 ID 都不是敏感資訊，預設值寫死在 config.py 裡；不特別在這裡注入，
+          # 避免 GitHub Actions 對「未設定的 secret／variable」注入空字串蓋掉 config.py 的預設值
+          # （PAGES_BASE_URL 曾經叫 GITHUB_PAGES_URL，但 Actions 不允許自訂變數用 GITHUB_ 開頭，
+          # 導致 vars.GITHUB_PAGES_URL 從來沒有真的生效過，推播出去的連結其實是壞的，已修正）
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           EVENTBRITE_API_TOKEN: ${{ secrets.EVENTBRITE_API_TOKEN }}

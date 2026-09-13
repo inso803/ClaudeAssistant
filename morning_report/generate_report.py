@@ -25,8 +25,8 @@ TAIPEI_TZ = timezone(timedelta(hours=8))
 
 
 def _build_report_url(today: date) -> str:
-    base = config.GITHUB_PAGES_URL.rstrip("/")
-    return f"{base}/?date={today.isoformat()}" if base else f"?date={today.isoformat()}"
+    base = config.PAGES_BASE_URL.rstrip("/")
+    return f"{base}/?date={today.isoformat()}"
 
 
 def main() -> None:

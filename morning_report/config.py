@@ -36,7 +36,9 @@ REPORT_HISTORY_RETENTION_DAYS = 30
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
 
-GITHUB_PAGES_URL = os.environ.get("GITHUB_PAGES_URL", "")
+# GitHub Actions 不允許自訂變數名稱以 GITHUB_ 開頭（會被拒絕），所以這裡改叫 PAGES_BASE_URL；
+# 這個網址不是敏感資訊，預設值直接寫死，可用環境變數覆蓋
+PAGES_BASE_URL = os.environ.get("PAGES_BASE_URL", "https://inso803.github.io/ClaudeAssistant/")
 
 DISCORD_BOT_TOKEN = os.environ.get("DISCORD_BOT_TOKEN", "")
 DISCORD_CALENDAR_CHANNEL_ID = os.environ.get("DISCORD_CALENDAR_CHANNEL_ID", "")
