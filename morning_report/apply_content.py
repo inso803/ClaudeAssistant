@@ -3,8 +3,8 @@
 Routine 自己（用 Claude 寫作，不呼叫任何 API）已經把今天的文案寫進
 morning_report/state/draft_content.json（greeting／greeting_sub／habit_highlights／
 links_highlight／recommendations／closing_note／ticker_message），這支腳本負責：
-- 待辦清單（today_todos／longterm_todos）直接從 pending_request.json 帶過來，routine 不用碰，
-  也不會被它的文字潤飾影響
+- 待辦清單（today_todos／longterm_todos）、行程（schedule）、天氣（weather）都直接從
+  pending_request.json 帶過來，routine 不用碰，也不會被它的文字潤飾影響
 - 「昨天的你」數字（stats）用現有資料算，不是 AI 寫的
 - 把兩邊合併、寫進看板資料（含歷史紀錄、期數），更新習慣追蹤，最後 commit + push
 
@@ -62,6 +62,8 @@ def main() -> None:
         issue_no=next_issue_no(today),
         greeting=draft.get("greeting", ""),
         greeting_sub=draft.get("greeting_sub", ""),
+        weather=pending.get("weather"),
+        schedule=pending.get("schedule", []),
         todos=pending.get("today_todos", []),
         todos_longterm=pending.get("longterm_todos", []),
         habit_highlights=draft.get("habit_highlights", []),

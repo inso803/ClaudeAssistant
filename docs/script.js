@@ -69,6 +69,18 @@ function hide(el) {
   el.hidden = true;
 }
 
+function renderWeather(data) {
+  const el = document.getElementById("dateline-weather");
+  const textEl = document.getElementById("dateline-weather-text");
+  const w = data.weather;
+  if (!w || !w.city) {
+    hide(el);
+    return;
+  }
+  textEl.textContent = `${w.city}　${w.summary}　${w.low}–${w.high}°　降雨 ${w.rain_pct}%`;
+  show(el);
+}
+
 function renderSchedule(data) {
   const section = document.getElementById("section-schedule");
   const list = document.getElementById("schedule-list");
@@ -285,6 +297,7 @@ async function loadReport() {
     hide(greetingSubEl);
   }
 
+  renderWeather(data);
   renderSchedule(data);
   renderTodoSection("section-todo-today", "todo-today-list", data.todos);
   renderTodoSection("section-todo-longterm", "todo-longterm-list", data.todos_longterm);

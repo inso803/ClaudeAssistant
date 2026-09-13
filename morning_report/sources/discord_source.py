@@ -12,11 +12,15 @@ interesting-links（貼感興趣的連結）。這裡直接打 Discord 的 REST 
 
 from __future__ import annotations
 
+from datetime import date as date_cls
+from datetime import datetime, timedelta, timezone
+
 import requests
 
 from .. import config
 
 DISCORD_API_BASE = "https://discord.com/api/v10"
+TAIPEI_TZ = timezone(timedelta(hours=8))
 
 
 def _fetch_recent_messages(channel_id: str, limit: int = 50) -> list[dict]:
@@ -43,6 +47,29 @@ def fetch_todo_labels(channel_id: str, limit: int = 30) -> list[str]:
     labels = [msg.get("content", "").strip() for msg in messages if msg.get("content", "").strip()]
     labels.reverse()  # Discord 回傳新到舊，反轉成舊到新
     return labels
+
+
+def fetch_messages_posted_on(channel_id: str, target_date: date_cls, limit: int = 50) -> list[str]:
+    """頻道裡「發文日期＝target_date」（台北時區）的訊息，一則當今日行程一項。
+    用來把「前一天在 calendar 頻道打的待辦」當成今天的行程——跟 fetch_todo_labels 抓同一個
+    頻道，但這裡是照發文日期篩選，不是看訊息現在還在不在，兩者用途不同、可能有重疊。"""
+    try:
+        messages = _fetch_recent_messages(channel_id, limit=limit)
+    except requests.RequestException as exc:
+        print(f"[discord_source] 讀取行程來源頻道失敗（{channel_id}），行程視為空：{exc}")
+        return []
+
+    matched = []
+    for msg in messages:
+        content = msg.get("content", "").strip()
+        if not content:
+            continue
+        sent_at = datetime.fromisoformat(msg["timestamp"]).astimezone(TAIPEI_TZ)
+        if sent_at.date() == target_date:
+            matched.append(content)
+
+    matched.reverse()  # Discord 回傳新到舊，反轉成舊到新
+    return matched
 
 
 def fetch_interesting_links(limit: int = 5) -> list[str]:

@@ -129,6 +129,19 @@ python -m morning_report.apply_content
 - ⏳ **還沒做**：使用者還沒提供長期待辦頻道的 ID（`DISCORD_LONGTERM_TODO_CHANNEL_ID`，設進
   GitHub repo 的 Secrets 後這個功能就會開始運作，之前不影響其他部分）
 
+### 第四輪（2026-09-14）：天氣 + 行程來源補上
+
+- ✅ **天氣**：新增 `morning_report/sources/weather_source.py`，用 Open-Meteo 預報 API（完全
+  免費、不需要 API key），固定查台北座標，回傳 `{city, summary, low, high, rain_pct}`。查詢
+  失敗就回傳 `None`，看板報頭的天氣欄位直接隱藏，不影響其他部分
+- ✅ **今日行程**：`discord_source.fetch_messages_posted_on()` 抓 calendar 頻道裡「前一天」
+  貼的訊息，當成今天的行程（使用者習慣前一晚先打好隔天的事）。跟「今日待辦」抓同一個頻道，
+  但篩選邏輯不同——待辦看訊息現在還在不在，行程看發文日期是不是前一天，兩者可能有重疊，
+  這是預期內的行為
+- ✅ 這兩個都是決定性資料（不呼叫 LLM），直接在 `apply_content.py` 合併進最終看板資料，
+  routine 完全不用碰，也不會被它的文字潤飾影響
+- ✅ 本機測試過：天氣 API 真的查到資料、`schedule` 欄位邏輯正確（前一天沒有新訊息時回傳空陣列）
+
 ## 舊狀態記錄（2026-09-13，兩段接力 + Claude Code routine）
 
 主晨報流程整個從「GitHub Actions 直接呼叫 Groq API」改成兩段接力：GitHub Actions 只做資料
