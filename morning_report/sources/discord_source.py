@@ -1,23 +1,22 @@
-"""Discord 行程／興趣連結來源。
+"""Discord 待辦／興趣連結來源。
 
-使用者在自己的私人 Discord 伺服器裡手動維護兩個頻道：一個記錄行程（calendar），一個貼感興趣的
-連結（interesting-links）。這裡直接打 Discord 的 REST API 抓最近的訊息，不需要跑一個常駐的
-Bot 程式（晨報一天只需要讀一次）。
+使用者在自己的私人 Discord 伺服器裡手動維護幾個頻道：calendar（今日待辦）、一個長期待辦頻道、
+interesting-links（貼感興趣的連結）。這裡直接打 Discord 的 REST API 抓最近的訊息，不需要跑一個
+常駐的 Bot 程式（晨報一天只需要讀一次）。
 
-沒有設定 DISCORD_BOT_TOKEN／頻道 ID 時，兩個函式都直接回傳空清單，讓晨報系統其餘部分照常運作。
+待辦清單的完成方式很單純：使用者在 Discord 上把訊息刪掉就代表完成，這裡永遠只抓「頻道裡目前
+還存在的訊息」當成待辦中的項目，不需要額外的完成狀態欄位。
+
+沒有設定 DISCORD_BOT_TOKEN／頻道 ID 時，函式都直接回傳空清單，讓晨報系統其餘部分照常運作。
 """
 
 from __future__ import annotations
-
-from datetime import date as date_cls
-from datetime import datetime, timedelta, timezone
 
 import requests
 
 from .. import config
 
 DISCORD_API_BASE = "https://discord.com/api/v10"
-TAIPEI_TZ = timezone(timedelta(hours=8))
 
 
 def _fetch_recent_messages(channel_id: str, limit: int = 50) -> list[dict]:
@@ -33,26 +32,17 @@ def _fetch_recent_messages(channel_id: str, limit: int = 50) -> list[dict]:
     return response.json()
 
 
-def fetch_events(today: date_cls) -> list[dict]:
-    """calendar 頻道裡「今天」貼的訊息，當成今日行程。每則訊息當一筆事件，
-    time 留空，因為使用者通常會把時間寫在訊息內容裡（例如「14:00-15:00 開會」），
-    直接把整句放進 title 交給後續生成內容的模型判讀就好。"""
+def fetch_todo_labels(channel_id: str, limit: int = 30) -> list[str]:
+    """頻道裡目前還存在的訊息，一則當一項待辦，回傳時間由舊到新排列。"""
     try:
-        messages = _fetch_recent_messages(config.DISCORD_CALENDAR_CHANNEL_ID)
+        messages = _fetch_recent_messages(channel_id, limit=limit)
     except requests.RequestException as exc:
-        print(f"[discord_source] 讀取 calendar 頻道失敗，行程來源視為空：{exc}")
+        print(f"[discord_source] 讀取待辦頻道失敗（{channel_id}），這份清單視為空：{exc}")
         return []
 
-    events = []
-    for msg in messages:
-        content = msg.get("content", "").strip()
-        if not content:
-            continue
-        sent_at = datetime.fromisoformat(msg["timestamp"]).astimezone(TAIPEI_TZ)
-        if sent_at.date() != today:
-            continue
-        events.append({"time": "", "title": content})
-    return events
+    labels = [msg.get("content", "").strip() for msg in messages if msg.get("content", "").strip()]
+    labels.reverse()  # Discord 回傳新到舊，反轉成舊到新
+    return labels
 
 
 def fetch_interesting_links(limit: int = 5) -> list[str]:

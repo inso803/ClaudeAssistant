@@ -1,6 +1,6 @@
 name: Morning Report
 
-# 兩段接力流程的第一段：只做資料蒐集（Discord 行程/收藏連結、多來源推薦搜尋），
+# 兩段接力流程的第一段：只做資料蒐集（Discord 今日/長期待辦、收藏連結、多來源推薦搜尋），
 # 不呼叫任何 LLM，寫成 pending_request.json 交給排程的 Claude Code routine 寫內容。
 # 第二段（routine 寫內容 -> apply_content.py）跟第三段（推 Discord 連結）都不在這支 workflow 裡，
 # 詳見 morning_report/collect_report_request.py 開頭的說明。
@@ -27,10 +27,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Collect schedule/links and write pending_request.json
+      - name: Collect todos/links and write pending_request.json
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_CALENDAR_CHANNEL_ID: ${{ secrets.DISCORD_CALENDAR_CHANNEL_ID }}
+          DISCORD_LONGTERM_TODO_CHANNEL_ID: ${{ secrets.DISCORD_LONGTERM_TODO_CHANNEL_ID }}
           DISCORD_INTERESTING_LINKS_CHANNEL_ID: ${{ secrets.DISCORD_INTERESTING_LINKS_CHANNEL_ID }}
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}

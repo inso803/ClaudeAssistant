@@ -42,12 +42,14 @@ def search(query: str, count: int = 3) -> list[dict]:
         snippet = item.get("snippet", {})
         if not video_id or not snippet.get("title"):
             continue
+        thumbnail = snippet.get("thumbnails", {}).get("medium", {}).get("url", "")
         results.append(
             {
                 "title": snippet["title"],
                 "url": f"https://www.youtube.com/watch?v={video_id}",
                 "description": snippet.get("channelTitle", ""),
                 "source": "YouTube",
+                "thumbnail": thumbnail,
             }
         )
     return results

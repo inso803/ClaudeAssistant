@@ -17,12 +17,25 @@ GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 @dataclass
 class ReportContent:
+    """對應 docs/ 看板頁面(Broadsheet 版型)吃的 JSON schema。
+
+    `todos` / `todos_longterm` 是 Discord 頻道目前還存在的訊息(由 apply_content.py 直接從
+    pending_request.json 帶過來，routine 不需要碰)；`recommendations` 每一則是
+    {source, meta, title, lede, body, url, thumbnail} 物件；`stats` 每一則是
+    {value, label, tone}，tone 只有 alert/accent/plain 三種。沒有資料來源的欄位
+    (weather、inbox)乾脆不放進這個 dataclass，前端看到欄位不存在就整區不 render。
+    """
+
     date: str
+    issue_no: int
     greeting: str
-    schedule_summary: str
+    greeting_sub: str = ""
+    todos: list[str] = field(default_factory=list)
+    todos_longterm: list[str] = field(default_factory=list)
     habit_highlights: list[str] = field(default_factory=list)
     links_highlight: str = ""
-    recommendations: list[str] = field(default_factory=list)
+    recommendations: list[dict] = field(default_factory=list)
+    stats: list[dict] = field(default_factory=list)
     closing_note: str = ""
     ticker_message: str = ""
 

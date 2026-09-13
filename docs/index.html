@@ -3,52 +3,84 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>晨報 MORNING BOARD</title>
+<title>晨報 MORNING BRIEF</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="broadsheet.css" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="board">
-    <header class="board-header">
-      <div class="board-title">
-        <span class="board-title-zh">個人晨報看板</span>
-        <span class="board-title-en">DAILY DEPARTURE BOARD</span>
-      </div>
-      <div class="board-date" id="board-date">----/--/--</div>
+  <div class="brief" id="brief">
+    <div class="ink-bars">
+      <span class="ink-bar" style="background:#0088b0"></span>
+      <span class="ink-bar" style="background:#d6006c"></span>
+      <span class="ink-bar" style="background:#edbb00"></span>
+      <span class="ink-bar" style="background:#201e1d"></span>
+    </div>
+
+    <header class="masthead">
+      <span class="masthead-title">晨　報</span>
+      <span class="masthead-en">MORNING BRIEF</span>
     </header>
 
-    <nav class="board-nav">
-      <button type="button" class="board-nav-btn" id="nav-prev">◀ 前一天 PREV</button>
-      <button type="button" class="board-nav-btn" id="nav-latest">回到今天 TODAY</button>
-      <select class="board-nav-select" id="nav-history"></select>
-      <button type="button" class="board-nav-btn" id="nav-next">後一天 NEXT ▶</button>
-    </nav>
-
-    <div class="board-columns">
-      <span>編號 NO.</span>
-      <span>項目 ITEM</span>
-      <span>內容 CONTENT</span>
-      <span>狀態 STATUS</span>
+    <div class="dateline">
+      <span id="dateline-date">----年--月--日</span>
+      <span id="dateline-weather" class="dateline-weather" hidden>
+        <span class="dateline-dot"></span><span id="dateline-weather-text"></span>
+      </span>
+      <span id="dateline-issue" class="dateline-issue" hidden></span>
     </div>
 
-    <table class="board-table" id="board-table">
-      <tbody>
-        <tr class="board-row board-row--loading">
-          <td colspan="4">
-            <span class="blink">●</span> 讀取中 LOADING...
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <p class="greeting" id="greeting"></p>
+    <p class="greeting-sub" id="greeting-sub" hidden></p>
 
-    <div class="board-ticker">
-      <div class="board-ticker-track" id="ticker-track">
-        晨報資料載入中，請稍候...
-      </div>
-    </div>
+    <section class="section" id="section-schedule" hidden>
+      <div class="eyebrow eyebrow-cyan"><span class="eyebrow-dot" style="background:#0088b0"></span>今日行程　SCHEDULE</div>
+      <div id="schedule-list"></div>
+      <p class="section-note" id="schedule-note" hidden></p>
+    </section>
 
-    <footer class="board-footer">
-      <span id="last-updated">最後更新 LAST UPDATED: --</span>
-      <span class="board-footer-brand">個人 AI 助手・晨報系統</span>
+    <section class="section" id="section-todo-today" hidden>
+      <div class="eyebrow eyebrow-magenta"><span class="eyebrow-dot" style="background:#d6006c"></span>今日待辦　TO DO</div>
+      <div id="todo-today-list" class="todo-list"></div>
+    </section>
+
+    <section class="section" id="section-todo-longterm" hidden>
+      <div class="eyebrow eyebrow-magenta"><span class="eyebrow-dot" style="background:#d6006c"></span>長期待辦　ONGOING</div>
+      <div id="todo-longterm-list" class="todo-list"></div>
+    </section>
+
+    <section class="section" id="section-inbox" hidden>
+      <div class="eyebrow eyebrow-cyan"><span class="eyebrow-dot" style="background:#0088b0"></span>還沒回的訊息　UNANSWERED</div>
+      <div id="inbox-list"></div>
+    </section>
+
+    <section class="section" id="section-reading" hidden>
+      <div class="eyebrow eyebrow-magenta"><span class="eyebrow-dot" style="background:#d6006c"></span>今天值得看的　READING</div>
+      <div id="reading-list"></div>
+    </section>
+
+    <section class="section" id="section-stats" hidden>
+      <div class="eyebrow eyebrow-cyan"><span class="eyebrow-dot" style="background:#edbb00"></span>昨天的你　YESTERDAY</div>
+      <div class="stats-row" id="stats-row"></div>
+      <div id="stats-note"></div>
+    </section>
+
+    <section class="closing-block" id="section-closing" hidden>
+      <div class="eyebrow eyebrow-magenta"><span class="eyebrow-dot" style="background:#d6006c"></span>今天的一句話</div>
+      <p class="closing-text" id="closing-text"></p>
+    </section>
+
+    <footer class="brief-footer">
+      <nav class="footer-nav">
+        <button type="button" class="footer-nav-btn" id="nav-prev">← 前一天</button>
+        <span class="footer-nav-sep">·</span>
+        <button type="button" class="footer-nav-btn" id="nav-latest">回到今天</button>
+        <span class="footer-nav-sep">·</span>
+        <button type="button" class="footer-nav-btn" id="nav-next">後一天 →</button>
+        <select class="footer-nav-select" id="nav-history"></select>
+      </nav>
+      <span class="footer-source">來源：Discord · Hacker News · Google 新聞 · YouTube</span>
     </footer>
   </div>
 
