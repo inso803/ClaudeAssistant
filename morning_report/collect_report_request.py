@@ -10,7 +10,9 @@ draft_content.json，再跑 apply_content.py 把內容寫進看板、更新習�
 
 待辦清單（today_todos / longterm_todos）、行程（schedule）、天氣（weather）都不需要 routine
 改寫，apply_content.py 會直接從這裡原封不動帶進最終的看板資料：
-- 待辦完成方式是使用者在 Discord 上把訊息刪掉，這裡永遠只抓「頻道裡目前還存在的訊息」
+- 待辦完成方式是使用者在 Discord 上把訊息刪掉；今日待辦另外套一個 24 小時時間窗（見
+  sources/__init__.py 的 collect_today_todos），太舊忘記刪的訊息不會一直卡在今日待辦裡，
+  長期待辦則不套這個窗
 - 行程是「前一天在 calendar 頻道打的項目」，當成今天的行程（使用者習慣前一晚先打好隔天的事）
 - 天氣來自 Open-Meteo，不需要 API key
 
@@ -38,10 +40,11 @@ TAIPEI_TZ = timezone(timedelta(hours=8))
 
 
 def main() -> None:
-    today = datetime.now(TAIPEI_TZ).date()
+    now = datetime.now(TAIPEI_TZ)
+    today = now.date()
     yesterday = today - timedelta(days=1)
 
-    today_todos = collect_today_todos()
+    today_todos = collect_today_todos(now)
     longterm_todos = collect_longterm_todos()
     print(f"[collect_report_request] 今日待辦 {len(today_todos)} 則，長期待辦 {len(longterm_todos)} 則。")
 

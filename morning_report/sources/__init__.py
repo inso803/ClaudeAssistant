@@ -9,13 +9,19 @@ collect_interesting_links() / collect_weather() 是 collect_report_request.py �
 from __future__ import annotations
 
 from datetime import date as date_cls
+from datetime import datetime, timedelta
 
 from .. import config
 from . import discord_source, weather_source
 
+TODAY_TODOS_WINDOW_HOURS = 24
 
-def collect_today_todos() -> list[str]:
-    return discord_source.fetch_todo_labels(config.DISCORD_CALENDAR_CHANNEL_ID)
+
+def collect_today_todos(now: datetime) -> list[str]:
+    """今日待辦：只算最近 24 小時內貼的訊息(近似「上次晨報跑完到這次之間」)，
+    避免忘記刪掉的舊訊息一直卡在今日待辦裡。"""
+    since = now - timedelta(hours=TODAY_TODOS_WINDOW_HOURS)
+    return discord_source.fetch_todo_labels_since(config.DISCORD_CALENDAR_CHANNEL_ID, since)
 
 
 def collect_longterm_todos() -> list[str]:
