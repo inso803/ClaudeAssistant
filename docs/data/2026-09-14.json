@@ -6,7 +6,7 @@
   "weather": {
     "city": "台北",
     "summary": "毛毛雨",
-    "low": 25,
+    "low": 24,
     "high": 31,
     "rain_pct": 71
   },
