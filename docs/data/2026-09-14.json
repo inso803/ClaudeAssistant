@@ -1,13 +1,13 @@
 {
   "date": "2026-09-14",
   "issue_no": 1,
-  "greeting": "早安！新的一天開始囉～",
-  "greeting_sub": "台北今天毛毛雨，降雨機率快七成，出門記得帶傘。",
+  "greeting": "早安！今天台北整天毛毛雨，出門記得帶傘。",
+  "greeting_sub": "降雨機率71%，家教跟院所交接的路上留意濕滑路面。",
   "weather": {
     "city": "台北",
     "summary": "毛毛雨",
     "low": 25,
-    "high": 30,
+    "high": 31,
     "rain_pct": 71
   },
   "schedule": [],
@@ -19,15 +19,15 @@
   ],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "收藏的連結還有 2 篇沒看，找空檔滑一下吧。",
+  "links_highlight": "收藏清單裡還有 2 篇連結沒看，有空檔可以滑一下。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
       "meta": "數位時代報導",
       "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - 數位時代",
-      "lede": "把 Claude 免費版、Pro、Max 三種方案的價格和功能差異整理在一起，選方案前可以先看一下。",
-      "body": "這篇整理了 Claude 目前免費版、Pro、Max 三種方案在價格與功能上的差異，適合還在猶豫要不要升級訂閱的人拿來對照。不過這次拿到的資料只有標題，各方案實際費用跟功能明細沒有列在摘要裡，想知道確切數字的話建議直接點進原文看完整比較表。",
+      "lede": "免費版、Pro、Max 三個方案到底差在哪，這篇整理得很清楚。",
+      "body": "如果之後寫作業或做 side project 常常用到 Claude Code，這篇可以拿來比對一下額度夠不夠用，值不值得升級。",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5"
     },
     {
@@ -35,18 +35,18 @@
       "source": "GOOGLE 新聞",
       "meta": "數位時代報導",
       "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
-      "lede": "Claude 官方一口氣推出 13 堂免費線上課程，上完還能拿到官方證書。",
-      "body": "Claude 官方推出了總共 13 堂免費線上課程，內容涵蓋 Agent Skills 和 Claude Code 的實作教學，完成後可以領取官方證書。對正在累積 Python 跟 AI 工具實作經驗的你來說，這種有官方認證、又能動手做的課程滿值得排進行事曆，之後可以挑幾堂跟課業或side project搭得上的先看。",
+      "lede": "13堂免費課程，還能拿官方證書，內容涵蓋 Agent Skills 跟 Claude Code 實作。",
+      "body": "剛好可以配合你現在累積實作經驗的目標，挑幾堂跟 agentic 工具相關的看，說不定跟今天要看的 ML 影片主題也能接得上。",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代報導",
-      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "一支影片講清楚 Vibe Coding 是什麼，還附上 3 款工具跟 6 步驟教學，給完全新手的入門款。",
-      "body": "這是一支介紹「Vibe Coding」概念的影片，內容包含說明這個詞在講什麼、推薦 3 款好用的 AI 工具，並用 6 個步驟帶完全沒寫過程式的人上手。如果想找一個輕鬆理解 AI 輔助寫程式風潮的切入點，這支影片的定位偏向懶人包，可以當作課餘的補充教材。",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+      "meta": "BigGo 財經報導（Podcast）",
+      "title": "編碼問題解決後會發生什麼？ | Fiona Fung (Claude Code & Cowork)｜Lenny's Podcast - BigGo 財經",
+      "lede": "Lenny's Podcast 訪問 Claude Code 團隊的 Fiona Fung，聊寫程式的瓶頸被 AI 解決後接下來會發生什麼事。",
+      "body": "標題本身沒附更多細節，只知道主題圍繞 Claude Code 跟 Cowork 的產品思考，對這塊有興趣的話值得點進去聽聽完整集數。",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFAwcXo4ZHdvYzd0d3JlVTd0dkJvWk91Y0lSZEZPbF9ITFl3bDFpWUppY19maWxpOEN2SV84R19IQndRYV8zTlpmdGV2LS13T094bWU1Si1fcHVqOWJ3dWFCbWdtZw?oc=5"
     }
   ],
   "stats": [
@@ -61,6 +61,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "今天行程滿滿，先抓重點一項一項做，晚上見！",
-  "ticker_message": "早安！台北今天毛毛雨記得帶傘，機院交接加家教滿滿一天；AI 學習資源有 Claude 新方案比較、13 堂免費課程證書、Vibe Coding 新手教學，收藏連結還有 2 篇待讀。"
+  "closing_note": "院所交接加家教，今天行程排得滿，雨天多留點通勤時間。",
+  "ticker_message": "今天台北整天毛毛雨（降雨機率71%），記得帶傘；行程是電機資訊學院交接跟家教，再抽空看完那部ML影片、填一下王世新表單；收藏清單還有2篇沒看；順手推薦Claude的收費比較、13堂免費課程證書、Fiona Fung談Claude Code的Podcast這三篇。"
 }
