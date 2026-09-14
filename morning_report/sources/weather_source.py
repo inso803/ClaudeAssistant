@@ -1,8 +1,8 @@
 """天氣來源：Open-Meteo 預報 API，完全免費、不需要 API key。
 
 只抓「今天」的預報（forecast_days=1），回傳看板報頭要的四個欄位：城市、天氣描述、最低/最高溫、
-降雨機率。座標固定在台北（使用者主要活動範圍），查詢失敗就回傳 None，看板報頭的天氣欄位
-會直接隱藏，不影響其他部分。
+降雨機率。座標固定在台灣大學總校區（使用者主要活動範圍，公館），查詢失敗就回傳 None，
+看板報頭的天氣欄位會直接隱藏，不影響其他部分。
 """
 
 from __future__ import annotations
@@ -11,8 +11,8 @@ import requests
 
 OPEN_METEO_URL = "https://api.open-meteo.com/v1/forecast"
 
-TAIPEI_LAT = 25.0330
-TAIPEI_LON = 121.5654
+TAIPEI_LAT = 25.0174
+TAIPEI_LON = 121.5405
 CITY_NAME = "台北"
 
 # WMO 天氣代碼對照，只取常見的幾類，簡短描述就好
