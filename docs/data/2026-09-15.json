@@ -1,14 +1,14 @@
 {
   "date": "2026-09-15",
   "issue_no": 2,
-  "greeting": "今天台北整天毛毛雨，降雨機率 90%、溫度 24-28 度，記得帶傘；行事曆上有電機資訊學院交接跟家教兩件事要顧。",
-  "greeting_sub": "剩下的「看完一個ML影片」跟「王世新表單」找空檔處理掉。",
+  "greeting": "今天台北降雨機率94%，記得帶傘，另外別忘了電機資訊學院交接和家教。",
+  "greeting_sub": "王世新表單也還沒交，抽個空處理一下。",
   "weather": {
     "city": "台北",
     "summary": "毛毛雨",
     "low": 24,
-    "high": 28,
-    "rain_pct": 90
+    "high": 27,
+    "rain_pct": 94
   },
   "schedule": [
     {
@@ -39,33 +39,33 @@
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "收藏的連結還有 2 則沒看，找時間滑一下。",
+  "links_highlight": "還有 2 則存起來沒看的連結。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代報導",
+      "meta": "來自 數位時代",
       "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - 數位時代",
-      "lede": "整理 Claude 免費版、Pro、Max 三種方案的差異，方便評估要不要升級。",
-      "body": "這篇比較 Claude 三種方案的價格跟功能落差，如果你在考慮要不要升級 Pro 或 Max，可以先看這篇抓重點。",
+      "lede": "整理 Claude 目前三個方案的價格與功能差異。",
+      "body": "文章比較 Claude 免費版、Pro、Max 三個方案的價格與功能落差，適合還在猶豫要不要升級的人參考。",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代報導",
+      "meta": "來自 數位時代",
       "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
-      "lede": "Claude 官方出了 13 堂免費課程，涵蓋 Agent Skills 跟 Claude Code 實作，上完還能拿證書。",
-      "body": "這系列課程從基礎一路教到 Agent Skills、Claude Code 實作，修完可以領官方證書，對你熟悉 agent 工具鏈應該用得上。",
+      "lede": "Claude 官方上線 13 堂免費課程，涵蓋 Agent Skills 與 Claude Code 實作。",
+      "body": "Anthropic 推出 13 堂免費線上課程，完課可領官方證書，內容包含 Agent Skills 和 Claude Code 的實作教學，剛好對你正在累積的實作經驗有幫助。",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代影片報導",
+      "meta": "來自 數位時代",
       "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "用 3 款 AI 工具搭配 6 步驟，帶完全不會寫程式的人體驗 Vibe Coding。",
-      "body": "這支影片挑了 3 款好用的 AI 工具，用 6 個步驟教完全的新手也能體驗 Vibe Coding，算是給程式小白的入門導覽。",
+      "lede": "用 6 步驟教學介紹「Vibe Coding」和 3 款 AI 工具給新手。",
+      "body": "影片介紹 Vibe Coding 概念，搭配 3 款 AI 工具與 6 步驟教學，主打程式新手也能上手。",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
     }
   ],
@@ -81,6 +81,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "雨天路滑，交接跟家教之間抓緊時間，順順過今天。",
-  "ticker_message": "今日台北毛毛雨降雨機率90%／電機資訊學院交接＋家教／2則收藏連結待讀／3則Claude相關新聞：收費方案比較、13堂免費課程、Vibe Coding入門影片"
+  "closing_note": "雨天路上小心，行程不多，今天可以喘口氣。",
+  "ticker_message": "今天台北毛毛雨、降雨機率94%，行程有電機資訊學院交接、家教，還有 2 則存起來的連結沒看，另外幫你挑了 3 則 Claude 相關新聞。"
 }
