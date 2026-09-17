@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-17",
+  "weather": {
+    "city": "台北",
+    "summary": "晴時多雲",
+    "low": 21,
+    "high": 30,
+    "rain_pct": 2
+  },
+  "schedule": [],
+  "today_todos": [],
+  "longterm_todos": [],
+  "search_results": [
+    {
+      "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - bnext.com.tw",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5",
+      "description": "來自 bnext.com.tw",
+      "source": "Google News"
+    },
+    {
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - bnext.com.tw",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5",
+      "description": "來自 bnext.com.tw",
+      "source": "Google News"
+    },
+    {
+      "title": "Claude官方認證免費拿！AI工具達人教你6小時搞定3張證照，LinkedIn履歷一秒鍍金 - bnext.com.tw",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE44U2lRRGF0X0R4cHBxcHlabThEYlBHa196Y0pGcTQ1bXByOXRTYV9fMFpKbkdCblMxbW4ydVZpYkc3QlFaTTZZY1ljbFRlYWNkNmxqckR2VXJLWTN5SUpYLVhUaFVOR2JHUTBzbU9EQXZrRVk?oc=5",
+      "description": "來自 bnext.com.tw",
+      "source": "Google News"
+    }
+  ]
+}
