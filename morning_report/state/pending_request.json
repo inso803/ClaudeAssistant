@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-24",
+  "weather": {
+    "city": "台北",
+    "summary": "陰天",
+    "low": 23,
+    "high": 31,
+    "rain_pct": 0
+  },
+  "schedule": [],
+  "today_todos": [],
+  "longterm_todos": [],
+  "search_results": [
+    {
+      "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - 數位時代",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5",
+      "description": "來自 數位時代",
+      "source": "Google News"
+    },
+    {
+      "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 | 數位時代 - LINE TODAY",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5",
+      "description": "來自 LINE TODAY",
+      "source": "Google News"
+    },
+    {
+      "title": "Claude Code Skill怎麼寫、SKILL.md放什麼？9大類型＋Gotchas寫法一次看懂 - 數位時代",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQOWtJVUk0bVVGS1RHZFU4SUFJSGgwMkJaeWY2VWhIb3h5VXQxRDd4eEI3enl5YlRQRWlxNVdvS3JYSDdMRTZLMmZ3RlhuR0Q1bkNmZmFBdE10TFZLOG5ybEEwTVZxVHdmRXVEWGdHcGJsa2dqUWszMl84UTByNzRPM19LekZaMEJLSnMycURoM0d6MXF4YjZMWmtPZGJKREdfeE9LSDR6QjJ4UQ?oc=5",
+      "description": "來自 數位時代",
+      "source": "Google News"
+    }
+  ]
+}
