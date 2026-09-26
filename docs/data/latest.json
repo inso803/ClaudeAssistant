@@ -1,43 +1,46 @@
 {
   "date": "2026-09-26",
   "issue_no": 13,
-  "greeting": "今天台北陰天，23到34度，降雨機率只有12%，不太需要特別帶傘。",
-  "greeting_sub": "行事曆跟待辦今天都是空的，算是難得的空檔，可以自己排點想做的事。",
+  "greeting": "今天台北陰天，降雨機率只有10%，但高溫上看34度，悶熱感會比降雨更明顯。",
+  "greeting_sub": "今天行事曆跟待辦都是空的，難得可以自己抓步調安排一天。",
   "weather": {
     "city": "台北",
     "summary": "陰天",
     "low": 23,
     "high": 34,
-    "rain_pct": 12
+    "rain_pct": 10
   },
   "schedule": [],
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "收藏連結還有 2 則沒看。",
+  "links_highlight": "還有 2 篇存起來的連結沒看，有空可以清一下。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
       "meta": "數位時代報導",
-      "lede": "整理 Claude 目前免費版、Pro、Max 三種方案的價格與功能差異。",
-      "body": "數位時代這篇在比較 Claude 免費版、Pro、Max 三個方案的收費與功能落差，適合還在猶豫要不要升級的人抓來對照一下值不值得。",
+      "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - 數位時代",
+      "lede": "把 Claude 免費版、Pro、Max 三種方案的價格與功能差異整理成一篇，方便抓預算。",
+      "body": "文章整理 Claude 免費版、Pro、Max 三種方案在價格與功能上的差異，給還在猶豫要不要升級付費方案的人快速比較。",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "影片教學",
-      "lede": "3 款 AI 工具 + 6 步驟教學，帶你認識 Vibe Coding 這個概念。",
-      "body": "這支影片介紹「Vibe Coding」是什麼，搭配 3 款 AI 工具和 6 步驟教學，主打連不熟程式的人也能上手。你已經有 Python 底子，看重點大概會是這幾款工具能不能接進現有的寫法習慣。",
+      "meta": "數位時代報導",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "用 3 款工具加 6 個步驟，帶新手認識「Vibe Coding」這個概念。",
+      "body": "這支影片介紹「Vibe Coding」的操作方式，用 3 款 AI 工具搭配 6 個步驟，讓完全沒寫過程式的人也能跟著上手，對正在累積實作經驗的你來說算是個輕量的入門參考。",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
       "meta": "鉅亨號報導",
-      "lede": "討論最近討論度很高的 Clawdbot 有沒有機會成為下一個 ChatGPT。",
-      "body": "鉅亨號這篇在問「全網瘋傳」的 Clawdbot 有沒有可能複製 ChatGPT 等級的影響力，看標題偏向話題性討論，不是深入的技術分析。",
+      "title": "全網瘋傳的Clawdbot，是下一個ChatGPT？ - 鉅亨號",
+      "lede": "討論最近討論度很高的 Clawdbot，有沒有機會挑戰 ChatGPT 的地位。",
+      "body": "文章討論最近在網路上引起熱議的 Clawdbot，探討它是否有機會成為下一個像 ChatGPT 一樣的現象級產品。",
       "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9iT3dqdUxpUk93d3M4R2ZmR3dJZmpjNTNoa1NReXJiU1VVbkY5RkZqUkZNQTU4eDMtVGFjS3lUQkNERjE3OFhWcA?oc=5"
     }
   ],
@@ -53,6 +56,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "今天沒什麼排定行程，抓緊空檔推進自己的事吧。",
-  "ticker_message": "台北陰天 23-34度／降雨機率12%．今日無行程無待辦．收藏連結還有2則未讀．焦點：Claude收費方案比較、Vibe Coding入門教學、Clawdbot話題延燒"
+  "closing_note": "今天行程空、待辦也空，趁機喘口氣或抓緊時間推進手邊的事都好。",
+  "ticker_message": "台北陰天，降雨機率10%、高溫34度；今天行程與待辦都是空的；還有2篇存起來的連結沒看；另外整理了3則科技新聞給你參考。"
 }
