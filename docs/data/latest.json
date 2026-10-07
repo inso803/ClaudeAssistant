@@ -1,8 +1,8 @@
 {
   "date": "2026-10-07",
   "issue_no": 24,
-  "greeting": "今天台北陰天，22到26度，降雨機率0%，行事曆和待辦都是空的，難得的空檔日。",
-  "greeting_sub": "",
+  "greeting": "台北今天陰天，22到26度，降雨機率0%，不用帶傘。",
+  "greeting_sub": "行事曆跟待辦都是空的，今天算難得喘口氣的一天。",
   "weather": {
     "city": "台北",
     "summary": "陰天",
@@ -14,33 +14,33 @@
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "收藏夾裡還有 2 則連結沒看，有空可以回顧一下。",
+  "links_highlight": "之前存的 2 條連結還沒看，有空可以抓時間清一下。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代報導",
+      "meta": "來自數位時代",
       "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 - 數位時代",
-      "lede": "整理 2026 年 Claude 免費版、Pro、Max 三種方案的差異。",
-      "body": "文章比較 Claude 免費版、Pro、Max 的價格與功能差異，適合在考慮要不要升級付費方案時參考。你平常寫作業、跑專案都在用 Claude，花幾分鐘看一下划不划算應該值得。",
+      "lede": "整理了 Claude 免費版、Pro、Max 三個方案的價格和功能差異。",
+      "body": "針對 Claude 目前的三個方案做價格與功能對照，適合還在考慮要不要升級訂閱的人看一下。",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "經理人報導",
+      "meta": "來自經理人",
       "title": "AI 免費課程大全｜OpenAI 學院、Google、Anthropic 官方免費課程一次收藏 - 經理人",
-      "lede": "整理了 OpenAI、Google、Anthropic 三家官方釋出的免費 AI 課程清單。",
-      "body": "把 OpenAI 學院、Google、Anthropic 官方的免費 AI 課程收在同一篇裡。資工系想補 AI 背景知識的話，挑一兩堂官方課程來看應該蠻划算。",
+      "lede": "把 OpenAI、Google、Anthropic 官方推出的免費 AI 課程整理成一份清單。",
+      "body": "三家公司官方開的免費課程彙整在一起，對平常在寫 code、想多理解背後原理的你應該有點參考價值。",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1rUFVHT01PMUkxUVZDLVRFbmt0ZFV0Q2I5WUZaUkFzdVFaYkNlcmFjMVluQkN3azdCT1J5ajVZU21iV3pfMFJWRGFjanF5MDlmRzh0QkI0engyMmZJT0JnaQ?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
-      "meta": "LINE TODAY 轉載（數位時代）",
+      "meta": "LINE TODAY 轉載",
       "title": "2026最新Claude收費方案｜免費版、Pro、Max差在哪？價格、功能一次看 | 數位時代 - LINE TODAY",
-      "lede": "同一篇 Claude 收費方案整理，這次是 LINE TODAY 轉載的版本。",
-      "body": "跟上一則數位時代的原文同一篇，內容一樣是 Claude 免費版、Pro、Max 的比較，LINE TODAY 轉載而已。",
+      "lede": "同一篇 Claude 收費方案比較文，被 LINE TODAY 轉載的版本。",
+      "body": "內容跟上面數位時代那篇幾乎一樣，是同一篇比較文在 LINE TODAY 的轉載版。",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
     }
   ],
@@ -56,6 +56,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "空檔日，想休息就休息，想補進度也行，看你囉。",
-  "ticker_message": "台北今天陰天 22-26度、不會下雨，行事曆和待辦全空；收藏夾還有 2 則連結沒看；新聞幫你挑了 Claude 收費方案比較跟免費 AI 課程整理。"
+  "closing_note": "今天空檔多，適合拿來處理自己的事或單純休息。",
+  "ticker_message": "台北陰天22-26度不會下雨，今天沒行程沒待辦｜2條存連結還沒看｜今天的新聞主要圍繞Claude收費方案比較跟AI免費課程整理"
 }
