@@ -1,47 +1,38 @@
 {
-  "date": "2026-10-10",
-  "issue_no": 27,
-  "greeting": "台北今天陰天，23到27度，降雨機率只有4%，今天行程跟待辦都是空的，算是喘口氣的一天。",
-  "greeting_sub": "沒有安排也是一種安排，想排點自己的事都可以。",
+  "date": "2026-10-11",
+  "issue_no": 28,
+  "greeting": "台北今天陰天，22到28度，降雨機率只有2%，算是舒服的一天。",
+  "greeting_sub": "",
   "weather": {
     "city": "台北",
     "summary": "陰天",
-    "low": 23,
-    "high": 27,
-    "rain_pct": 4
+    "low": 22,
+    "high": 28,
+    "rain_pct": 2
   },
   "schedule": [],
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "之前存的連結還有 2 篇沒看。",
+  "links_highlight": "口袋清單還有2篇連結沒看，趁空檔滑一下。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "來自 LINE TODAY",
+      "meta": "數位時代報導",
       "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
-      "lede": "Claude 的收費方案又更新了，重點是 Haiku 5.5 上線、Max 方案加碼送 API 額度。",
-      "body": "整理 Claude 免費版、Pro、Max 三個方案的差異，重點是 Haiku 5.5 上線後怎麼選最划算，Max 方案額外送 API 額度。",
+      "lede": "Claude 的方案又調整了，免費版、Pro、Max 三個層級的選擇邏輯值得重新看一下。",
+      "body": "數位時代整理了 Claude 最新收費方案，重點是 Haiku 5.5 正式上線、Max 方案加贈 API 額度，等於免費版、Pro、Max 三個層級的定位又變了一次。你平常也在用 Claude，抽空比較一下現在的方案划不划算。",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "來自 數位時代",
+      "meta": "數位時代報導・影片",
       "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "一支影片教學介紹 Vibe Coding 概念，搭配 3 款 AI 工具跟 6 步驟上手流程。",
-      "body": "影片用 3 款 AI 工具搭配 6 步驟，帶程式新手理解什麼是 Vibe Coding、怎麼上手，對平常用 AI 輔助寫 code 應該不陌生，可以當參考。",
+      "lede": "想搞懂 Vibe Coding 是什麼、新手怎麼上手，這部影片用6步驟拆解給你看。",
+      "body": "數位時代出的教學影片，介紹 Vibe Coding 概念、推薦3款常用 AI 工具，並拆成6個步驟示範程式新手怎麼上手。你現在也在累積實作經驗，這類「AI 輔助寫程式」的方法論可以參考看看。",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
-    },
-    {
-      "id": "r3",
-      "source": "GOOGLE 新聞",
-      "meta": "來自 數位時代",
-      "title": "Claude能直接寄Gmail了！怎麼設定？免費版能用？設定教學一次看 - 數位時代",
-      "lede": "Claude 現在可以直接幫忙寄 Gmail 了，重點是設定方式跟免費版能不能用。",
-      "body": "介紹 Claude 新增直接寄送 Gmail 的功能要怎麼設定，也點出免費版是否支援這個功能。",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBSN0pfWW1BbWg5ZC1Ed1FQa2RTb3ZRWWxWR1NWNjdWbEJ5WDhIZjZkSmxRamZzeHJmdmRUR1lweDdQMTRKTmtqYzhud3RIcTg0TlJiSlo3R2ZMZk5HUG9odHkydkZ2SVZrVnV0bVBERl9BeTdQVTg3WQ?oc=5"
     }
   ],
   "stats": [
@@ -56,6 +47,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "空檔的一天，拿來做點平常沒空做的事也不錯，加油。",
-  "ticker_message": "台北陰天23-27度降雨4%，今天行程空檔，存的連結還有2篇沒看，另外幫你整理了3則Claude新功能和Vibe Coding相關新聞。"
+  "closing_note": "今天沒排定行程，正好拿來補進度。",
+  "ticker_message": "台北陰天22-28度、降雨機率2%，今天沒排行程，推薦2則AI相關消息，口袋清單還有2篇未讀。"
 }
