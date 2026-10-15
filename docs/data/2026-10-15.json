@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-15",
+  "issue_no": 32,
+  "greeting": "今天台北陰天，22到27度，降雨機率23%，手上沒有排行程也沒有待辦，算是比較鬆的一天。",
+  "greeting_sub": "剛好可以留點時間看看下面幾則 AI 相關的新聞。",
+  "weather": {
+    "city": "台北",
+    "summary": "陰天",
+    "low": 22,
+    "high": 27,
+    "rain_pct": 23
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "之前存的連結還有 2 則沒看。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "經理人報導",
+      "title": "AI 免費課程大全｜OpenAI 學院、Google、Anthropic 官方免費課程一次收藏 - 經理人",
+      "lede": "整理了 OpenAI、Google、Anthropic 三家官方的免費線上課程資源，一次打包起來。",
+      "body": "這篇把 OpenAI 學院、Google 跟 Anthropic 官方推出的免費課程收在一起，對想系統性補 AI 基礎的人算是省時間的清單，之後排課業外學習時可以參考。",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1rUFVHT01PMUkxUVZDLVRFbmt0ZFV0Q2I5WUZaUkFzdVFaYkNlcmFjMVluQkN3azdCT1J5ajVZU21iV3pfMFJWRGFjanF5MDlmRzh0QkI0engyMmZJT0JnaQ?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Claude 推出13堂免費線上課程，完成可拿官方證書，內容涵蓋 Agent Skills 跟 Claude Code 的實作。",
+      "body": "這系列課程主打 Agent Skills 和 Claude Code 的實際操作，修完有官方證書，對已經在用 Claude Code 的情況算是直接相關的進階資源。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代影音報導",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "用3款AI工具搭配6步驟教學，示範什麼是 Vibe Coding，目標是讓完全沒寫過程式的人也能上手。",
+      "body": "影片用6個步驟示範怎麼靠AI工具做到「Vibe Coding」，主打零基礎也能跟上，算是給還不熟程式的朋友的入門引導。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "今天行事曆是空的，可以趁機把那兩則存的連結點開看看。",
+  "ticker_message": "台北陰天22-27度、降雨機率23%，今天沒有排行程；精選3則AI相關新聞，還有2則存的連結待看。"
+}

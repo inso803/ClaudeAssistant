@@ -1,28 +1,28 @@
 {
-  "date": "2026-10-14",
-  "issue_no": 31,
-  "greeting": "今天台北有霧，氣溫 20 到 28 度，降雨機率 0%，算是舒服的一天。",
-  "greeting_sub": "今天行事曆跟待辦都空著，可以喘口氣。",
+  "date": "2026-10-15",
+  "issue_no": 32,
+  "greeting": "今天台北陰天，22到27度，降雨機率23%，手上沒有排行程也沒有待辦，算是比較鬆的一天。",
+  "greeting_sub": "剛好可以留點時間看看下面幾則 AI 相關的新聞。",
   "weather": {
     "city": "台北",
-    "summary": "有霧",
-    "low": 20,
-    "high": 28,
-    "rain_pct": 0
+    "summary": "陰天",
+    "low": 22,
+    "high": 27,
+    "rain_pct": 23
   },
   "schedule": [],
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "還有 2 則之前存起來的連結沒看",
+  "links_highlight": "之前存的連結還有 2 則沒看。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
       "meta": "經理人報導",
       "title": "AI 免費課程大全｜OpenAI 學院、Google、Anthropic 官方免費課程一次收藏 - 經理人",
-      "lede": "把 OpenAI、Google、Anthropic 三家官方免費課程整理成一份清單的文章。",
-      "body": "這篇把 OpenAI 學院、Google 跟 Anthropic 官方推出的免費課程都收進同一份清單，省去自己到處找資源的時間。對正在累積實作經驗的你來說，算是一次性看好入門方向的參考清單。",
+      "lede": "整理了 OpenAI、Google、Anthropic 三家官方的免費線上課程資源，一次打包起來。",
+      "body": "這篇把 OpenAI 學院、Google 跟 Anthropic 官方推出的免費課程收在一起，對想系統性補 AI 基礎的人算是省時間的清單，之後排課業外學習時可以參考。",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1rUFVHT01PMUkxUVZDLVRFbmt0ZFV0Q2I5WUZaUkFzdVFaYkNlcmFjMVluQkN3azdCT1J5ajVZU21iV3pfMFJWRGFjanF5MDlmRzh0QkI0engyMmZJT0JnaQ?oc=5"
     },
     {
@@ -30,17 +30,17 @@
       "source": "GOOGLE 新聞",
       "meta": "數位時代報導",
       "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
-      "lede": "Claude 官方開了 13 堂免費課程，涵蓋 Agent Skills 跟 Claude Code 實作，還能拿證書。",
-      "body": "數位時代報導 Anthropic 推出 13 堂免費線上課程，主題包含 Agent Skills 與 Claude Code 的實作教學，上完能領官方證書。跟你平常用 Claude Code 寫程式的習慣算是直接對上。",
+      "lede": "Claude 推出13堂免費線上課程，完成可拿官方證書，內容涵蓋 Agent Skills 跟 Claude Code 的實作。",
+      "body": "這系列課程主打 Agent Skills 和 Claude Code 的實際操作，修完有官方證書，對已經在用 Claude Code 的情況算是直接相關的進階資源。",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代報導",
+      "meta": "數位時代影音報導",
       "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "一部介紹 Vibe Coding 概念的影片，用 3 款 AI 工具搭配 6 步驟教學帶入門。",
-      "body": "這部影片在解釋最近很紅的 Vibe Coding 概念，用 3 款 AI 工具搭配 6 步驟教學，目標是讓完全不會寫程式的人也能上手試試看。",
+      "lede": "用3款AI工具搭配6步驟教學，示範什麼是 Vibe Coding，目標是讓完全沒寫過程式的人也能上手。",
+      "body": "影片用6個步驟示範怎麼靠AI工具做到「Vibe Coding」，主打零基礎也能跟上，算是給還不熟程式的朋友的入門引導。",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
     }
   ],
@@ -56,6 +56,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "行事曆今天空著，正好拿來看看上面幾堂免費課程。",
-  "ticker_message": "台北今天有霧、20-28度、降雨機率0%，行事曆空著；精選了3則AI學習相關新聞，包括Anthropic的13堂免費課程，還有2則存起來的連結沒看。"
+  "closing_note": "今天行事曆是空的，可以趁機把那兩則存的連結點開看看。",
+  "ticker_message": "台北陰天22-27度、降雨機率23%，今天沒有排行程；精選3則AI相關新聞，還有2則存的連結待看。"
 }
