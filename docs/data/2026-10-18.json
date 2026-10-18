@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-18",
+  "issue_no": 35,
+  "greeting": "今天台北晴時多雲，高溫上看 33 度、降雨機率 0%，整天都不太需要帶傘。",
+  "greeting_sub": "行事曆跟待辦今天都是空的，剛好留一點時間給自己。",
+  "weather": {
+    "city": "台北",
+    "summary": "晴時多雲",
+    "low": 23,
+    "high": 33,
+    "rain_pct": 0
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "口袋清單還有 2 篇連結沒看，有空可以回頭翻一下。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "經理人報導",
+      "title": "AI 免費課程大全｜OpenAI 學院、Google、Anthropic 官方免費課程一次收藏 - 經理人",
+      "lede": "把 OpenAI、Google、Anthropic 三家官方的免費 AI 課程入口整理在一起。",
+      "body": "這篇把 OpenAI 學院、Google、Anthropic 官方提供的免費 AI 課程資源收攏整理成一份清單，省去自己到處找教材的功夫，對正在累積實作經驗的資工系學生算是蠻省力的捷徑。",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1rUFVHT01PMUkxUVZDLVRFbmt0ZFV0Q2I5WUZaUkFzdVFaYkNlcmFjMVluQkN3azdCT1J5ajVZU21iV3pfMFJWRGFjanF5MDlmRzh0QkI0engyMmZJT0JnaQ?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "用 3 款 AI 工具＋6 個步驟示範 Vibe Coding，主打連新手都能上手。",
+      "body": "這支影片介紹「Vibe Coding」的概念，並用 3 款常見 AI 工具搭配 6 步驟教學，示範即使不太會寫程式也能跟著做出東西。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "LINE TODAY 轉載",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "整理 2026 年 Claude 方案異動，重點是 Haiku 5.5 上線、Max 方案加贈 API 額度。",
+      "body": "這篇整理 2026 年 Claude 收費方案的更新，包括 Haiku 5.5 上線、Max 方案加贈 API 額度，並比較免費版、Pro、Max 三個方案該怎麼選。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "天氣不錯，沒排滿的一天剛好拿來休息或補一下累積的小事，晚點台北台中要跑的話也抓得到時間。",
+  "ticker_message": "10/18 台北晴時多雲、高溫33度降雨0% ・ 今天行事曆與待辦都空著 ・ 科技新聞三則：AI免費課程整理／Vibe Coding教學影片／2026 Claude收費方案比較 ・ 口袋清單還有2篇連結沒看"
+}
