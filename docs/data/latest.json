@@ -1,46 +1,46 @@
 {
-  "date": "2026-10-18",
-  "issue_no": 35,
-  "greeting": "今天台北晴時多雲，高溫上看 33 度、降雨機率 0%，整天都不太需要帶傘。",
-  "greeting_sub": "行事曆跟待辦今天都是空的，剛好留一點時間給自己。",
+  "date": "2026-10-19",
+  "issue_no": 36,
+  "greeting": "台北今天晴時多雲，高溫33度、降雨機率只有2%，不太需要帶傘。",
+  "greeting_sub": "",
   "weather": {
     "city": "台北",
     "summary": "晴時多雲",
-    "low": 23,
+    "low": 24,
     "high": 33,
-    "rain_pct": 0
+    "rain_pct": 2
   },
   "schedule": [],
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "口袋清單還有 2 篇連結沒看，有空可以回頭翻一下。",
+  "links_highlight": "興趣收藏夾裡還有 2 篇連結沒看。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "經理人報導",
-      "title": "AI 免費課程大全｜OpenAI 學院、Google、Anthropic 官方免費課程一次收藏 - 經理人",
-      "lede": "把 OpenAI、Google、Anthropic 三家官方的免費 AI 課程入口整理在一起。",
-      "body": "這篇把 OpenAI 學院、Google、Anthropic 官方提供的免費 AI 課程資源收攏整理成一份清單，省去自己到處找教材的功夫，對正在累積實作經驗的資工系學生算是蠻省力的捷徑。",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1rUFVHT01PMUkxUVZDLVRFbmt0ZFV0Q2I5WUZaUkFzdVFaYkNlcmFjMVluQkN3azdCT1J5ajVZU21iV3pfMFJWRGFjanF5MDlmRzh0QkI0engyMmZJT0JnaQ?oc=5"
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Claude 推出 13 堂免費線上課程，涵蓋 Agent Skills 與 Claude Code 實作，完課還能拿官方證書。",
+      "body": "這系列課程主打從基礎到進階，一次教 Agent Skills 與 Claude Code 的實際操作，對平常就在用 Claude Code 寫作業、跑專案的你應該會有幫助。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代報導",
+      "meta": "數位時代影片報導",
       "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "用 3 款 AI 工具＋6 個步驟示範 Vibe Coding，主打連新手都能上手。",
-      "body": "這支影片介紹「Vibe Coding」的概念，並用 3 款常見 AI 工具搭配 6 步驟教學，示範即使不太會寫程式也能跟著做出東西。",
+      "lede": "一支教學影片介紹 Vibe Coding 的概念，整理 3 款常用 AI 工具與 6 步驟上手流程。",
+      "body": "內容走新手向，用具體步驟說明怎麼靠 AI 工具輔助寫程式，算是概念入門的補充教材。",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
-      "meta": "LINE TODAY 轉載",
+      "meta": "轉自 LINE TODAY／數位時代報導",
       "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
-      "lede": "整理 2026 年 Claude 方案異動，重點是 Haiku 5.5 上線、Max 方案加贈 API 額度。",
-      "body": "這篇整理 2026 年 Claude 收費方案的更新，包括 Haiku 5.5 上線、Max 方案加贈 API 額度，並比較免費版、Pro、Max 三個方案該怎麼選。",
+      "lede": "文章整理 2026 年 Claude 收費方案比較，重點是 Haiku 5.5 上線、Max 方案附贈 API 額度。",
+      "body": "主要在比較免費版、Pro、Max 三個方案該怎麼選，如果你平常有在用 Claude 系列工具，方案異動值得留意一下。",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
     }
   ],
@@ -56,6 +56,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "天氣不錯，沒排滿的一天剛好拿來休息或補一下累積的小事，晚點台北台中要跑的話也抓得到時間。",
-  "ticker_message": "10/18 台北晴時多雲、高溫33度降雨0% ・ 今天行事曆與待辦都空著 ・ 科技新聞三則：AI免費課程整理／Vibe Coding教學影片／2026 Claude收費方案比較 ・ 口袋清單還有2篇連結沒看"
+  "closing_note": "今天沒有排進度的待辦，剛好留點時間看看這幾篇 Claude 相關的新東西。",
+  "ticker_message": "台北晴時多雲、降雨機率2%；今天沒有待辦排程，附上3篇Claude相關新聞，收藏夾還有2篇連結沒看。"
 }
