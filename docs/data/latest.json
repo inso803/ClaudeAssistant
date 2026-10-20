@@ -1,46 +1,46 @@
 {
-  "date": "2026-10-19",
-  "issue_no": 36,
-  "greeting": "台北今天晴時多雲，高溫33度、降雨機率只有2%，不太需要帶傘。",
+  "date": "2026-10-20",
+  "issue_no": 37,
+  "greeting": "今天台北多雲，23到34度，降雨機率0%，行程跟待辦都是空的，難得輕鬆一天。",
   "greeting_sub": "",
   "weather": {
     "city": "台北",
-    "summary": "晴時多雲",
-    "low": 24,
-    "high": 33,
-    "rain_pct": 2
+    "summary": "多雲",
+    "low": 23,
+    "high": 34,
+    "rain_pct": 0
   },
   "schedule": [],
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "興趣收藏夾裡還有 2 篇連結沒看。",
+  "links_highlight": "之前存的連結還有 2 則沒看。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
       "meta": "數位時代報導",
       "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
-      "lede": "Claude 推出 13 堂免費線上課程，涵蓋 Agent Skills 與 Claude Code 實作，完課還能拿官方證書。",
-      "body": "這系列課程主打從基礎到進階，一次教 Agent Skills 與 Claude Code 的實際操作，對平常就在用 Claude Code 寫作業、跑專案的你應該會有幫助。",
+      "lede": "Claude 直接開了 13 堂免費線上課程，修完還能拿官方證書。",
+      "body": "課程內容涵蓋 Agent Skills 跟 Claude Code 實作，等於把工具鏈的操作方式整套教完，對想補 agentic 工具實作經驗的你來說，是個不用花錢的低門檻入門選項。",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代影片報導",
+      "meta": "數位時代報導",
       "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "一支教學影片介紹 Vibe Coding 的概念，整理 3 款常用 AI 工具與 6 步驟上手流程。",
-      "body": "內容走新手向，用具體步驟說明怎麼靠 AI 工具輔助寫程式，算是概念入門的補充教材。",
+      "lede": "影片用 3 款 AI 工具、6 個步驟帶新手認識 Vibe Coding。",
+      "body": "主打連程式小白都能跟著做，算是把 AI 輔助寫程式的流程拆成好上手的步驟，當成快速了解概念的參考還算方便。",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
-      "meta": "轉自 LINE TODAY／數位時代報導",
+      "meta": "數位時代報導（LINE TODAY 轉載）",
       "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
-      "lede": "文章整理 2026 年 Claude 收費方案比較，重點是 Haiku 5.5 上線、Max 方案附贈 API 額度。",
-      "body": "主要在比較免費版、Pro、Max 三個方案該怎麼選，如果你平常有在用 Claude 系列工具，方案異動值得留意一下。",
+      "lede": "整理 2026 年 Claude 收費方案怎麼選，重點是 Haiku 5.5 上線、Max 方案加送 API 額度。",
+      "body": "文章比較免費版、Pro、Max 三個方案的差異，特別點出 Max 方案現在會附贈 API 額度，如果你平時會用 Claude Code 跑專案，這個額度變化值得留意。",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
     }
   ],
@@ -56,6 +56,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "今天沒有排進度的待辦，剛好留點時間看看這幾篇 Claude 相關的新東西。",
-  "ticker_message": "台北晴時多雲、降雨機率2%；今天沒有待辦排程，附上3篇Claude相關新聞，收藏夾還有2篇連結沒看。"
+  "closing_note": "今天難得沒排滿，找個空檔休息一下也好。",
+  "ticker_message": "台北今天多雲23-34度不會下雨，行程待辦都空著；整理了3則Claude相關新聞，另外之前存的連結還有2則沒看。"
 }
