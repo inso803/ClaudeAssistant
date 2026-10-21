@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-21",
+  "issue_no": 38,
+  "greeting": "台北今天毛毛雨機率100%，氣溫22到30度，濕黏的一天，記得帶傘。",
+  "greeting_sub": "今天沒有排進度，剛好可以喘口氣整理一下其他事。",
+  "weather": {
+    "city": "台北",
+    "summary": "毛毛雨",
+    "low": 22,
+    "high": 30,
+    "rain_pct": 100
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "還有 2 則之前存的連結沒看完，有空可以回頭翻一下。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "LINE TODAY報導",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "Claude 2026年收費方案又更新了，Haiku 5.5上線、Max方案加送API額度。",
+      "body": "報導整理了Claude最新的收費方案異動，重點是Haiku 5.5模型正式上線，Max方案新增贈送API額度，免費版、Pro、Max三者的取捨邏輯也跟著調整。你平時在寫Code的時候會用到Claude，這種額度/方案異動值得留意一下。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Claude官方推出13堂免費線上課程，教Agent Skills跟Claude Code實作，還能拿證書。",
+      "body": "Anthropic官方開了一套13堂的免費線上課程，內容涵蓋Agent Skills跟Claude Code的實作練習，上完可以領官方證書。對你這種本來就在用Claude Code寫東西的人來說，算是順手可以補一下系統性知識的管道。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "Claude官方認證免費拿！AI工具達人教你6小時搞定3張證照，LinkedIn履歷一秒鍍金 - 數位時代",
+      "lede": "有達人分享6小時內拿下3張Claude官方證照的方法，順手就能充實LinkedIn。",
+      "body": "報導找了AI工具達人分享怎麼在6小時內考到3張Claude官方認證證照，當作快速補強履歷的方式。對還在累積實作經驗的你來說，這種免費官方證照是個低成本的加分項目。",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE44U2lRRGF0X0R4cHBxcHlabThEYlBHa196Y0pGcTQ1bXByOXRTYV9fMFpKbkdCblMxbW4ydVZpYkc3QlFaTTZZY1ljbFRlYWNkNmxqckR2VXJLWTN5SUpYLVhUaFVOR2JHUTBzbU9EQXZrRVk?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "雨天路上小心，今天沒排事就輕鬆過吧。",
+  "ticker_message": "台北毛毛雨機率100%、22-30度，今天沒排行程；順便整理了3篇Claude相關新聞（收費方案更新、13堂免費課程、6小時拿3張證照），還有2則舊連結沒看完。"
+}
