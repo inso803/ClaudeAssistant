@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-22",
+  "issue_no": 39,
+  "greeting": "台北今天是小雨，降雨機率100%，溫度22-24度，記得帶傘出門。",
+  "greeting_sub": "今天沒有排行程、待辦也是空的，難得的空檔可以拿來做點自己的事。",
+  "weather": {
+    "city": "台北",
+    "summary": "小雨",
+    "low": 22,
+    "high": 24,
+    "rain_pct": 100
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "口袋名單還有 2 個連結沒看，有空可以清一下。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "經理人報導",
+      "title": "AI 免費課程大全｜OpenAI 學院、Google、Anthropic 官方免費課程一次收藏 - 經理人",
+      "lede": "三大 AI 廠牌的官方免費課程被整理成一份清單，省去自己到處找的時間。",
+      "body": "重點應該是把 OpenAI、Google、Anthropic 各自推出的官方免費課程做成一份總表，方便想系統性學 AI 的人直接對照挑選，而不用一家一家官網找。",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1rUFVHT01PMUkxUVZDLVRFbmt0ZFV0Q2I5WUZaUkFzdVFaYkNlcmFjMVluQkN3azdCT1J5ajVZU21iV3pfMFJWRGFjanF5MDlmRzh0QkI0engyMmZJT0JnaQ?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Claude 官方開了一整套免費課程，還能拿到結業證書，內容涵蓋 Agent Skills 跟 Claude Code 實作。",
+      "body": "看起來是 Anthropic 一次釋出 13 堂免費線上課程，從基礎一路教到 Agent Skills、Claude Code 的實作用法，修完還能領官方證書，對正在熟悉 Claude Code 的人應該蠻直接相關。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "自己的AI助理自己養！OpenAI工程師曝5大Codex進階用法，打造「專屬AI貼身特助」 - 數位時代",
+      "lede": "一位 OpenAI 工程師分享了 5 個 Codex 進階用法，教人怎麼把它養成專屬的 AI 助理。",
+      "body": "內容應該是在講如何透過進階設定或工作流程，把 Codex 從單純的程式碼工具，調教成更貼近個人習慣的客製化助理，算是給正在打造自己 AI 助理專案的人的另一種參考角度。",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeVRqNXJ5QWVQeVRWZ1pobXdOQ1JxamtpSTNOdEZMRnRSMUUxSU9uaVJqbzFxOVNLVlI5dHdJc0dISEFzdTB4UEdZTllNblpYY2NzcUZDV2x1U29wY19lTndNc0dpMXlOT05NaVplWmFLVmhNWENIY2lFQTc5azlMOW1QOWRLUkxLRUthTERJczhaWWJQZURjRm94b1NRSDIyNnh5OUp5TnFGa014eWFxZQ?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "今天空檔多，記得帶傘，出門小心。",
+  "ticker_message": "台北今天小雨、降雨機率100%，行程跟待辦都空著；口袋名單還有2個連結沒看；今天的推薦是AI免費課程整理、Claude官方課程、OpenAI工程師的Codex進階用法。"
+}
