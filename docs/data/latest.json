@@ -1,47 +1,47 @@
 {
-  "date": "2026-10-22",
-  "issue_no": 39,
-  "greeting": "台北今天是小雨，降雨機率100%，溫度22-24度，記得帶傘出門。",
-  "greeting_sub": "今天沒有排行程、待辦也是空的，難得的空檔可以拿來做點自己的事。",
+  "date": "2026-10-23",
+  "issue_no": 40,
+  "greeting": "台北今天雷雨機率100%，溫度23到26度，出門記得帶傘。",
+  "greeting_sub": "今天行程和待辦都是空的，剛好留點彈性時間。",
   "weather": {
     "city": "台北",
-    "summary": "小雨",
-    "low": 22,
-    "high": 24,
+    "summary": "雷雨",
+    "low": 23,
+    "high": 26,
     "rain_pct": 100
   },
   "schedule": [],
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "口袋名單還有 2 個連結沒看，有空可以清一下。",
+  "links_highlight": "之前存的連結還有 2 則沒看，有空可以回顧一下。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "經理人報導",
-      "title": "AI 免費課程大全｜OpenAI 學院、Google、Anthropic 官方免費課程一次收藏 - 經理人",
-      "lede": "三大 AI 廠牌的官方免費課程被整理成一份清單，省去自己到處找的時間。",
-      "body": "重點應該是把 OpenAI、Google、Anthropic 各自推出的官方免費課程做成一份總表，方便想系統性學 AI 的人直接對照挑選，而不用一家一家官網找。",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1rUFVHT01PMUkxUVZDLVRFbmt0ZFV0Q2I5WUZaUkFzdVFaYkNlcmFjMVluQkN3azdCT1J5ajVZU21iV3pfMFJWRGFjanF5MDlmRzh0QkI0engyMmZJT0JnaQ?oc=5"
+      "meta": "LINE TODAY 轉載",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "Claude 的收費方案在 Haiku 5.5 上線後重新洗牌，Max 方案現在連 API 額度都送。",
+      "body": "這篇整理了免費版、Pro、Max 三個方案在 Haiku 5.5 上線後怎麼選，重點是 Max 方案多送了 API 額度，對會寫程式呼叫 API 的人應該比較有感。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
       "meta": "數位時代報導",
       "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
-      "lede": "Claude 官方開了一整套免費課程，還能拿到結業證書，內容涵蓋 Agent Skills 跟 Claude Code 實作。",
-      "body": "看起來是 Anthropic 一次釋出 13 堂免費線上課程，從基礎一路教到 Agent Skills、Claude Code 的實作用法，修完還能領官方證書，對正在熟悉 Claude Code 的人應該蠻直接相關。",
+      "lede": "Claude 推出了 13 堂免費線上課程，上完還能拿官方證書。",
+      "body": "內容涵蓋 Agent Skills 和 Claude Code 的實作，對你現在在熟悉 agentic 工具鏈應該滿對口的，有空可以挑幾堂看看。",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
       "meta": "數位時代報導",
-      "title": "自己的AI助理自己養！OpenAI工程師曝5大Codex進階用法，打造「專屬AI貼身特助」 - 數位時代",
-      "lede": "一位 OpenAI 工程師分享了 5 個 Codex 進階用法，教人怎麼把它養成專屬的 AI 助理。",
-      "body": "內容應該是在講如何透過進階設定或工作流程，把 Codex 從單純的程式碼工具，調教成更貼近個人習慣的客製化助理，算是給正在打造自己 AI 助理專案的人的另一種參考角度。",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeVRqNXJ5QWVQeVRWZ1pobXdOQ1JxamtpSTNOdEZMRnRSMUUxSU9uaVJqbzFxOVNLVlI5dHdJc0dISEFzdTB4UEdZTllNblpYY2NzcUZDV2x1U29wY19lTndNc0dpMXlOT05NaVplWmFLVmhNWENIY2lFQTc5azlMOW1QOWRLUkxLRUthTERJczhaWWJQZURjRm94b1NRSDIyNnh5OUp5TnFGa014eWFxZQ?oc=5"
+      "title": "Claude Code問世，第一個被改變的是做出它的人！Anthropic內部揭秘：工程師重點工作「不是寫程式」了 - 數位時代",
+      "lede": "Anthropic 內部的說法是，Claude Code 出現後，工程師的工作重心已經不是「寫程式」本身。",
+      "body": "這篇是 Anthropic 內部視角的揭秘報導，談 Claude Code 問世後對他們自己工程師工作方式的衝擊，算是個第一手案例。",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1QTG5SbVJBcFNGazk5eThLYjNXU0k5akNnZmlUeWtEVDZvUE9qU2M3M1VHdkRyUFNjZ3EydG9jNVVxUVlvYnBjWDFObUVoOU5BamRENWxZLXk5c0RqQ0tCeVZfYkFRak5YSTNLV3lWZzliSGM?oc=5"
     }
   ],
   "stats": [
@@ -56,6 +56,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "今天空檔多，記得帶傘，出門小心。",
-  "ticker_message": "台北今天小雨、降雨機率100%，行程跟待辦都空著；口袋名單還有2個連結沒看；今天的推薦是AI免費課程整理、Claude官方課程、OpenAI工程師的Codex進階用法。"
+  "closing_note": "今天行程空，雨又大，就把這些新聞當零食慢慢看吧。",
+  "ticker_message": "台北雷雨機率100%記得帶傘；今天行程待辦都空白；存的連結還有2則沒看；3則Claude相關新聞：收費方案更新、13堂免費課程上線、Claude Code問世幕後。"
 }
