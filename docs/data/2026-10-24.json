@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-24",
+  "issue_no": 41,
+  "greeting": "台北今天整天雷雨，降雨機率100%，溫度22到26度，出門記得帶雨具。",
+  "greeting_sub": "今天沒有排定行程，可以挪一點時間處理自己的事。",
+  "weather": {
+    "city": "台北",
+    "summary": "雷雨",
+    "low": 22,
+    "high": 26,
+    "rain_pct": 100
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "收藏清單還有 2 篇連結沒看。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "LINE TODAY 轉載",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "Claude 的收費方案隨 Haiku 5.5 上線跟著調整，Max 方案多送 API 額度。",
+      "body": "文章整理免費版、Pro、Max 三個方案在 Haiku 5.5 上線後的差異，重點是 Max 方案加送 API 額度，幫忙抓哪個方案划算。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Anthropic 推出 13 堂免費線上課程，教 Agent Skills 跟 Claude Code 實作，修完有官方證書。",
+      "body": "課程內容涵蓋 Agent Skills 跟 Claude Code 的實際操作，對平常就在用 Claude Code 寫作業、做專案的情況算是直接相關，證書也能放進履歷。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導・影片",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "一部教學影片用 3 款 AI 工具、6 個步驟說明 Vibe Coding 這種寫程式方式。",
+      "body": "影片是給完全沒寫過程式的人看的入門教學，用 3 款 AI 工具搭配 6 步驟流程示範怎麼「用講的方式」寫出程式，對已經在學資工的情況比較像是看別人怎麼入門。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "雨天記得帶傘，今天行程空，可以拿來喘口氣。",
+  "ticker_message": "台北今天雷雨機率100%、22-26度，沒排行程；收藏清單還有2篇待看；今天推薦3則Claude相關新聞。"
+}
