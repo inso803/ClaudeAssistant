@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-25",
+  "issue_no": 42,
+  "greeting": "台北今天毛毛雨，降雨機率65%，溫度21~26度，出門記得帶傘。",
+  "greeting_sub": "今天行事曆跟待辦都是空的，可以自己抓時間安排。",
+  "weather": {
+    "city": "台北",
+    "summary": "毛毛雨",
+    "low": 21,
+    "high": 26,
+    "rain_pct": 65
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "興趣清單裡還有 2 筆連結沒看。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Claude官方開了一套免費線上課程，教Agent Skills跟Claude Code怎麼實作，還能拿證書。",
+      "body": "課程內容涵蓋Agent Skills與Claude Code的實作教學，共13堂，修完可領官方證書，對想系統性學這塊的人算是現成的入門路徑。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代影片報導",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "用3款AI工具搭配6步驟教學，介紹Vibe Coding這個概念給完全不會寫程式的人。",
+      "body": "影片示範3款AI工具、拆成6個步驟說明Vibe Coding怎麼操作，偏入門導覽性質，適合還沒碰過AI輔助寫程式的人。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導，經LINE TODAY轉載",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "整理2026年Claude免費版、Pro、Max三個方案怎麼選，重點是Haiku 5.5上線、Max加送API額度。",
+      "body": "文章比較三個訂閱等級的差異，提到Haiku 5.5上線後的方案定位，以及Max方案額外提供API額度，方便挑適合自己使用量的方案。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "今天沒排行程，剛好可以挑一件事推進，晚點見。",
+  "ticker_message": "台北毛毛雨、降雨機率65%(21~26度)，今天沒排行程，興趣清單還有2筆連結沒看，另外附3則Claude相關新聞可以翻翻。"
+}
