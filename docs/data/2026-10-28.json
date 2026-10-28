@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-28",
+  "issue_no": 45,
+  "greeting": "台北今天毛毛雨，降雨機率 55%，溫度 20-24 度，出門記得帶傘。",
+  "greeting_sub": "今天行事曆跟待辦都是空的，難得喘口氣的一天。",
+  "weather": {
+    "city": "台北",
+    "summary": "毛毛雨",
+    "low": 20,
+    "high": 24,
+    "rain_pct": 55
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "口袋清單還有 2 篇沒看（一篇 YouTube、一篇 Threads 貼文）。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "來自 LINE TODAY",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？",
+      "lede": "Claude 新推出 Haiku 5.5，Max 方案還加送 API 額度，等於方案選擇又多了一層考量。",
+      "body": "重點是免費版、Pro、Max 三個方案該怎麼選，Max 新增送 API 額度這點對會寫程式呼叫 API 的人應該有感。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "來自 數位時代",
+      "title": "Claude官方認證免費拿！AI工具達人教你6小時搞定3張證照，LinkedIn履歷一秒鍍金",
+      "lede": "有人整理出用 6 小時拿下 3 張 Claude 官方認證的路線，拿來放 LinkedIn 履歷。",
+      "body": "標題講的是免費拿 Claude 官方認證、6 小時內一次刷完 3 張，對想在履歷上加點 AI 工具背書的人算是個低成本選項。",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE44U2lRRGF0X0R4cHBxcHlabThEYlBHa196Y0pGcTQ1bXByOXRTYV9fMFpKbkdCblMxbW4ydVZpYkc3QlFaTTZZY1ljbFRlYWNkNmxqckR2VXJLWTN5SUpYLVhUaFVOR2JHUTBzbU9EQXZrRVk?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "來自 數位時代",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！",
+      "lede": "一部影片用 6 步驟教學介紹 Vibe Coding 跟 3 款相關 AI 工具，主打給程式新手看。",
+      "body": "內容是用 AI 輔助寫程式的「Vibe Coding」入門教學，配 3 款工具跟 6 個步驟，算是給還在摸索開發流程的人看的。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "沒待辦的日子，剩下的時間自己排，today is yours。",
+  "ticker_message": "台北毛毛雨 20-24度・今天沒待辦也沒行程・口袋清單2篇待看・3則AI工具/認證相關新聞"
+}
