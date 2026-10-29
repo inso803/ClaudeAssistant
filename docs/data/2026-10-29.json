@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-29",
+  "issue_no": 46,
+  "greeting": "今天台北陰天，21到27度，降雨機率只有2%，不太需要特別帶傘。",
+  "greeting_sub": "",
+  "weather": {
+    "city": "台北",
+    "summary": "陰天",
+    "low": 21,
+    "high": 27,
+    "rain_pct": 2
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "存起來還沒看的連結有2筆。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Claude官方上線了13堂免費課程，完課可以拿到官方證書。",
+      "body": "內容涵蓋 Agent Skills 和 Claude Code 的實作練習，對你平常就在用 Claude Code 寫程式的情況應該可以直接對上用。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "自己的AI助理自己養！OpenAI工程師曝5大Codex進階用法，打造「專屬AI貼身特助」 - 數位時代",
+      "lede": "一位OpenAI工程師分享了5個把Codex調教成貼身AI助理的進階用法。",
+      "body": "重點是怎麼讓Codex不只是回答問題，而是變成能持續記住習慣、主動幫忙執行任務的助理，跟這個專案在做的長期記憶、晨報自動化方向算是同一個思路。",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeVRqNXJ5QWVQeVRWZ1pobXdOQ1JxamtpSTNOdEZMRnRSMUUxSU9uaVJqbzFxOVNLVlI5dHdJc0dISEFzdTB4UEdZTllNblpYY2NzcUZDV2x1U29wY19lTndNc0dpMXlOT05NaVplWmFLVmhNWENIY2lFQTc5azlMOW1QOWRLUkxLRUthTERJczhaWWJQZURjRm94b1NRSDIyNnh5OUp5TnFGa014eWFxZQ?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導（LINE TODAY 轉載）",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "文章整理了2026年Claude免費版、Pro、Max三個方案的差異，重點是新上線的Haiku 5.5和Max方案附的API額度。",
+      "body": "如果之後有打算升級方案，這篇把三個等級的差異跟新福利放在一起比較，省得自己去翻官網。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "今天沒排代辦，剛好趁空檔看看這幾篇。",
+  "ticker_message": "台北陰天21-27度，降雨機率2%，今天沒有待辦；整理了3篇Claude/AI相關新聞，另外還有2筆存起來還沒看的連結。"
+}
