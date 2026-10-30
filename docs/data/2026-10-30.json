@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-30",
+  "issue_no": 47,
+  "greeting": "今天台北陰天，20-27度，降雨機率0%，不用特別帶傘。",
+  "greeting_sub": "今天沒有排行程或待辦，可以抓時間做點自己的事。",
+  "weather": {
+    "city": "台北",
+    "summary": "陰天",
+    "low": 20,
+    "high": 27,
+    "rain_pct": 0
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "之前存的連結還有 2 篇沒看。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "來自 LINE TODAY",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "Claude 方案改版，重點是 Haiku 5.5 上線、Max 方案加送 API 額度。",
+      "body": "看標題應該是在講 Claude 新一輪的方案調整，包含 Haiku 5.5 上線，以及 Max 方案多送 API 額度，內容大概是幫忙比較免費版、Pro、Max 該怎麼選。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "來自 數位時代",
+      "title": "第三方Skill安全嗎？跨Claude、ChatGPT、Gemini通用性與資安檢查一次看 - 數位時代",
+      "lede": "討論第三方 Skill 在 Claude、ChatGPT、Gemini 之間通用性與資安風險怎麼檢查。",
+      "body": "標題在問第三方 Skill 安不安全，看起來是在整理這類外掛／擴充功能跨平台（Claude、ChatGPT、Gemini）能不能通用，以及該怎麼做資安檢查，對會裝各種 AI 工具的人應該有參考價值。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE43dWpZZU1OTEJpRnBrOFZXNHhUQ09lYU10d0x2bmRvT0ZHMW1IZDNPazExcWRkZWR1eEE3bkU3REEycWZieVMwdDkyWFBSUXBzZTNTRU1DZUJuRFY2SU00T3NIbVhBR0hxRkc5ekR3?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "影片報導 / 數位時代",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "介紹 Vibe Coding 概念，搭配 3 款工具與 6 步驟教學給新手。",
+      "body": "影片內容應該是用 3 款 AI 工具搭配 6 個步驟，教完全不會寫程式的人體驗 Vibe Coding，算是給程式小白的入門教學，跟系上作業用的工具鏈不完全一樣，但可以當作額外參考。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "今天行程空，剛好可以把存的連結清一清。",
+  "ticker_message": "台北陰天20-27度免帶傘、今日無行程待辦、3則AI相關新聞（Claude新方案、第三方Skill資安、Vibe Coding教學）、還有2篇舊連結沒看完。"
+}
