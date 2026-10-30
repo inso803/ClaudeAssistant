@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-30",
+  "weather": {
+    "city": "台北",
+    "summary": "陰天",
+    "low": 20,
+    "high": 27,
+    "rain_pct": 0
+  },
+  "schedule": [],
+  "today_todos": [],
+  "longterm_todos": [],
+  "search_results": [
+    {
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5",
+      "description": "來自 LINE TODAY",
+      "source": "Google News"
+    },
+    {
+      "title": "第三方Skill安全嗎？跨Claude、ChatGPT、Gemini通用性與資安檢查一次看 - 數位時代",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE43dWpZZU1OTEJpRnBrOFZXNHhUQ09lYU10d0x2bmRvT0ZHMW1IZDNPazExcWRkZWR1eEE3bkU3REEycWZieVMwdDkyWFBSUXBzZTNTRU1DZUJuRFY2SU00T3NIbVhBR0hxRkc5ekR3?oc=5",
+      "description": "來自 數位時代",
+      "source": "Google News"
+    },
+    {
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5",
+      "description": "來自 數位時代",
+      "source": "Google News"
+    }
+  ]
+}
