@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-01",
+  "weather": {
+    "city": "台北",
+    "summary": "陰天",
+    "low": 20,
+    "high": 30,
+    "rain_pct": 0
+  },
+  "schedule": [],
+  "today_todos": [],
+  "longterm_todos": [],
+  "search_results": []
+}
