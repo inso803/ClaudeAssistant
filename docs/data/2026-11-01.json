@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-01",
+  "issue_no": 49,
+  "greeting": "台北今天陰天，20到30度、降雨機率0%，出門不用帶傘。",
+  "greeting_sub": "今天沒有排行程、待辦也是空的，難得的空檔可以自己安排。",
+  "weather": {
+    "city": "台北",
+    "summary": "陰天",
+    "low": 20,
+    "high": 30,
+    "rain_pct": 0
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "口袋清單還有 2 篇沒看。",
+  "recommendations": [],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "行程空著也是一種餘裕，用來休息或補進度都好。",
+  "ticker_message": "台北陰天20-30度、降雨機率0%，今天行程全空，口袋清單還有2篇待讀，好好利用這段空檔。"
+}
