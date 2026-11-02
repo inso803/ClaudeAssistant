@@ -1,21 +1,40 @@
 {
-  "date": "2026-11-01",
-  "issue_no": 49,
-  "greeting": "台北今天陰天，20到30度、降雨機率0%，出門不用帶傘。",
-  "greeting_sub": "今天沒有排行程、待辦也是空的，難得的空檔可以自己安排。",
+  "date": "2026-11-02",
+  "issue_no": 50,
+  "greeting": "台北今天整天毛毛雨，降雨機率73%、溫度22-28度，行程和待辦都是空的，可以喘口氣。",
+  "greeting_sub": "濕冷天氣記得帶傘。",
   "weather": {
     "city": "台北",
-    "summary": "陰天",
-    "low": 20,
-    "high": 30,
-    "rain_pct": 0
+    "summary": "毛毛雨",
+    "low": 22,
+    "high": 28,
+    "rain_pct": 73
   },
   "schedule": [],
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "口袋清單還有 2 篇沒看。",
-  "recommendations": [],
+  "links_highlight": "之前存的連結還有2則沒看，有空可以回顧一下。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "未來商務報導",
+      "title": "企業導入Claude 該選哪個方案？Team、Enterprise 差異一次看，新模型Haiku 5.5 免費版也能用 - 未來商務",
+      "lede": "整理企業導入Claude時Team與Enterprise方案的差異，並提到新模型Haiku 5.5已有免費版可用。",
+      "body": "主要是幫企業用戶比較Claude Team和Enterprise兩個方案怎麼選，順帶提到Haiku 5.5這個新模型現在有免費版能試用。",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9UVHA4SDNVb2hVRmtnZjNIRWlJek5CVUp4MVBNemp6Rmhlc2I2SG1UU1N2ZWxIU2hmb0loVS1nSEhCSXRJeWxZbndRZ0ZpZFhmX20yXw?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "用影片教學介紹Vibe Coding概念，推薦3款AI工具並拆成6個步驟給新手上手。",
+      "body": "介紹「Vibe Coding」這種用AI工具輔助寫程式的概念，推薦3款工具並拆成6步驟教學，主打給程式新手入門，跟你平常寫code、用AI輔助的場景應該蠻搭的。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    }
+  ],
   "stats": [
     {
       "value": "0",
@@ -28,6 +47,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "行程空著也是一種餘裕，用來休息或補進度都好。",
-  "ticker_message": "台北陰天20-30度、降雨機率0%，今天行程全空，口袋清單還有2篇待讀，好好利用這段空檔。"
+  "closing_note": "今天行程空，趁機休息或補一下進度都好。",
+  "ticker_message": "台北毛毛雨，降雨機率73%，今天沒排行程；存的連結還有2則沒看；另外有2篇AI/程式相關新聞可以看看。"
 }
