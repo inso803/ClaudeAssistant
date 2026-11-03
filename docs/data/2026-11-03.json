@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-03",
+  "issue_no": 51,
+  "greeting": "台北今天毛毛雨，降雨機率27%，溫度21到26度，出門記得帶傘。",
+  "greeting_sub": "",
+  "weather": {
+    "city": "台北",
+    "summary": "毛毛雨",
+    "low": 21,
+    "high": 26,
+    "rain_pct": 27
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "還有 2 篇存起來沒看的連結，有空可以回頭看看。",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "LINE TODAY 轉載",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "Claude 收費方案又更新了，重點是 Haiku 5.5 上線、Max 方案開始送 API 額度。",
+      "body": "這篇整理 2026 年 Claude 的收費方案異動，主打 Haiku 5.5 新上線，加上 Max 方案現在會附送 API 額度，幫忙比較免費版、Pro、Max 三個方案怎麼選。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代原文",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "一支教學影片，用 6 步驟帶新手認識「Vibe Coding」這種靠 AI 寫程式的方式。",
+      "body": "影片介紹什麼是 Vibe Coding，推薦 3 款 AI 工具並拆成 6 個步驟教程式小白上手，算是給剛接觸 AI 輔助寫程式的人的入門教學。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "今天行程是空的，剛好可以喘口氣，有雨記得帶傘出門。",
+  "ticker_message": "台北毛毛雨、降雨機率27%、21-26度；今日無排程；2篇連結待讀；精選2篇AI新聞：Claude新收費方案與Vibe Coding教學影片。"
+}
