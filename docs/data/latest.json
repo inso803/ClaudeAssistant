@@ -1,38 +1,47 @@
 {
-  "date": "2026-11-03",
-  "issue_no": 51,
-  "greeting": "台北今天毛毛雨，降雨機率27%，溫度21到26度，出門記得帶傘。",
-  "greeting_sub": "",
+  "date": "2026-11-04",
+  "issue_no": 52,
+  "greeting": "今天台北陰天，21~30度，降雨機率0%，出門不用帶傘。",
+  "greeting_sub": "行程跟待辦今天都是空的，算難得的喘息空檔。",
   "weather": {
     "city": "台北",
-    "summary": "毛毛雨",
+    "summary": "陰天",
     "low": 21,
-    "high": 26,
-    "rain_pct": 27
+    "high": 30,
+    "rain_pct": 0
   },
   "schedule": [],
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "還有 2 篇存起來沒看的連結，有空可以回頭看看。",
+  "links_highlight": "還有 2 篇存起來的連結還沒看。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "LINE TODAY 轉載",
+      "meta": "轉載自 LINE TODAY",
       "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
-      "lede": "Claude 收費方案又更新了，重點是 Haiku 5.5 上線、Max 方案開始送 API 額度。",
-      "body": "這篇整理 2026 年 Claude 的收費方案異動，主打 Haiku 5.5 新上線，加上 Max 方案現在會附送 API 額度，幫忙比較免費版、Pro、Max 三個方案怎麼選。",
+      "lede": "Claude 這波改款把方案又洗了一次牌，重點是 Haiku 5.5 上線、Max 方案加碼送 API 額度。",
+      "body": "這篇在整理免費版、Pro、Max 三個方案現在要怎麼選，主要變化是 Haiku 5.5 上線，加上 Max 方案多送了 API 額度。",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代原文",
-      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
-      "lede": "一支教學影片，用 6 步驟帶新手認識「Vibe Coding」這種靠 AI 寫程式的方式。",
-      "body": "影片介紹什麼是 Vibe Coding，推薦 3 款 AI 工具並拆成 6 個步驟教程式小白上手，算是給剛接觸 AI 輔助寫程式的人的入門教學。",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Claude 出了 13 堂免費線上課程，從 Agent Skills 到 Claude Code 實作都包，上完還能領證書。",
+      "body": "數位時代報的這篇說 Claude 推出了 13 堂免費課程，內容涵蓋 Agent Skills 跟 Claude Code 實作，修完可以拿到官方證書。對你現在在累積實作經驗應該蠻對口味。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "迴圈工程(Loop Engineering)是什麼？工程師為什麼不再寫提示詞 - 數位時代",
+      "lede": "重點不是把提示詞雕得多漂亮，是怎麼設計整個會反覆運作的「迴圈」。",
+      "body": "這篇在講「迴圈工程」(Loop Engineering) 的概念：工程師現在比較少花時間摳提示詞字句，而是把心力放在設計一套能持續迭代、自己跑下去的流程。",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMlFWaUpBZDl5Sm9QY3NHQkFuNUQwcFE2dkV5a1NPNndxVGlmd0QwRzZLVERSUWlzR1I4ZHM0ZVF0TGdSY2tzUC1xckw5YV84UXhMMmMxRXdEMXd2NW1zbkRLMFc1czFJUHE5cHQ0TWlyU1JOR0xXNDBtNGowWVZNREVDb1hlanVRSjB2WGdXMVJCLWVDeTNHS3BIU2FNZG00?oc=5"
     }
   ],
   "stats": [
@@ -47,6 +56,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "今天行程是空的，剛好可以喘口氣，有雨記得帶傘出門。",
-  "ticker_message": "台北毛毛雨、降雨機率27%、21-26度；今日無排程；2篇連結待讀；精選2篇AI新聞：Claude新收費方案與Vibe Coding教學影片。"
+  "closing_note": "今天沒排事，剛好可以挑一篇 Claude 新聞或存的連結看一看。",
+  "ticker_message": "台北今天陰天21~30度不用帶傘，行程待辦都是空的；整理了3則Claude相關新聞（新方案、免費課程、迴圈工程），另外還有2篇存的連結沒看。"
 }
