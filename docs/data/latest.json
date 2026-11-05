@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-04",
-  "issue_no": 52,
-  "greeting": "今天台北陰天，21~30度，降雨機率0%，出門不用帶傘。",
-  "greeting_sub": "行程跟待辦今天都是空的，算難得的喘息空檔。",
+  "date": "2026-11-05",
+  "issue_no": 53,
+  "greeting": "台北今天毛毛雨，20 到 30 度，早晚溫差有點大記得帶件外套。",
+  "greeting_sub": "",
   "weather": {
     "city": "台北",
-    "summary": "陰天",
-    "low": 21,
+    "summary": "毛毛雨",
+    "low": 20,
     "high": 30,
     "rain_pct": 0
   },
@@ -14,34 +14,34 @@
   "todos": [],
   "todos_longterm": [],
   "habit_highlights": [],
-  "links_highlight": "還有 2 篇存起來的連結還沒看。",
+  "links_highlight": "存了 2 篇還沒看的連結，有空可以滑一下。",
   "recommendations": [
     {
       "id": "r1",
       "source": "GOOGLE 新聞",
-      "meta": "轉載自 LINE TODAY",
-      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
-      "lede": "Claude 這波改款把方案又洗了一次牌，重點是 Haiku 5.5 上線、Max 方案加碼送 API 額度。",
-      "body": "這篇在整理免費版、Pro、Max 三個方案現在要怎麼選，主要變化是 Haiku 5.5 上線，加上 Max 方案多送了 API 額度。",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
+      "meta": "數位時代報導",
+      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
+      "lede": "Claude 官方出了 13 堂免費線上課程，上完還能拿證書。",
+      "body": "內容涵蓋 Agent Skills 跟 Claude Code 的實作教學，等於有一套系統性的免費教材可以照著練，跟你現在熟悉的 agentic 工具呼叫方向算對口味。",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
     },
     {
       "id": "r2",
       "source": "GOOGLE 新聞",
-      "meta": "數位時代報導",
-      "title": "Claude推出13堂免費線上課程！可領官方證書，Agent Skills、Claude Code實作一次學 - 數位時代",
-      "lede": "Claude 出了 13 堂免費線上課程，從 Agent Skills 到 Claude Code 實作都包，上完還能領證書。",
-      "body": "數位時代報的這篇說 Claude 推出了 13 堂免費課程，內容涵蓋 Agent Skills 跟 Claude Code 實作，修完可以拿到官方證書。對你現在在累積實作經驗應該蠻對口味。",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51ZFhvLUpDSkc1b0hNRHJXMkxndmVjWU14cngxYkVDVHUwT1JCUHR2SW5yRkFCVHNFekxZYUpRRVNMQi1DS3pTVWxjOXpydjZobVhfYVlpbE02bXFWcjBTUTZybVJncFc2NVdKbHR3?oc=5"
+      "meta": "LINE TODAY 轉載",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ | 數位時代 - LINE TODAY",
+      "lede": "Claude 更新收費方案，Haiku 5.5 上線、Max 方案還附贈 API 額度。",
+      "body": "文章整理免費版、Pro、Max 三個方案怎麼挑，之後要抓 Claude Code 的 API 用量成本時可以拿來對照。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0xRVpfaUNkcE9xREVVMFctaThlX0VxR3JHYUpTWkJkSUdjYkVuRlFXTWJyTUtTZ0lIU3haZHhtNWg5Qm5LZTdTc2VFc0pvZmpROWtQRVRn?oc=5"
     },
     {
       "id": "r3",
       "source": "GOOGLE 新聞",
       "meta": "數位時代報導",
-      "title": "迴圈工程(Loop Engineering)是什麼？工程師為什麼不再寫提示詞 - 數位時代",
-      "lede": "重點不是把提示詞雕得多漂亮，是怎麼設計整個會反覆運作的「迴圈」。",
-      "body": "這篇在講「迴圈工程」(Loop Engineering) 的概念：工程師現在比較少花時間摳提示詞字句，而是把心力放在設計一套能持續迭代、自己跑下去的流程。",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMlFWaUpBZDl5Sm9QY3NHQkFuNUQwcFE2dkV5a1NPNndxVGlmd0QwRzZLVERSUWlzR1I4ZHM0ZVF0TGdSY2tzUC1xckw5YV84UXhMMmMxRXdEMXd2NW1zbkRLMFc1czFJUHE5cHQ0TWlyU1JOR0xXNDBtNGowWVZNREVDb1hlanVRSjB2WGdXMVJCLWVDeTNHS3BIU2FNZG00?oc=5"
+      "title": "Claude Code新手安裝教學｜Desktop App、終端機2種方式怎麼裝？不懂程式也能秒上手 - 數位時代",
+      "lede": "整理 Claude Code 的兩種安裝方式：Desktop App 跟終端機。",
+      "body": "主打不懂程式也能上手，是給還沒裝過 Claude Code 的人看的入門教學。",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBnc0lkek5uRWkwbHM0NHVic1dKdmtlcWpGRFJ5N1lkRmpYNXN2RGN4THN0ZFBaRDY0X0c2RzV4djF2Y085aUFTRzRLZF9tVGVSZG9xRG4tbWFLMzZYcllv?oc=5"
     }
   ],
   "stats": [
@@ -56,6 +56,6 @@
       "tone": "accent"
     }
   ],
-  "closing_note": "今天沒排事，剛好可以挑一篇 Claude 新聞或存的連結看一看。",
-  "ticker_message": "台北今天陰天21~30度不用帶傘，行程待辦都是空的；整理了3則Claude相關新聞（新方案、免費課程、迴圈工程），另外還有2篇存的連結沒看。"
+  "closing_note": "今天沒排事，抓空檔看看這幾篇 Claude 的新聞就好。",
+  "ticker_message": "台北毛毛雨 20-30度，今天沒排事，存了 2 篇連結還沒看，順便看看 Claude 免費課程、新收費方案跟 Claude Code 安裝教學這幾篇新聞。"
 }
