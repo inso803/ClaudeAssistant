@@ -23,6 +23,10 @@ Discord 傳一則文字訊息：今天行程、死線提醒、台北天氣」。
   提醒；週一多一段「本週」。沒事件也照發；超過 2000 字自動拆成多則
 - `.github/workflows/daily-brief.yml`（每日 22:30 UTC = 台北 06:30 + 手動觸發）
 - `.github/workflows/test.yml`（PR 上跑 pytest）、`tests/`（classify / rules / compose / 天氣建議）
+- `.github/workflows/keepalive.yml`：每月 1 號（+ 手動觸發）用 `GITHUB_TOKEN` 執行
+  `gh workflow enable daily-brief.yml`，避免公開 repo 60 天沒活動時排程被 GitHub 自動停用
+- 外套建議只看絕對溫度：06～23 點最低溫 ≤ 16°C，或晚上 18～23 點最低溫 ≤ 18°C；
+  白天最高溫 ≤ 20°C 算「整天都冷」。不看日夜溫差（下午 26°C、晚上 21°C 不會建議外套）
 
 ### Changed
 - `requirements.txt` 加入 `google-api-python-client`、`google-auth`、`icalendar`、`tzdata`

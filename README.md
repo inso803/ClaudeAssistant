@@ -46,7 +46,8 @@ flowchart LR
 | 作業 | 2 |
 | 其他 | 1 |
 
-天氣建議的門檻（降雨 40%、低溫 16°C、晚上降溫 5°C 等）在 `brief/weather.py` 開頭。
+天氣建議的門檻（降雨 40%、全天最低溫 16°C、晚上最低溫 18°C 等，外套只看絕對溫度、不看
+日夜溫差）在 `brief/weather.py` 開頭。
 
 ## 專案結構
 
@@ -68,6 +69,8 @@ tests/                        pytest：classify / rules / compose / 天氣建議
 .github/workflows/
   daily-brief.yml             每日 22:30 UTC（= 台北 06:30）+ 手動觸發
   test.yml                    PR 上跑 pytest
+  keepalive.yml               每月 1 號重新 enable daily-brief.yml（公開 repo 60 天沒活動時
+                                GitHub 會自動停用排程，這支避免晨報被停掉）
   morning-report.yml          v0.x，未使用（已在 GitHub 上停用）
   send-morning-link.yml       v0.x，未使用（監聽 docs/data/**，新版不會寫那裡，所以不會觸發）
 ```
