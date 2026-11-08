@@ -3,7 +3,18 @@
 還沒做的事。之後建議整批搬進 GitHub Issues（一個項目一個 Issue），這份檔案先當作過渡期的暫存清單。
 完成的項目請直接刪除這一行，不用留 ✅ 記錄——「做完了什麼」屬於 [CHANGELOG.md](CHANGELOG.md) 的事。
 
-## 功能相關
+## 下一版（v1.1+）：日曆提醒晨報
+
+- [ ] AI 規劃：考試前自動排複習計畫（例如 d=5 起每天要看哪些範圍）
+- [ ] AI 規劃：專題拆階段（d=14 規劃 → d=7 主要完成 → d=1 收尾），寫回 Google 日曆
+- [ ] 在 Discord 回覆準備進度（例如回覆晨報「ADA 讀完第 3 章」），下次晨報跟進
+- [ ] COOL 與手動事件去重（同一份作業同時出現在兩邊時只顯示一次）
+- [ ] COOL 上的考試／點名等非作業事件分類（現在一律當作業）
+- [ ] 決定是否移除 v0.x 舊功能（`morning_report/`、`docs/` 看板、`memory/`、兩個舊 workflow）
+
+## v0.x 舊功能（目前未使用，以下項目先擱置）
+
+### 功能相關
 
 - [ ] 提供長期待辦 Discord 頻道的 ID，設進 repo Secrets：`DISCORD_LONGTERM_TODO_CHANNEL_ID`
       （開發者模式下對頻道按右鍵「複製頻道 ID」）。沒設定的話這個功能會自動跳過，不影響其他部分。
@@ -24,7 +35,6 @@
       或只把 `memory/` 搬到別的 private 儲存位置
 - [ ] 把這份 TODO.md 遷移成 GitHub Issues + 一個簡單的 Projects 看板（Backlog/In Progress/Done）
 - [ ] 幫 `board_writer.py` 寫前 2-3 個 pytest 測試（30 天自動清除邏輯、`next_issue_no()` 期數累加）
-- [ ] 加一個 `.github/workflows/test.yml`，PR 時自動跑 pytest
 - [ ] 加 ruff（lint）+ black（格式化）設定檔；考慮加 pre-commit hook 跑 detect-secrets/gitleaks
       （曾經不小心用真的 bot token 推送過測試訊息，見 CHANGELOG v0.2.0）
 - [ ] main 分支加保護規則，改成 feature branch + PR 流程（即使一人開發，自己 review 一次 diff 再合併）
