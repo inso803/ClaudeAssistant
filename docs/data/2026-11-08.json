@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-08",
+  "issue_no": 56,
+  "greeting": "今天台北晴時多雲，22～28度，降雨機率0%，而且行程跟待辦都是空的，算是難得可以自己完全安排的一天。",
+  "greeting_sub": "",
+  "weather": {
+    "city": "台北",
+    "summary": "晴時多雲",
+    "low": 22,
+    "high": 28,
+    "rain_pct": 0
+  },
+  "schedule": [],
+  "todos": [],
+  "todos_longterm": [],
+  "habit_highlights": [],
+  "links_highlight": "還有 2 則之前存起來的連結沒看",
+  "recommendations": [
+    {
+      "id": "r1",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "2026 Claude收費方案｜Haiku 5.5上線、Max送API額度，免費版、Pro、Max怎麼選？ - 數位時代",
+      "lede": "Claude 這波更新把 Haiku 5.5 排進方案裡，順便重新梳理免費版、Pro、Max 怎麼選。",
+      "body": "看標題是在整理 Claude 目前免費版、Pro、Max 三個方案的差異，重點是 Haiku 5.5 上線後 Max 方案多送 API 額度這個變化。",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBaa2RIV2M1N05rZjRLQ2hnTHBHQ3puamtKbWRLS1VLYU5ibmQyd25rWXJjaWlPLXBHMmVWMG9BXzlRSkZvLUR6ZWdPazRmM2dpWm81b21GODBJVjRm?oc=5"
+    },
+    {
+      "id": "r2",
+      "source": "GOOGLE 新聞",
+      "meta": "數位時代報導",
+      "title": "自己的AI助理自己養！OpenAI工程師曝5大Codex進階用法，打造「專屬AI貼身特助」 - 數位時代",
+      "lede": "OpenAI 工程師分享了 5 個 Codex 進階用法，重點是把它練成真正懂你的貼身助理。",
+      "body": "內容應該是在講怎麼透過進階設定或工作流，把 Codex 從單純寫程式工具調教成更貼合個人需求的 AI 助理，對常用 agentic 工具的人應該有參考價值。",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeVRqNXJ5QWVQeVRWZ1pobXdOQ1JxamtpSTNOdEZMRnRSMUUxSU9uaVJqbzFxOVNLVlI5dHdJc0dISEFzdTB4UEdZTllNblpYY2NzcUZDV2x1U29wY19lTndNc0dpMXlOT05NaVplWmFLVmhNWENIY2lFQTc5azlMOW1QOWRLUkxLRUthTERJczhaWWJQZURjRm94b1NRSDIyNnh5OUp5TnFGa014eWFxZQ?oc=5"
+    },
+    {
+      "id": "r3",
+      "source": "GOOGLE 新聞",
+      "meta": "影片教學",
+      "title": "影片｜Vibe Coding是什麼？3款好用AI工具＋6步驟教學，程式小白上手必懂！ - 數位時代",
+      "lede": "這支影片會帶你認識 Vibe Coding 概念，外加 3 款工具跟 6 步驟上手教學。",
+      "body": "標題看起來是新手向的 Vibe Coding 入門影片，介紹 3 款常用 AI 工具，並用 6 個步驟示範怎麼讓程式新手也能跟著上手。",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9YSUhDQXRoT1U2RHVOTEc0dkpFTW1RSkRPYXV6RjZCb052bkdIWXV2cEhPTVdpbTQtSDZ0WWJSa0txS1V2WmRwQzZUS0tJOFFfck5tVVVnMWhFWncxLWkxSWVfUV9mVTJaVWZQN2xLaw?oc=5"
+    }
+  ],
+  "stats": [
+    {
+      "value": "0",
+      "label": "追蹤中的習慣",
+      "tone": "plain"
+    },
+    {
+      "value": "2",
+      "label": "收藏連結",
+      "tone": "accent"
+    }
+  ],
+  "closing_note": "空檔的一天，拿來把推薦清單或存起來的連結清一清也不錯。",
+  "ticker_message": "台北今天晴時多雲 22-28度、降雨機率0%，行程全空；還有2則存連結沒看；今日推薦：Claude新收費方案、Codex進階用法、Vibe Coding入門影片。"
+}
