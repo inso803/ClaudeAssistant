@@ -1,0 +1,21 @@
+name: Keepalive
+
+# 公開 repo 60 天沒有活動時，GitHub 會自動停用 schedule 排程。
+# 每月 1 號重新 enable daily-brief.yml，確保 06:30 的晨報不會停掉。
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch: {}
+
+permissions:
+  actions: write
+
+jobs:
+  enable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-enable Daily Brief workflow
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow enable daily-brief.yml --repo "${{ github.repository }}"

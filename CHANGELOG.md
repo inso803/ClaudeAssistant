@@ -4,6 +4,44 @@
 版本號是這次health check時，依照 README 裡原本的「ver1 / ver2 / 第三輪 / 第四輪」回推補上的，
 之後每完成一個階段，就在最上面加一段新的（日期由新到舊排列）。
 
+## [v1.0.0] - 2026-11-08（rebuild：日曆提醒晨報）
+
+舊版晨報（HN、新聞、Devpost 等通用資訊 + 看板網站）幾乎沒在看，整個重做成「每天 06:30 在
+Discord 傳一則文字訊息：今天行程、死線提醒、台北天氣」。這一版**不使用任何 LLM**，全部規則計算。
+
+### Added
+- `brief/` 套件，進入點 `python -m brief.main`（支援 `--dry-run`、`--date YYYY-MM-DD`）
+- 資料來源：
+  - Google 日曆（服務帳戶，`GOOGLE_SERVICE_ACCOUNT_JSON` 或本機 `GOOGLE_SERVICE_ACCOUNT_FILE`
+    + `GOOGLE_CALENDAR_ID`），今天 ~ +15 天
+  - NTU COOL iCal feed（`COOL_CALENDAR_FEED_URL`），今天 ~ +15 天
+  - Open-Meteo 今天逐小時氣溫與降雨機率（沿用 v0.5.0 修正過的台大座標）
+- 標題解析（`classify.py`）：手動事件 `類型 課名 內容`（作業／考試／專題／其他）、COOL 事件
+  `作業名稱 [課名 (課號)]` 一律視為作業；都對不上 → 其他 + `⚠️格式不符`
+- 提醒規則（`rules.py` 的 `REMINDER_RULES`）：考試 d=5/1、專題 d=14/7/1、作業 d=2、其他 d=1
+- 訊息格式（`compose.py`）：標題、天氣 + 一句建議（帶傘／外套，門檻在 `weather.py`）、今天、
+  提醒；週一多一段「本週」。沒事件也照發；超過 2000 字自動拆成多則
+- `.github/workflows/daily-brief.yml`（每日 22:30 UTC = 台北 06:30 + 手動觸發）
+- `.github/workflows/test.yml`（PR 上跑 pytest）、`tests/`（classify / rules / compose / 天氣建議）
+- `.github/workflows/keepalive.yml`：每月 1 號（+ 手動觸發）用 `GITHUB_TOKEN` 執行
+  `gh workflow enable daily-brief.yml`，避免公開 repo 60 天沒活動時排程被 GitHub 自動停用
+- 外套建議只看絕對溫度：06～23 點最低溫 ≤ 16°C，或晚上 18～23 點最低溫 ≤ 18°C；
+  白天最高溫 ≤ 20°C 算「整天都冷」。不看日夜溫差（下午 26°C、晚上 21°C 不會建議外套）
+
+### Changed
+- `requirements.txt` 加入 `google-api-python-client`、`google-auth`、`icalendar`、`tzdata`
+- `.gitignore` 加入服務帳戶金鑰檔的常見檔名
+
+### Deprecated
+- v0.x 功能（`morning_report/` 多來源蒐集、`docs/` 看板網站、`memory/`、Claude Code routine）
+  程式碼保留但不再使用；`morning-report.yml` 維持在 GitHub 上停用；`send-morning-link.yml` 因為
+  不再寫入 `docs/data/` 而不會被觸發
+
+### Known limitations
+- COOL 跟手動事件可能是同一份作業，這版不做去重
+- COOL 上的考試（例如 `Midterm [課名 (課號)]`）依規格一律被當成「作業」
+- 前一天開始、跨到今天的多日事件不會出現（只看開始日期）
+
 ## [v0.5.0] - 2026-09-14（第四輪：天氣 + 行程來源）
 
 ### Added
