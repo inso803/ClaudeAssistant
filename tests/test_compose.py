@@ -120,5 +120,23 @@ def test_weather_cold_all_day():
     assert w.advice == ["整天都偏冷（最高 17°C），記得穿外套"]
 
 
+def test_weather_warm_evening_drop_no_coat():
+    # 下午 26°C、晚上 21°C：溫差 5°C 但晚上不冷 → 不建議外套
+    w = summarize(hourly(lambda h: 26 if h < 18 else 21, lambda h: 0))
+    assert w.advice == []
+
+
+def test_weather_evening_cold_threshold_boundary():
+    assert summarize(hourly(lambda h: 25 if h < 18 else 19, lambda h: 0)).advice == []
+    assert summarize(hourly(lambda h: 25 if h < 18 else 18, lambda h: 0)).advice == [
+        "晚上會轉涼（降到 18°C），帶件薄外套"
+    ]
+
+
+def test_weather_cold_morning_only():
+    w = summarize(hourly(lambda h: 15 if h < 8 else 24, lambda h: 0))
+    assert w.advice == ["早上偏涼（最低 15°C），帶件薄外套"]
+
+
 def test_weather_stable():
     assert summarize(hourly(lambda h: 26, lambda h: 10)).advice == []

@@ -6,8 +6,8 @@ from dataclasses import dataclass
 
 # ---- 可調整的門檻 ----
 RAIN_PROB_THRESHOLD = 40  # 06～23 點任一小時降雨機率 ≥ 這個值 → 建議帶傘
-COLD_LOW_THRESHOLD = 16  # 最低溫 ≤ 這個值 → 建議帶外套
-EVENING_DROP_THRESHOLD = 5  # 晚上氣溫比白天最高溫低這麼多以上 → 建議帶外套
+COLD_LOW_THRESHOLD = 16  # 06～23 點最低溫 ≤ 這個值 → 建議帶外套
+EVENING_COLD_THRESHOLD = 18  # 晚上 18～23 點最低溫 ≤ 這個值 → 建議帶外套
 ALL_DAY_COLD_MAX = 20  # 白天最高溫 ≤ 這個值 → 算「整天都冷」，否則算「晚上變冷」
 
 ACTIVE_HOURS = range(6, 24)  # 06:00 ~ 23:00
@@ -56,15 +56,19 @@ def _coat_advice(w: HourlyWeather) -> str | None:
     day = _pick(w.temperature, DAY_HOURS) or temps
     evening = _pick(w.temperature, EVENING_HOURS)
     low, day_max = min(temps), max(day)
-    evening_min = min(evening) if evening else low
+    evening_min = min(evening) if evening else None
 
+    # 只看絕對溫度，不看日夜溫差
     cold = low <= COLD_LOW_THRESHOLD
-    drop = bool(evening) and day_max - evening_min >= EVENING_DROP_THRESHOLD
-    if not (cold or drop):
+    evening_cold = evening_min is not None and evening_min <= EVENING_COLD_THRESHOLD
+    if not (cold or evening_cold):
         return None
     if day_max <= ALL_DAY_COLD_MAX:
         return f"整天都偏冷（最高 {round(day_max)}°C），記得穿外套"
-    return f"晚上會轉涼（降到 {round(evening_min)}°C），帶件薄外套"
+    if evening_cold:
+        return f"晚上會轉涼（降到 {round(evening_min)}°C），帶件薄外套"
+    # 冷的是清晨（例如 6 點 15°C），晚上不冷
+    return f"早上偏涼（最低 {round(low)}°C），帶件薄外套"
 
 
 def summarize(w: HourlyWeather) -> WeatherSummary | None:
