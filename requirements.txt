@@ -1,3 +1,9 @@
 requests>=2.32.0
 python-dotenv>=1.0.0
+# v1.0.0 日曆提醒晨報
+google-api-python-client>=2.100.0
+google-auth>=2.23.0
+icalendar>=5.0.0
+tzdata>=2024.1
+# v0.x 舊功能（目前未使用）
 yt-dlp>=2024.8.6
