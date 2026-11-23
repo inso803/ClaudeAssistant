@@ -17,16 +17,17 @@ TZ = ZoneInfo("Asia/Taipei")
 # 查詢範圍：今天 ~ 今天 + LOOKAHEAD_DAYS（含）
 LOOKAHEAD_DAYS = 15
 
+# 環境變數一律 .strip()：GitHub Secrets 貼上時常多帶換行，會讓日曆 ID 變成 "xxx\n" 而 404
 # Google 日曆：服務帳戶金鑰二選一——
 #   GOOGLE_SERVICE_ACCOUNT_JSON：整份 JSON 內容（GitHub Actions 用）
 #   GOOGLE_SERVICE_ACCOUNT_FILE：金鑰檔路徑（本機用，金鑰檔請放在 repo 外面）
-GOOGLE_SERVICE_ACCOUNT_JSON = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
-GOOGLE_SERVICE_ACCOUNT_FILE = os.environ.get("GOOGLE_SERVICE_ACCOUNT_FILE", "")
-GOOGLE_CALENDAR_ID = os.environ.get("GOOGLE_CALENDAR_ID", "")
+GOOGLE_SERVICE_ACCOUNT_JSON = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "").strip()
+GOOGLE_SERVICE_ACCOUNT_FILE = os.environ.get("GOOGLE_SERVICE_ACCOUNT_FILE", "").strip()
+GOOGLE_CALENDAR_ID = os.environ.get("GOOGLE_CALENDAR_ID", "").strip()
 # 之後要寫回日曆，所以先用完整權限；這一版只讀
 GOOGLE_CALENDAR_SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
-COOL_CALENDAR_FEED_URL = os.environ.get("COOL_CALENDAR_FEED_URL", "")
+COOL_CALENDAR_FEED_URL = os.environ.get("COOL_CALENDAR_FEED_URL", "").strip()
 
 # 沿用舊版晨報的 Discord bot 與頻道（channel 預設 1547445470555807794）
 DISCORD_BOT_TOKEN = legacy_config.DISCORD_BOT_TOKEN
