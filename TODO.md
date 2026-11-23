@@ -3,6 +3,15 @@
 還沒做的事。之後建議整批搬進 GitHub Issues（一個項目一個 Issue），這份檔案先當作過渡期的暫存清單。
 完成的項目請直接刪除這一行，不用留 ✅ 記錄——「做完了什麼」屬於 [CHANGELOG.md](CHANGELOG.md) 的事。
 
+## Discord #to-do-list → Google 日曆（2026-11-23）
+
+- [ ] 決定 GitHub Actions 版本要留還是刪（`brief/todo_parse.py`、`brief/todo_sync.py`、
+      `tests/test_todo_parse.py`、根目錄 `todo-to-calendar.yml`、`brief/config.py` 新增的設定）；
+      想改回「不用開電腦」的做法時再用
+- [ ] 刪掉誤建的空檔 `.github/workflows/x.tmp`
+- [ ] 觀察排程任務幾天：解析對不對、電腦沒開時有沒有漏掉；考慮改用 Sonnet 省額度
+- [ ] 想清楚 `#to-do-list` 跟晨報的關係：沒有日期的待辦（標 ❓ 的）要不要也出現在晨報裡
+
 ## 下一版（v1.1+）：日曆提醒晨報
 
 - [ ] AI 規劃：考試前自動排複習計畫（例如 d=5 起每天要看哪些範圍）

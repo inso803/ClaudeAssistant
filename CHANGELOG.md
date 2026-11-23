@@ -4,6 +4,28 @@
 版本號是這次health check時，依照 README 裡原本的「ver1 / ver2 / 第三輪 / 第四輪」回推補上的，
 之後每完成一個階段，就在最上面加一段新的（日期由新到舊排列）。
 
+## [Unreleased] - 2026-11-23（Discord #to-do-list → Google 日曆）
+
+想到行程就打在 Discord `#to-do-list`，每天早上自動整理進 Google 主日曆，晨報就能讀到。
+
+### Added
+- Claude 排程任務「Discord 待辦同步到 Google 日曆」（每天 07:00 台北時間，
+  `trig_011m24ubLJEi47Lyypz9waAB`）。prompt 全文備份在 `docs/todo-sync-prompt.md`
+  - 用 Claude 桌面版的內建瀏覽器讀 Discord 網頁版（登入的是使用者自己的帳號），
+    再用 Google Calendar 連接器寫進主日曆
+  - 相對日期（這周三、明天）以「發文那天」為準；沒寫結束時間預設 1 小時，沒寫時間就是全天
+  - 標題照晨報格式 `類型 課名 內容`；只有明確寫出作業／考試／專題和課名才用該類型，
+    其他一律 `其他 內容`
+  - 處理過的訊息：建立成功按 ✅、看不出日期按 ❓，之後都不再處理；只處理 2026-11-23 之後的訊息
+- 手動補建：`其他 領蛋糕`（11/25 12:00）、12/18 教務會議、12/19 校務會議／學生代表會議（全天）
+
+### 決策紀錄
+- 先寫了 GitHub Actions 版本（`brief/todo_parse.py`、`brief/todo_sync.py`、
+  `tests/test_todo_parse.py`、根目錄 `todo-to-calendar.yml`，用 bot + Groq + 服務帳戶），
+  但需要自己加 Secrets、改日曆分享權限、合併進 main，太麻煩，改用 Claude 排程任務。
+  這些檔案還沒 commit，見 TODO
+- 代價：排程執行時電腦要開著、Claude 桌面版要開著，而且每次會用到 Pro 額度
+
 ## [v1.0.0] - 2026-11-08（rebuild：日曆提醒晨報）
 
 舊版晨報（HN、新聞、Devpost 等通用資訊 + 看板網站）幾乎沒在看，整個重做成「每天 06:30 在
