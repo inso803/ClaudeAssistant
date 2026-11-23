@@ -1,0 +1,36 @@
+name: Daily Brief
+
+# v1.0.0 日曆提醒晨報：讀 Google 日曆 + NTU COOL iCal feed + Open-Meteo 天氣，
+# 用規則算出今天行程與死線提醒，直接傳一則（或多則）文字訊息到 Discord。不呼叫任何 LLM、
+# 不寫回 repo。
+# 注意：schedule / workflow_dispatch 只看預設分支（main）上的 workflow 檔。
+
+on:
+  schedule:
+    # 22:30 UTC = 06:30 台北時間
+    - cron: "30 22 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send daily brief to Discord
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_CALENDAR_ID: ${{ secrets.GOOGLE_CALENDAR_ID }}
+          COOL_CALENDAR_FEED_URL: ${{ secrets.COOL_CALENDAR_FEED_URL }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        run: python -m brief.main

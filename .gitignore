@@ -9,6 +9,13 @@ memory/raw/
 *.pem
 *.key
 secrets.json
+# Google 服務帳戶金鑰（建議放在 repo 外，用 GOOGLE_SERVICE_ACCOUNT_FILE 指過去；
+# 萬一被複製進來也不會進版控）
+*service-account*.json
+*service_account*.json
+credentials*.json
+claude-assistant-*.json
+gcp-*.json
 
 # Python
 __pycache__/
