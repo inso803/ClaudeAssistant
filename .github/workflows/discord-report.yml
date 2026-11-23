@@ -1,0 +1,45 @@
+name: Discord Report
+
+# 由 Claude 排程任務（07:00／19:00）在 GitHub 網頁手動觸發：把整理好的 Discord 未讀回報
+# 透過 morning report bot 發到 inso803 #morning-briefing（python -m brief.post_report）。
+# 鐵律：目的地頻道寫死在 brief/post_report.py，只能是 inso803 #morning-briefing。
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "回報內容（換行請寫成 \\n）"
+        required: true
+        type: string
+      reply_to_brief:
+        description: "回覆在今天的晨報底下（早上那次勾選）"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Post report to Discord
+        env:
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          REPORT_MESSAGE: ${{ inputs.message }}
+        run: |
+          if [ "${{ inputs.reply_to_brief }}" = "true" ]; then
+            python -m brief.post_report --reply-to-brief
+          else
+            python -m brief.post_report
+          fi
